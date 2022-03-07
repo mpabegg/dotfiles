@@ -72,6 +72,12 @@
         "options": {
           "full_name": "whatsapp"
         }
+      },
+      "rectangle": {
+        "version": "0.53,59",
+        "options": {
+          "full_name": "rectangle"
+        }
       }
     },
     "tap": {
@@ -397,9 +403,9 @@
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.4.0",
+        "HOMEBREW_VERSION": "3.4.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "5da6e2eda47e4e9ff28b0f1010c486a170f1d532",
+        "Homebrew/homebrew-core": "23b30e9ac6bde6479a499026f5d854fefbfbd5d8",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "11.6.4"
