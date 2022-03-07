@@ -1,0 +1,23 @@
+tap "homebrew/cask-fonts"
+tap "d12frosted/emacs-plus"
+
+brew "gcc"
+brew "libgccjit"
+brew "svn"
+brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"], restart_service: true
+brew "neovim"
+brew "stow"
+brew "zsh"
+brew "zsh-completions"
+brew "tree"
+
+cask "alacritty"
+cask "font-source-code-pro"
+cask "1password"
+cask "karabiner-elements"
+cask "spectacle"
+cask "visual-studio-code"
+cask "spotify"
+cask "raycast"
+cask "google-chrome"
+cask "whatsapp"
