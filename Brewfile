@@ -1,15 +1,17 @@
 tap "homebrew/cask-fonts"
 tap "d12frosted/emacs-plus"
 
+brew "cmake"
 brew "gcc"
 brew "libgccjit"
 brew "svn"
-brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"], restart_service: true
+brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"]
 brew "neovim"
 brew "stow"
 brew "zsh"
 brew "zsh-completions"
 brew "tree"
+brew "solargraph"
 
 cask "alacritty"
 cask "font-source-code-pro"
