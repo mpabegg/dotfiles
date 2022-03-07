@@ -1,0 +1,3 @@
+[submodule "/Users/m/.dotfiles/emacs/.emacs-distros/doom"]
+	path = /Users/m/.dotfiles/emacs/.emacs-distros/doom
+	url = https://github.com/hlissner/doom-emacs
