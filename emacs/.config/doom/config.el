@@ -22,3 +22,5 @@ If the user quits the buffer selection, the new windows is closed."
     (let ((inhibit-quit t))
       (unless (with-local-quit (consult-buffer) t)
         (+workspace/close-window-or-workspace)))))
+
+(setq org-descriptive-links nil)

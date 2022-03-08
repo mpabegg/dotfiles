@@ -114,3 +114,10 @@ If the user quits the buffer selection, the new windows is closed."
       (unless (with-local-quit (consult-buffer) t)
         (+workspace/close-window-or-workspace)))))
 #+end_src
+
+
+** Display Literal links in Org Mode
+It's a pain in the ass to edit links when they are shown as descriptive links...
+#+begin_src emacs-lisp
+(setq org-descriptive-links nil)
+#+end_src
