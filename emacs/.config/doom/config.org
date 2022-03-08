@@ -64,7 +64,7 @@ The source code blocks here will be tangled into `init.el`. I think it's easier 
 
  There are two ways to load a theme. Both assume the theme is installed and available. You can either set `doom-theme' or manually load a theme with the `load-theme' function.
 
- I like to use the base16-eighties theme. This require's that I add the package into my `package.el` file.
+ I like to use the base16-eighties theme. This require's that I add the package into my [[./packages.el][package.el]] file.
 
  #+begin_src emacs-lisp
 (setq doom-theme 'base16-eighties)
