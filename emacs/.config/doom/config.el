@@ -26,3 +26,7 @@ If the user quits the buffer selection, the new windows is closed."
 (setq org-descriptive-links nil)
 
 (setq doom-leader-alt-key "C-SPC")
+
+(dolist (mode '(vterm term))
+  (add-to-list '+evil-collection-disabled-list mode)
+  (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
