@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Matheus Abegg"
+      user-mail-address "1006630+mpabegg@users.noreply.github.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -20,9 +20,8 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13 :weight 'semi-bold)
+      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,7 +31,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'base16-eighties)
+;; (setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -42,6 +42,20 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Save all buffers when they lose focus.
+;;
+(add-hook! 'focus-out-hook (save-some-buffers t))
+
+(dolist (command '(evil-window-split
+                   evil-window-vsplit))
+  (defadvice! choose-buffer-on-split (&rest _)
+    "Run #'consult-buffer after splitting windows.
+
+If the user quits the buffer selection, the new windows is closed."
+    :after command
+    (let ((inhibit-quit t))
+      (unless (with-local-quit (consult-buffer) t)
+        (+workspace/close-window-or-workspace)))))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
