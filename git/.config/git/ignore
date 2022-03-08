@@ -1,0 +1,6 @@
+**/*.swp
+.tags
+.tags*
+.DS_Store
+.env*
+.#*
