@@ -24,3 +24,5 @@ If the user quits the buffer selection, the new windows is closed."
         (+workspace/close-window-or-workspace)))))
 
 (setq org-descriptive-links nil)
+
+(setq doom-leader-alt-key "C-SPC")

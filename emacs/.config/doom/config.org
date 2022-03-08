@@ -121,3 +121,19 @@ It's a pain in the ass to edit links when they are shown as descriptive links...
 #+begin_src emacs-lisp
 (setq org-descriptive-links nil)
 #+end_src
+
+** Change alt-leader to C-SPC
+I much prefer using ~C-SPC~ instead of ~M-SPC~ becuase I can just use my pinky to hit ~CTRL~ (To which CAPS is mapped).
+This will only take effect when on ~insert~ or ~emacs~ mode.
+
+From the varialbe Docs:
+#+begin_quote
+An alternative leader prefix key, used for Insert and Emacs states, and for
+non-evil users.
+#+end_quote
+
+~C-SPC~ is bound by DOOM to ~set-mark-command~ on other states.
+
+#+begin_src emacs-lisp
+(setq doom-leader-alt-key "C-SPC")
+#+end_src
