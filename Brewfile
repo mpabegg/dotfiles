@@ -12,6 +12,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "tree"
 brew "solargraph"
+brew "spaceship"
 
 cask "font-sauce-code-pro-nerd-font"
 cask "font-ubuntu-nerd-font"

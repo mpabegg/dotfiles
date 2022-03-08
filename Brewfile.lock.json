@@ -78,6 +78,18 @@
         "options": {
           "full_name": "rectangle"
         }
+      },
+      "font-sauce-code-pro-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-sauce-code-pro-nerd-font"
+        }
+      },
+      "font-ubuntu-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-ubuntu-nerd-font"
+        }
       }
     },
     "tap": {
@@ -474,6 +486,20 @@
             }
           }
         }
+      },
+      "spaceship": {
+        "version": "3.16.4",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:214f18be70c70e7377f2cac56d55825b571edfa4637848f764c81793ea65e235",
+              "sha256": "214f18be70c70e7377f2cac56d55825b571edfa4637848f764c81793ea65e235"
+            }
+          }
+        }
       }
     }
   },
@@ -482,7 +508,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.4.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "b7824316b8c6d4488c5b84a758b15d02a9e99e12",
+        "Homebrew/homebrew-core": "6e3f2ec6dfc767a0c4855571cc8191fad02ca90f",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "11.6.4"
