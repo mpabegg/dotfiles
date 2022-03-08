@@ -8,6 +8,7 @@
   - [[#command-line-tools-clt-for-xcode][Command Line Tools (CLT) for Xcode]]
   - [[#clone-the-repo-into-the-homedotfiles][Clone the repo into the $HOME/.dotfiles]]
   - [[#homebrew][Homebrew]]
+  - [[#use-the-zsh-installed-by-brew-instead-of-the-one-that-ships-with-osx][Use the ZSH installed by Brew instead of the one that ships with OSx]]
 
 * Installation
 
@@ -45,4 +46,10 @@ Look at the [[./Brewfile][Brewfile]] to see what's being installed.
 
 #+begin_src bash
 brew bundle -v
+#+end_src
+
+** Use the ZSH installed by Brew instead of the one that ships with OSx
+#+begin_src bash
+which zsh | sudo tee -a /etc/shells
+chsh -s `which zsh`
 #+end_src
