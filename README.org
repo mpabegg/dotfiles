@@ -4,11 +4,20 @@
 #+STARTUP: showeverything
 
 * Table of Contents: :toc:
+- [[#inspiration--useful-links][Inspiration / Useful links]]
 - [[#installation][Installation]]
   - [[#command-line-tools-clt-for-xcode][Command Line Tools (CLT) for Xcode]]
   - [[#clone-the-repo-into-the-homedotfiles][Clone the repo into the $HOME/.dotfiles]]
   - [[#homebrew][Homebrew]]
   - [[#use-the-zsh-installed-by-brew-instead-of-the-one-that-ships-with-osx][Use the ZSH installed by Brew instead of the one that ships with OSx]]
+
+* Inspiration / Useful links
+
+https://github.com/tecosaur/emacs-config
+
+https://github.com/mathiasbynens/dotfiles
+
+https://orgmode.org/manual/Structure-Templates.html
 
 * Installation
 
