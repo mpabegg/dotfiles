@@ -12,7 +12,7 @@
 
 * Installation
 
-Most things will be installed by ~[[https://brew.sh/][Homebrew]]~ and configured by ~[[https://www.gnu.org/software/stow/][GNU Stow]]~. That's great!
+Most things will be installed by [[https://brew.sh/][Homebrew]] and configured by [[https://www.gnu.org/software/stow/][GNU Stow]]. That's great!
 
 Some manual steps are still required.
 
@@ -33,7 +33,7 @@ git clone --recursive git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
 #+END_SRC
 
 ** Homebrew
-Next we can install ~[[https://brew.sh/][Homebrew]]~
+Next we can install [[https://brew.sh/][Homebrew]]
 
 #+BEGIN_SRC bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -42,7 +42,7 @@ Next we can install ~[[https://brew.sh/][Homebrew]]~
 And finally we can use brew to install most apps.
 I like to use ~-v~ to see what's going on.
 
-Look at the ~[[./Brewfile][Brewfile]]~ to see what's being installed.
+Look at the [[./Brewfile][Brewfile]] to see what's being installed.
 
 #+begin_src bash
 brew bundle -v
