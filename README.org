@@ -10,6 +10,7 @@
   - [[#clone-the-repo-into-the-homedotfiles][Clone the repo into the $HOME/.dotfiles]]
   - [[#homebrew][Homebrew]]
   - [[#use-the-zsh-installed-by-brew-instead-of-the-one-that-ships-with-osx][Use the ZSH installed by Brew instead of the one that ships with OSx]]
+  - [[#link-ecapp][Link EC.app]]
 
 * Inspiration / Useful links
 
@@ -61,4 +62,12 @@ brew bundle -v
 #+begin_src bash
 which zsh | sudo tee -a /etc/shells
 chsh -s `which zsh`
+#+end_src
+
+** Link EC.app
+
+I never use the terminal to launch Emacs, and since I want to use the server, I used Automator to create this little app that I can link to the /Appliactions folder.
+
+#+begin_src bash
+ln -s ~/.dotfiles/EC.app/ /Library/
 #+end_src
