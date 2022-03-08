@@ -1,9 +1,15 @@
-* Matheus's Dotfiles
-#+TOC: headlines 2
+#+TITLE: Matheus' Mac Config
+#+AUTHOR: Matheus Abegg
+#+DESCRIPTION: The setup for my Mac.
+#+STARTUP: showeverything
+
+* Table of Contents: :toc:
+  - [[#installation][Installation]]
 
 ** Installation
 
 Most things will be installed by [[https://brew.sh/][Homebrew]] and configured by [[https://www.gnu.org/software/stow/][GNU Stow]]. That's great!
+
 Some manual steps are still required.
 
 *** Command Line Tools (CLT) for Xcode
