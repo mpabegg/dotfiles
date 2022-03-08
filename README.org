@@ -1,0 +1,25 @@
+* Matheus's Dotfiles
+#+TOC: headlines 2
+
+** Installation
+
+Most things will be installed by [[https://brew.sh/][Homebrew]] and configured by [[https://www.gnu.org/software/stow/][GNU Stow]]. That's great!
+Some manual steps are still required.
+
+*** Command Line Tools (CLT) for Xcode
+First of all, we need to install the Command Line Tools (CLT) for Xcode:
+#+BEGIN_SRC bash
+xcode-select --install
+#+END_SRC
+
+*** Homebrew
+Next we can install Homebrew
+#+BEGIN_SRC bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#+END_SRC
+
+*** Clone the repo into the $HOME/.dotfiles
+#+BEGIN_SRC bash
+git clone --recursive git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
+#+END_SRC
+
