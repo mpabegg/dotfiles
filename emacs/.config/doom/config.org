@@ -106,13 +106,18 @@ This will open a buffer selection list (using `consult-buffer`) after splitting 
 (dolist (command '(evil-window-split
                    evil-window-vsplit))
   (defadvice! choose-buffer-on-split (&rest _)
-    "Run #'consult-buffer after splitting windows.
+    :after command (consult-buffer)))
 
-If the user quits the buffer selection, the new windows is closed."
-    :after command
-    (let ((inhibit-quit t))
-      (unless (with-local-quit (consult-buffer) t)
-        (+workspace/close-window-or-workspace)))))
+;; (dolist (command '(evil-window-split
+;;                    evil-window-vsplit))
+;;   (defadvice! choose-buffer-on-split-with-quit (&rest _)
+;;     "Run #'consult-buffer after splitting windows.
+
+;; If the user quits the buffer selection, the new windows is closed."
+;;     :after command
+;;     (let ((inhibit-quit t))
+;;       (unless (with-local-quit (consult-buffer) t)
+;;         (+workspace/close-window-or-workspace)))))
 #+end_src
 
 
@@ -148,4 +153,38 @@ This was a pain to figure out and I'm still not really sure what's going on, but
 (dolist (mode '(vterm term))
   (add-to-list '+evil-collection-disabled-list mode)
   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
+#+end_src
+
+
+** Always start the initial frame maximized
+I could not find a way for this to work with emacsclient as well...
+Not cool, but not a big deal.
+
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+end_src
+
+** Treemacs configs
+ Enable follow mode and preview modes by default.
+ Also, bind 'SPC w 0' to the treemacs window,
+
+ #+begin_src emacs-lisp
+(after! treemacs
+  (treemacs-follow-mode 1)
+  (treemacs-define-RET-action 'file-node-open #'treemacs-visit-node-ace)
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace))
+
+(map! :leader "w 0" #'treemacs-select-window)
+ #+end_src
+
+** Map some windows movement keys
+Got used to this when I used to use Spacemacs and I really like it. I never use more than 4 windows anyway.
+Also mapped ~SPC-0~ to the treemacs window (like ~SPC w 0~)
+#+begin_src emacs-lisp
+(map! :leader
+      "0" #'treemacs-select-window
+      "1" #'winum-select-window-1
+      "2" #'winum-select-window-2
+      "3" #'winum-select-window-3
+      "4" #'winum-select-window-4)
 #+end_src

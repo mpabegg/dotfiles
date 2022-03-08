@@ -15,13 +15,18 @@
 (dolist (command '(evil-window-split
                    evil-window-vsplit))
   (defadvice! choose-buffer-on-split (&rest _)
-    "Run #'consult-buffer after splitting windows.
+    :after command (consult-buffer)))
 
-If the user quits the buffer selection, the new windows is closed."
-    :after command
-    (let ((inhibit-quit t))
-      (unless (with-local-quit (consult-buffer) t)
-        (+workspace/close-window-or-workspace)))))
+;; (dolist (command '(evil-window-split
+;;                    evil-window-vsplit))
+;;   (defadvice! choose-buffer-on-split-with-quit (&rest _)
+;;     "Run #'consult-buffer after splitting windows.
+
+;; If the user quits the buffer selection, the new windows is closed."
+;;     :after command
+;;     (let ((inhibit-quit t))
+;;       (unless (with-local-quit (consult-buffer) t)
+;;         (+workspace/close-window-or-workspace)))))
 
 (setq org-descriptive-links nil)
 
@@ -30,3 +35,19 @@ If the user quits the buffer selection, the new windows is closed."
 (dolist (mode '(vterm term))
   (add-to-list '+evil-collection-disabled-list mode)
   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(after! treemacs
+  (treemacs-follow-mode 1)
+  (treemacs-define-RET-action 'file-node-open #'treemacs-visit-node-ace)
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace))
+
+(map! :leader "w 0" #'treemacs-select-window)
+
+(map! :leader
+      "0" #'treemacs-select-window
+      "1" #'winum-select-window-1
+      "2" #'winum-select-window-2
+      "3" #'winum-select-window-3
+      "4" #'winum-select-window-4)
