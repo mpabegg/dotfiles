@@ -20,13 +20,13 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.65.0",
+        "version": "1.65.2",
         "options": {
           "full_name": "visual-studio-code"
         }
       },
       "1password": {
-        "version": "7.9.2",
+        "version": "7.9.3",
         "options": {
           "full_name": "1password"
         }
@@ -38,7 +38,7 @@
         }
       },
       "raycast": {
-        "version": "1.29.1",
+        "version": "1.30.3",
         "options": {
           "full_name": "raycast"
         }
@@ -50,7 +50,7 @@
         }
       },
       "google-chrome": {
-        "version": "99.0.4844.51",
+        "version": "99.0.4844.74",
         "options": {
           "full_name": "google-chrome"
         }
@@ -97,7 +97,7 @@
         "revision": "9d4f6639f3f931f7423a29936865970c662fff7f"
       },
       "homebrew/cask-fonts": {
-        "revision": "d29e17b14d1cbc8b8d5c478df87dbc13356a2390"
+        "revision": "21aa88605da3e0de4df9ad64389b5e1a22d8ee28"
       }
     },
     "brew": {
@@ -500,15 +500,29 @@
             }
           }
         }
+      },
+      "asdf": {
+        "version": "0.9.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/asdf/blobs/sha256:2c1733505b491d9d5a9442655c123c68fd3a3b4e102c89bab39898246aa0e405",
+              "sha256": "2c1733505b491d9d5a9442655c123c68fd3a3b4e102c89bab39898246aa0e405"
+            }
+          }
+        }
       }
     }
   },
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.4.1",
+        "HOMEBREW_VERSION": "3.4.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "6e3f2ec6dfc767a0c4855571cc8191fad02ca90f",
+        "Homebrew/homebrew-core": "d42d1d0db37bddb147ab1b10c8d69138c743e298",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.2.1",
         "macOS": "11.6.4"
