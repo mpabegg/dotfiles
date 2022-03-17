@@ -20,6 +20,8 @@ https://github.com/mathiasbynens/dotfiles
 
 https://orgmode.org/manual/Structure-Templates.html
 
+https://github.com/juanibiapina/dotfiles
+
 * Installation
 
 Most things will be installed by [[https://brew.sh/][Homebrew]] and configured by [[https://www.gnu.org/software/stow/][GNU Stow]]. That's great!
@@ -59,9 +61,19 @@ brew bundle -v
 #+end_src
 
 ** Use the ZSH installed by Brew instead of the one that ships with OSx
+We don't want to rely on major MacOS upgrades to get a new ZSH.
+
 #+begin_src bash
 which zsh | sudo tee -a /etc/shells
 chsh -s `which zsh`
+#+end_src
+
+*** Install ZIM
+At first I was hesitant to install another ZSH framework, but lets be honest, I will not live in the terminal and this is not going to be my old 2s to first prompt terminal.
+It's still nice to have some ease because not only my emacs-fu is not great, but also for some stuff it propably just makes sense to use the terminal (I'm thinking asdf for instance)
+
+#+begin_src bash
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 #+end_src
 
 ** Link EC.app
