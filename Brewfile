@@ -5,6 +5,7 @@ brew "asdf"
 brew "cmake"
 brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"]
 brew "gcc"
+brew "ispell"
 brew "libgccjit"
 brew "neovim"
 brew "solargraph"
