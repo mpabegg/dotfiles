@@ -76,7 +76,7 @@ The source code blocks here will be tangled into `init.el`. I think it's easier 
  If set to `nil', line numbers are disabled. For relative line numbers, set this to `relative'.
 
  #+begin_src emacs-lisp
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
  #+end_src
 
 ** Org Directory
@@ -106,7 +106,7 @@ This will open a buffer selection list (using `consult-buffer`) after splitting 
 (dolist (command '(evil-window-split
                    evil-window-vsplit))
   (defadvice! choose-buffer-on-split (&rest _)
-    :after command (consult-buffer)))
+    :after command (+ivy/switch-buffer)))
 
 ;; (dolist (command '(evil-window-split
 ;;                    evil-window-vsplit))
@@ -127,6 +127,12 @@ It's a pain in the ass to edit links when they are shown as descriptive links...
 (setq org-descriptive-links nil)
 #+end_src
 
+** Change Local Leader (usually SPC-m) to ","
+
+#+begin_src emacs-lisp
+(setq doom-localleader-key ",")
+#+end_src
+
 ** Change alt-leader to C-SPC
 I much prefer using ~C-SPC~ instead of ~M-SPC~ becuase I can just use my pinky to hit ~CTRL~ (To which CAPS is mapped).
 This will only take effect when on ~insert~ or ~emacs~ mode.
@@ -141,6 +147,15 @@ non-evil users.
 
 #+begin_src emacs-lisp
 (setq doom-leader-alt-key "C-SPC")
+#+end_src
+
+** Change vterm popup
+
+#+begin_src emacs-lisp
+(after! vterm
+  (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
+    ;; :vslot -4
+    :select t :quit nil :ttl 0 :side 'top))
 #+end_src
 
 ** No Evil in TERM mode
@@ -187,4 +202,14 @@ Also mapped ~SPC-0~ to the treemacs window (like ~SPC w 0~)
       "2" #'winum-select-window-2
       "3" #'winum-select-window-3
       "4" #'winum-select-window-4)
+#+end_src
+
+** File Management
+*** Open Dired on current directory
+#+begin_src emacs-lisp
+(map! :leader "f m" #'dired-jump)
+(map! :mode dired-mode
+      :n "h" #'dired-up-directory
+      :n "l" #'dired-find-file
+      :n "S-l" #'dired-find-file-other-window)
 #+end_src

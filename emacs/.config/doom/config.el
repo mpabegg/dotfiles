@@ -1,12 +1,12 @@
 (setq user-full-name "Matheus Abegg"
       user-mail-address "1006630+mpabegg@users.noreply.github.com")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13 :weight 'semi-bold)
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13 :weight 'semi-bold)
       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13))
 
 (setq doom-theme 'base16-eighties)
 
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 (setq org-directory "~/org/")
 
@@ -15,7 +15,7 @@
 (dolist (command '(evil-window-split
                    evil-window-vsplit))
   (defadvice! choose-buffer-on-split (&rest _)
-    :after command (consult-buffer)))
+    :after command (+ivy/switch-buffer)))
 
 ;; (dolist (command '(evil-window-split
 ;;                    evil-window-vsplit))
@@ -30,7 +30,14 @@
 
 (setq org-descriptive-links nil)
 
+(setq doom-localleader-key ",")
+
 (setq doom-leader-alt-key "C-SPC")
+
+(after! vterm
+  (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
+    ;; :vslot -4
+    :select t :quit nil :ttl 0 :side 'top))
 
 (dolist (mode '(vterm term))
   (add-to-list '+evil-collection-disabled-list mode)
@@ -51,3 +58,9 @@
       "2" #'winum-select-window-2
       "3" #'winum-select-window-3
       "4" #'winum-select-window-4)
+
+(map! :leader "f m" #'dired-jump)
+(map! :mode dired-mode
+      :n "h" #'dired-up-directory
+      :n "l" #'dired-find-file
+      :n "S-l" #'dired-find-file-other-window)
