@@ -34,10 +34,10 @@
 
 (setq doom-leader-alt-key "C-SPC")
 
-(after! vterm
-  (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
-    ;; :vslot -4
-    :select t :quit nil :ttl 0 :side 'top))
+;; (after! vterm
+;;   (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
+;;     ;; :vslot -4
+;;     :select t :quit nil :ttl 0 :side 'top))
 
 ;; (dolist (mode '(vterm term))
 ;;   (add-to-list '+evil-collection-disabled-list mode)

@@ -152,10 +152,10 @@ non-evil users.
 ** Change vterm popup
 
 #+begin_src emacs-lisp
-(after! vterm
-  (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
-    ;; :vslot -4
-    :select t :quit nil :ttl 0 :side 'top))
+;; (after! vterm
+;;   (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
+;;     ;; :vslot -4
+;;     :select t :quit nil :ttl 0 :side 'top))
 #+end_src
 
 ** No Evil in TERM mode
