@@ -7,11 +7,13 @@ function zsh_add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
 
-function zsh_add_plugin() {
-    if [ ! -d "$ZSH_PLUGIN_HOME" ]; then
-        mkdir -p "$ZSH_PLUGIN_HOME"
-    fi
+function zsh_add_dir() {
+    for file in $ZDOTDIR/$1/*.zsh; do
+        source $file
+    done;
+}
 
+function zsh_add_plugin() {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
     PLUGIN_PATH="$ZSH_PLUGIN_HOME/$PLUGIN_NAME"
 
@@ -21,7 +23,7 @@ function zsh_add_plugin() {
 
     if [ -d "$PLUGIN_PATH" ]; then
         for file in "$PLUGIN_NAME.plugin" "$PLUGIN_NAME" "init"; do
-            [ -f "$PLUGIN_PATH/$file.zsh" ] && source "$PLUGIN_PATH/$file.zsh"  && break;
+            [ -f "$PLUGIN_PATH/$file.zsh" ] && source "$PLUGIN_PATH/$file.zsh" && break;
         done
     fi
 }
@@ -42,4 +44,11 @@ function zsh_add_completions() {
 
     completion_file="$(basename "${copmletion_file_path}")"
     [ "$2" = true ] && compinit "${completion_file:1}"
+}
+
+function zsh_init_plugins() {
+    if [ ! -d "$ZSH_PLUGIN_HOME" ]; then
+        mkdir -p "$ZSH_PLUGIN_HOME"
+    fi
+
 }
