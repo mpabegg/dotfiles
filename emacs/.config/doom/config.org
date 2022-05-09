@@ -165,9 +165,9 @@ I don't like vim editing in terminals.
 This was a pain to figure out and I'm still not really sure what's going on, but we need to prevent ~(evil +everywhere)~ from loading evil collection on ~term~ and ~vterm~ modes, and also need to tell ~evil~ that both those modes will use ~emacs-state~.
 
 #+begin_src emacs-lisp
-(dolist (mode '(vterm term))
-  (add-to-list '+evil-collection-disabled-list mode)
-  (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
+;; (dolist (mode '(vterm term))
+;;   (add-to-list '+evil-collection-disabled-list mode)
+;;   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
 #+end_src
 
 

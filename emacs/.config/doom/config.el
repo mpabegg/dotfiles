@@ -39,9 +39,9 @@
     ;; :vslot -4
     :select t :quit nil :ttl 0 :side 'top))
 
-(dolist (mode '(vterm term))
-  (add-to-list '+evil-collection-disabled-list mode)
-  (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
+;; (dolist (mode '(vterm term))
+;;   (add-to-list '+evil-collection-disabled-list mode)
+;;   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
