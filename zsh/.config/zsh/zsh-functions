@@ -1,0 +1,45 @@
+# I'm taking this fom the excelent https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
+
+ZSH_PLUGIN_HOME="$XDG_DATA_HOME/zsh/plugins"
+
+# Sources a file if it exists
+function zsh_add_file() {
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+function zsh_add_plugin() {
+    if [ ! -d "$ZSH_PLUGIN_HOME" ]; then
+        mkdir -p "$ZSH_PLUGIN_HOME"
+    fi
+
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    PLUGIN_PATH="$ZSH_PLUGIN_HOME/$PLUGIN_NAME"
+
+    if [ ! -d "$PLUGIN_PATH" ]; then
+        git clone  "https://github.com/$1.git" "$PLUGIN_PATH"
+    fi
+
+    if [ -d "$PLUGIN_PATH" ]; then
+        for file in "$PLUGIN_NAME.plugin" "$PLUGIN_NAME" "init"; do
+            [ -f "$PLUGIN_PATH/$file.zsh" ] && source "$PLUGIN_PATH/$file.zsh"  && break;
+        done
+    fi
+}
+
+function zsh_add_completions() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    PLUGIN_PATH="$ZSH_PLUGIN_HOME/$PLUGIN_NAME"
+
+    if [ ! -d "$PLUGIN_PATH" ]; then
+        git clone  "https://github.com/$1.git" "$PLUGIN_PATH"
+        [ -f $ZDOTDIR/.zccompdump ] && $ZDOTDIR/.zccompdump
+    fi
+
+    if [ -d "$PLUGIN_PATH" ]; then
+        completion_file_path=$(ls $PLUGIN_PATH/_*)
+        fpath+="$(dirname "${completion_file_path}")"
+    fi
+
+    completion_file="$(basename "${copmletion_file_path}")"
+    [ "$2" = true ] && compinit "${completion_file:1}"
+}

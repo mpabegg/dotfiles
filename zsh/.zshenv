@@ -15,6 +15,3 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_CTYPE=UTF-8
 
-# TODO: Move this somewhere else
-export ASDF_CONFIG_FILE=${XDG_CONFIG_HOME}/asdf/asdfrc
-export ASDF_DATA_DIR=${XDG_DATA_HOME}/asdf
