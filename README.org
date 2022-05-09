@@ -68,14 +68,6 @@ which zsh | sudo tee -a /etc/shells
 chsh -s `which zsh`
 #+end_src
 
-*** Install ZIM
-At first I was hesitant to install another ZSH framework, but lets be honest, I will not live in the terminal and this is not going to be my old 2s to first prompt terminal.
-It's still nice to have some ease because not only my emacs-fu is not great, but also for some stuff it propably just makes sense to use the terminal (I'm thinking asdf for instance)
-
-#+begin_src bash
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-#+end_src
-
 ** Link EC.app
 
 I never use the terminal to launch Emacs, and since I want to use the server, I used Automator to create this little app that I can link to the /Appliactions folder.
