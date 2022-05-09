@@ -5,7 +5,7 @@ if type brew &>/dev/null
 then
     FPATH="$(brew --prefix)share/zsh/site-functions:${FPATH}"
     autoload -Uz compinit
-    compinit
+    compinit -d "$XDG_DATA_HOME/zsh/zcompcache"
 fi
 
 zstyle ':completion:*' menu select
