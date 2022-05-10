@@ -31,4 +31,5 @@ export ASDF_CONFIG_FILE=${XDG_CONFIG_HOME}/asdf/asdfrc
 export ASDF_DATA_DIR=${XDG_DATA_HOME}/asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
 
+export PATH="$HOME/.emacs-distros/doom/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
