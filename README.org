@@ -98,3 +98,9 @@ For this to work, emacs must be running as a daemon. Homebrew takes care of that
 #+begin_src bash
 ln -s ~/.dotfiles/EC.app/ /Applications/
 #+end_src
+
+** Open Apps to trigger macOS security permissions
+*** Karabiner
+*** Rectangle
+
+**Refresh the SSH key for the new machine and add it to GitHub
