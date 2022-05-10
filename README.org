@@ -38,11 +38,12 @@ xcode-select --install
 
 ** Clone the repo into the $HOME/.dotfiles
 It's important clone the repo recursivelly because there are some important submodules.
+I also tell git to use the ssh key that I imported from an external drive.
 
 If you're not me, don't use SSH to clone :D
 
 #+BEGIN_SRC bash
-git clone --recursive git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
+git clone --recursive git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles -c core.sshCommand="/usr/bin/ssh -i ~/Downloads/mpabegg_rsa"
 #+END_SRC
 
 ** Homebrew
