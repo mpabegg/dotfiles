@@ -69,6 +69,13 @@ which zsh | sudo tee -a /etc/shells
 chsh -s `which zsh`
 #+end_src
 
+** "Install" dotfiles with Stow
+
+#+begin_src bash
+cd ~/.dotfiles
+stow */
+#+end_src
+
 ** Link EC.app
 
 I never use the terminal to launch Emacs, and since I want to use the server, I used Automator to create this little app that I can link to the /Appliactions folder.
