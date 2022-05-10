@@ -29,9 +29,10 @@ Most things will be installed by [[https://brew.sh/][Homebrew]] and configured b
 Some manual steps are still required.
 
 ** Command Line Tools (CLT) for Xcode
-First of all, we need to install the Command Line Tools (CLT) for Xcode:
+First of all, we need to update our software and install the Command Line Tools (CLT) for Xcode:
 
 #+BEGIN_SRC bash
+softwareupdate --all --install --force
 xcode-select --install
 #+END_SRC
 
