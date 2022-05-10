@@ -95,5 +95,5 @@ I never use the terminal to launch Emacs, and since I want to use the server, I 
 For this to work, emacs must be running as a daemon. Homebrew takes care of that.
 
 #+begin_src bash
-ln -s ~/.dotfiles/EC.app/ /Library/
+ln -s ~/.dotfiles/EC.app/ /Applications/
 #+end_src
