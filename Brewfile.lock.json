@@ -113,6 +113,7 @@
         "options": {
           "args": [
             "with-no-titlebar",
+            "with-native-comp",
             "with-modern-nuvola-icon"
           ]
         }
@@ -745,9 +746,9 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.4.10",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "3c2b275790d91f0fbb7d54c8c46c24491bc04b08",
-        "CLT": "13.0.0.0.1.1627064638",
-        "Xcode": "13.2.1",
+        "Homebrew/homebrew-core": "fea467db86441387ad10910e39889677fe8c23da",
+        "CLT": "13.3.1.0.1.1648687083",
+        "Xcode": "13.3",
         "macOS": "12.3.1"
       }
     }

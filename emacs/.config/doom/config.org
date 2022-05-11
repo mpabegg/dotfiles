@@ -39,7 +39,6 @@ The source code blocks here will be tangled into `init.el`. I think it's easier 
       user-mail-address "1006630+mpabegg@users.noreply.github.com")
 #+end_src
 
-
 ** Font
 
  Doom exposes five (optional) variables for controlling fonts in Doom:
@@ -170,7 +169,6 @@ This was a pain to figure out and I'm still not really sure what's going on, but
 ;;   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
 #+end_src
 
-
 ** Always start the initial frame maximized
 I could not find a way for this to work with emacsclient as well...
 Not cool, but not a big deal.
@@ -210,6 +208,5 @@ Also mapped ~SPC-0~ to the treemacs window (like ~SPC w 0~)
 (map! :leader "f m" #'dired-jump)
 (map! :mode dired-mode
       :n "h" #'dired-up-directory
-      :n "l" #'dired-find-file
-      :n "S-l" #'dired-find-file-other-window)
+      :n "l" #'dired-find-file)
 #+end_src

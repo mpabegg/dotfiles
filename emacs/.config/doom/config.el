@@ -62,5 +62,4 @@
 (map! :leader "f m" #'dired-jump)
 (map! :mode dired-mode
       :n "h" #'dired-up-directory
-      :n "l" #'dired-find-file
-      :n "S-l" #'dired-find-file-other-window)
+      :n "l" #'dired-find-file)

@@ -10,7 +10,9 @@
   - [[#clone-the-repo-into-the-homedotfiles][Clone the repo into the $HOME/.dotfiles]]
   - [[#homebrew][Homebrew]]
   - [[#use-the-zsh-installed-by-brew-instead-of-the-one-that-ships-with-osx][Use the ZSH installed by Brew instead of the one that ships with OSx]]
-  - [[#link-ecapp][Link EC.app]]
+  - [[#install-dotfiles-with-stow]["Install" dotfiles with Stow]]
+  - [[#emacs][EMACS]]
+  - [[#open-apps-to-trigger-macos-security-permissions][Open Apps to trigger macOS security permissions]]
 
 * Inspiration / Useful links
 
@@ -24,23 +26,25 @@ https://github.com/juanibiapina/dotfiles
 
 * Installation
 
-Most things will be installed by [[https://brew.sh/][Homebrew]] and configured by [[https://www.gnu.org/software/stow/][GNU Stow]]. That's great!
+[[https://brew.sh/][Homebrew]] will install most things and [[https://www.gnu.org/software/stow/][GNU Stow]] will configure them.
 
-Some manual steps are still required.
+Most things, some manual steps are still required. hopefully all will become a single script one day :)
 
 ** Command Line Tools (CLT) for Xcode
 First of all, we need to update our software and install the Command Line Tools (CLT) for Xcode:
 
 #+BEGIN_SRC bash
-softwareupdate --all --install --force
+sudo softwareupdate --all --install --force
 xcode-select --install
+sudo reboot
 #+END_SRC
 
 ** Clone the repo into the $HOME/.dotfiles
-It's important clone the repo recursivelly because there are some important submodules.
-
 #+BEGIN_SRC bash
-git clone --recursive git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
+clone --recurse-submodules git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
+
+cd ~/.dotfiles
+git submodule update --init --recursive
 #+END_SRC
 
 ** Homebrew
@@ -59,6 +63,12 @@ Look at the [[./Brewfile][Brewfile]] to see what's being installed.
 brew bundle -v
 #+end_src
 
+Reboot once again for good measure
+
+#+begin_src bash
+sudo reboot
+#+end_src
+
 ** Use the ZSH installed by Brew instead of the one that ships with OSx
 We don't want to rely on major MacOS upgrades to get a new ZSH.
 
@@ -73,6 +83,8 @@ Best thing ever!
 #+begin_src bash
 cd ~/.dotfiles
 stow */
+
+sudo reboot
 #+end_src
 
 ** EMACS
