@@ -3,7 +3,7 @@ tap "d12frosted/emacs-plus"
 
 brew "asdf"
 brew "cmake"
-brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"]
+brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-nuvola-icon"], restart_service: true
 brew "gcc"
 brew "ispell"
 brew "libgccjit"
@@ -20,11 +20,13 @@ brew "zsh-completions"
 
 cask "1password"
 cask "brave-browser"
+cask "discord"
 cask "font-fira-mono-for-powerline"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-ubuntu-nerd-font"
 cask "google-chrome"
 cask "karabiner-elements"
+cask "libreoffice"
 cask "raycast"
 cask "rectangle"
 cask "spotify"
