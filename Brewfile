@@ -15,6 +15,7 @@ brew "stow"
 brew "svn"
 brew "tldr"
 brew "tree"
+brew "zoom"
 brew "zsh"
 brew "zsh-completions"
 
