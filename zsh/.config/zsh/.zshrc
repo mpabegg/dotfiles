@@ -31,5 +31,11 @@ export ASDF_CONFIG_FILE=${XDG_CONFIG_HOME}/asdf/asdfrc
 export ASDF_DATA_DIR=${XDG_DATA_HOME}/asdf
 source $(brew --prefix asdf)/libexec/asdf.sh
 
+export ARCHFLAGS="-arch x86_64"
+export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
+
 export PATH="$HOME/.emacs-distros/doom/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
