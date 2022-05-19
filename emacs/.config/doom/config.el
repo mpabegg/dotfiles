@@ -63,3 +63,11 @@
 (map! :mode dired-mode
       :n "h" #'dired-up-directory
       :n "l" #'dired-find-file)
+
+;; (map! :leader
+;;       "b b" #'+ivy/switch-buffer
+;;       "b B" #'+ivy/switch-workspace-buffer)
+
+(setq rspec-use-bundler-when-possible nil
+      rspec-use-relative-path t
+      rspec-spec-command "bin/rspec")

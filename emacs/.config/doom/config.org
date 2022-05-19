@@ -210,3 +210,16 @@ Also mapped ~SPC-0~ to the treemacs window (like ~SPC w 0~)
       :n "h" #'dired-up-directory
       :n "l" #'dired-find-file)
 #+end_src
+
+** Keymaps
+#+begin_src emacs-lisp
+  ;; (map! :leader
+  ;;       "b b" #'+ivy/switch-buffer
+  ;;       "b B" #'+ivy/switch-workspace-buffer)
+#+end_src
+
+#+begin_src emacs-lisp
+    (setq rspec-use-bundler-when-possible nil
+          rspec-use-relative-path t
+          rspec-spec-command "bin/rspec")
+#+end_src
