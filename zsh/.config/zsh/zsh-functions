@@ -1,5 +1,5 @@
+# -*-  mode: sh -*-
 # I'm taking this fom the excelent https://github.com/Mach-OS/Machfiles/blob/master/zsh/.config/zsh/zsh-functions
-
 ZSH_PLUGIN_HOME="$XDG_DATA_HOME/zsh/plugins"
 
 # Sources a file if it exists
