@@ -1,12 +1,20 @@
 #!/usr/local/bin/zsh
 eval "$(starship init zsh)"
 
+
 if type brew &>/dev/null
 then
     FPATH="$(brew --prefix)share/zsh/site-functions:${FPATH}"
     autoload -Uz compinit
 
-    compinit -d "$XDG_DATA_HOME/zsh/zcompcache"
+    # Shamelessly borrowed from Prezto. Regenerates the completion cache approximately daily.
+    _comp_files=($XDG_CACHE_HOME/zsh/zcompcache(Nm-20))
+    if (( $#_comp_files )); then
+        compinit -i -C -d "$XDG_CACHE_HOME/zsh/zcompcache"
+    else
+        compinit -i -d "$XDG_CACHE_HOME/zsh/zcompcache"
+    fi
+    unset _comp_files
 fi
 
 zstyle ':completion:*' menu select
