@@ -50,5 +50,8 @@ function zsh_init_plugins() {
     if [ ! -d "$ZSH_PLUGIN_HOME" ]; then
         mkdir -p "$ZSH_PLUGIN_HOME"
     fi
+}
 
+function space() {
+    emacs --with-profile space &
 }
