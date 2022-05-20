@@ -7,3 +7,6 @@
 [submodule "emacs/.emacs-distros/spacemacs"]
 	path = emacs/.emacs-distros/spacemacs
 	url = https://github.com/syl20bnr/spacemacs
+[submodule "emacs/.emacs-distros/rational"]
+	path = emacs/.emacs-distros/rational
+	url = https://github.com/SystemCrafters/rational-emacs
