@@ -1,73 +1,113 @@
-(setq user-full-name "Matheus Abegg"
-      user-mail-address "1006630+mpabegg@users.noreply.github.com")
-
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13 :weight 'semi-bold)
-      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13))
-
-(setq doom-theme 'base16-eighties)
-
-(setq display-line-numbers-type 'relative)
-
-(setq org-directory "~/org/")
-
-(add-hook! 'focus-out-hook (save-some-buffers t))
-
-(dolist (command '(evil-window-split
-                   evil-window-vsplit))
-  (defadvice! choose-buffer-on-split (&rest _)
-    :after command (+ivy/switch-buffer)))
-
-;; (dolist (command '(evil-window-split
-;;                    evil-window-vsplit))
-;;   (defadvice! choose-buffer-on-split-with-quit (&rest _)
-;;     "Run #'consult-buffer after splitting windows.
-
-;; If the user quits the buffer selection, the new windows is closed."
-;;     :after command
-;;     (let ((inhibit-quit t))
-;;       (unless (with-local-quit (consult-buffer) t)
-;;         (+workspace/close-window-or-workspace)))))
-
-(setq org-descriptive-links nil)
-
-(setq doom-localleader-key ",")
-
-(setq doom-leader-alt-key "C-SPC")
-
-;; (after! vterm
-;;   (set-popup-rule! "*doom:vterm-popup:main" :size 0.75
-;;     ;; :vslot -4
-;;     :select t :quit nil :ttl 0 :side 'top))
-
-;; (dolist (mode '(vterm term))
-;;   (add-to-list '+evil-collection-disabled-list mode)
-;;   (add-to-list 'evil-emacs-state-modes (intern (concat (symbol-name mode) "-mode"))))
-
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(setq user-full-name "Matheus Abegg"
+      user-mail-address "1006630+mpabegg@users.noreply.github.com"
+
+      doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13 :weight 'semi-bold)
+      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13)
+      doom-theme 'base16-eighties
+      display-line-numbers-type 'relative
+
+      org-directory "~/.org/"
+      org-descriptive-links nil
+      doom-localleader-key ","
+      doom-leader-alt-key "C-SPC")
+
+(add-hook! 'focus-out-hook (save-some-buffers t))
+(remove-hook 'org-load-hook #'+org-init-keybinds-h)
+
 (after! treemacs
-  (treemacs-follow-mode 1)
   (treemacs-define-RET-action 'file-node-open #'treemacs-visit-node-ace)
   (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace))
 
-(map! :leader "w 0" #'treemacs-select-window)
+(after! winum
+  (map! :leader
+        "0" #'treemacs-select-window
+        "1" #'winum-select-window-1
+        "2" #'winum-select-window-2
+        "3" #'winum-select-window-3
+        "4" #'winum-select-window-4))
 
-(map! :leader
-      "0" #'treemacs-select-window
-      "1" #'winum-select-window-1
-      "2" #'winum-select-window-2
-      "3" #'winum-select-window-3
-      "4" #'winum-select-window-4)
-
-(map! :leader "f m" #'dired-jump)
 (map! :mode dired-mode
       :n "h" #'dired-up-directory
       :n "l" #'dired-find-file)
 
-;; (map! :leader
-;;       "b b" #'+ivy/switch-buffer
-;;       "b B" #'+ivy/switch-workspace-buffer)
+(defun spacemacs/window-split-double-columns ()
+  "Set the layout to double columns."
+  (interactive)
+  (delete-other-windows)
+  (let* ((previous-files (seq-filter #'buffer-file-name
+                                     (delq (current-buffer) (buffer-list)))))
+    (set-window-buffer (split-window-right)
+                       (or (car previous-files) "*scratch*"))
+    (balance-windows)))
 
-(setq rspec-use-bundler-when-possible nil
-      rspec-use-relative-path t
-      rspec-spec-command "bin/rspec")
+(defun spacemacs/window-split-double-columns ()
+  "Set the layout to double columns."
+  (interactive)
+  (delete-other-windows)
+  (let* ((previous-files (seq-filter #'buffer-file-name
+                                     (delq (current-buffer) (buffer-list)))))
+    (set-window-buffer (split-window-right)
+                       (or (car previous-files) "*scratch*"))
+    (balance-windows)))
+
+(defun spacemacs/window-split-in-three ()
+  "Set the layout to two columns, and two rows on the first column."
+  (interactive)
+  (delete-other-windows)
+  (let* ((previous-files (seq-filter #'buffer-file-name
+                                     (delq (current-buffer) (buffer-list))))
+         (second (split-window-right))
+         (third (split-window-below second)))
+    (set-window-buffer second (or (car previous-files) "*scratch*"))
+    (set-window-buffer third (or (cadr previous-files) "*scratch*"))
+    (balance-windows)))
+
+(defun spacemacs/window-split-grid ()
+  "Set the layout to a 2x2 grid."
+  (interactive)
+  (let* ((previous-files (seq-filter #'buffer-file-name
+                                     (delq (current-buffer) (buffer-list))))
+         (second (split-window-below))
+         (third (split-window-right))
+         (fourth (split-window second nil 'right)))
+    (set-window-buffer third (or (car previous-files) "*scratch*"))
+    (set-window-buffer second (or (cadr previous-files) "*scratch*"))
+    (set-window-buffer fourth (or (caddr previous-files) "*scratch*"))
+    (balance-windows)))
+
+;; Thanks to https://gist.github.com/mads-hartmann/3402786
+(defun spacemacs/toggle-maximize-buffer ()
+  "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (remove-if #'treemacs-is-treemacs-window? (window-list))))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
+
+(after! winum
+  (map! :leader
+        "w m" #'spacemacs/toggle-maximize-buffer
+        "w 2" #'spacemacs/window-split-double-columns
+        "w 3" #'spacemacs/window-split-in-three
+        "w 4" #'spacemacs/window-split-grid))
+
+(defun spacemacs/alternate-buffer (&optional window)
+  "Switch back and forth between current and last buffer in the
+current window.
+
+If `spacemacs-layouts-restrict-spc-tab' is `t' then this only switches between
+the current layouts buffers."
+  (interactive)
+  (cl-destructuring-bind (buf start pos)
+        (or (cl-find (window-buffer window) (window-prev-buffers)
+                     :key #'car :test-not #'eq)
+            (list (other-buffer) nil nil))
+    (if (not buf)
+        (message "Last buffer not found.")
+      (set-window-buffer-start-and-point window buf start pos))))
+
+(map! :leader
+      "TAB" #'spacemacs/alternate-buffer)
