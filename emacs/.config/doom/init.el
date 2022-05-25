@@ -187,5 +187,5 @@
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
-       literate
-       (spacemacs +bindings +smartparens))
+       ;; literate
+       (default +smartparens +bindings))
