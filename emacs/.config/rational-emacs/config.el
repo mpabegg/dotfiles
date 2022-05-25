@@ -35,7 +35,7 @@
 ;; Set further font and theme customizations
 (custom-set-variables
    '(rational-ui-default-font
-     '(:font "SauceCodePro Nerd Font" :weight semi-bold)))
+     '(:font "SauceCodePro Nerd Font" :weight semi-bold :height 130)))
 
 (rational-package-install-package 'base16-theme)
 (load-theme 'base16-eighties t)
@@ -45,7 +45,7 @@
 (setq ring-bell-function 'ignore)
 
 (rational-package-install-package 'which-key)
-(setq which-key-idle-delay 0)
+(setq which-key-idle-delay 0.2)
 (which-key-mode 1)
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
