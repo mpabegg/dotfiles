@@ -45,6 +45,16 @@
                        (or (car previous-files) "*scratch*"))
     (balance-windows)))
 
+(defun spacemacs/window-split-double-rows ()
+  "Set the layout to double rows."
+  (interactive)
+  (delete-other-windows)
+  (let* ((previous-files (seq-filter #'buffer-file-name
+                                     (delq (current-buffer) (buffer-list)))))
+    (set-window-buffer (split-window)
+                       (or (car previous-files) "*scratch*"))
+    (balance-windows)))
+
 (defun spacemacs/window-split-in-three ()
   "Set the layout to two columns, and two rows on the first column."
   (interactive)
@@ -88,7 +98,9 @@
         "3" #'winum-select-window-3
         "4" #'winum-select-window-4
         "w m" #'spacemacs/toggle-maximize-buffer
+        "w M" #'ace-swap-window
         "w 2" #'spacemacs/window-split-double-columns
+        "w @" #'spacemacs/window-split-double-rows
         "w 3" #'spacemacs/window-split-in-three
         "w 4" #'spacemacs/window-split-grid))
 
@@ -105,4 +117,22 @@ current window."
       (set-window-buffer-start-and-point window buf start pos))))
 
 (map! :leader
-      "TAB" #'spacemacs/alternate-buffer)
+      :desc "Last Buffer" "TAB" #'spacemacs/alternate-buffer
+      :desc "Toggle vterm popup" "'" #'+vterm/toggle)
+
+(after! orderless
+  (add-to-list 'orderless-matching-styles 'orderless-flex))
+
+
+(map! :leader
+      :desc "File Manager"
+      "f m" #'dired-jump-other-window)
+
+(after! lsp-ui
+  (setq! 'lsp-enable-symbol-highlighting t
+         'lsp-eldoc-enable-hover t
+         'lsp-completion-show-detail t
+         'lsp-completion-show-kind t
+         'lsp-signature-auto-activate t
+         'lsp-ui-sideline-enable nil
+         'lsp-headerline-breadcrumb-enable t))
