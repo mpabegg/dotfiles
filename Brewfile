@@ -3,7 +3,9 @@ tap "homebrew/cask-fonts"
 
 brew "asdf"
 brew "cmake"
-brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-doom-icon"], restart_service: false
+brew "emacs-plus@28",
+     args: ["with-no-titlebar", "with-native-comp", "with-modern-doom-icon", "with-xwidgets"],
+     restart_service: true
 brew "gcc"
 brew "grep"
 brew "ispell"
@@ -23,10 +25,12 @@ cask "1password"
 cask "alacritty"
 cask "brave-browser"
 cask "discord"
+cask "firefox"
 cask "font-fira-mono-for-powerline"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-ubuntu-nerd-font"
 cask "google-chrome"
+cask "insomnia"
 cask "karabiner-elements"
 cask "libreoffice"
 cask "raycast"
