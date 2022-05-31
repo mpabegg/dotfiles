@@ -110,7 +110,7 @@
         }
       },
       "zoom": {
-        "version": "5.10.6.7526",
+        "version": "5.10.7.7748",
         "options": {
           "full_name": "zoom"
         }
@@ -126,6 +126,18 @@
         "options": {
           "full_name": "insomnia"
         }
+      },
+      "gitify": {
+        "version": "4.3.1",
+        "options": {
+          "full_name": "gitify"
+        }
+      },
+      "microsoft-remote-desktop": {
+        "version": "10.7.6",
+        "options": {
+          "full_name": "microsoft-remote-desktop"
+        }
       }
     },
     "tap": {
@@ -133,7 +145,7 @@
         "revision": "54d7aae24408323cfa2e1f36e58389d8d0c4d118"
       },
       "homebrew/cask-fonts": {
-        "revision": "43e1a1a4f2702fe4283131a1a154b728d637ef55"
+        "revision": "d80c7059620433e7d3230fbb6f513b8382aa6144"
       }
     },
     "brew": {
@@ -147,7 +159,7 @@
             "with-modern-doom-icon",
             "with-xwidgets"
           ],
-          "restart_service": true
+          "restart_service": false
         }
       },
       "svn": {
@@ -815,6 +827,8 @@
       "zoom": {
       },
       "firefox": {
+      },
+      "gitify": {
       }
     }
   },
@@ -831,7 +845,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.4.11",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "1c3c7fd96c9f415b8398533db693de3fd46af132",
+        "Homebrew/homebrew-core": "153788070f8d684358154798297f016949d0e024",
         "CLT": "13.3.1.0.1.1648687083",
         "Xcode": "13.4",
         "macOS": "12.3.1"

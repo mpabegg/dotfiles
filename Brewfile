@@ -3,9 +3,7 @@ tap "homebrew/cask-fonts"
 
 brew "asdf"
 brew "cmake"
-brew "emacs-plus@28",
-     args: ["with-no-titlebar", "with-native-comp", "with-modern-doom-icon", "with-xwidgets"],
-     restart_service: true
+brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-doom-icon", "with-xwidgets"], restart_service: false
 brew "gcc"
 brew "grep"
 brew "ispell"
@@ -29,10 +27,12 @@ cask "firefox"
 cask "font-fira-mono-for-powerline"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-ubuntu-nerd-font"
+cask "gitify"
 cask "google-chrome"
 cask "insomnia"
 cask "karabiner-elements"
 cask "libreoffice"
+cask "microsoft-remote-desktop"
 cask "raycast"
 cask "rectangle"
 cask "spotify"
