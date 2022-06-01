@@ -62,7 +62,7 @@
   (let* ((previous-files (seq-filter #'buffer-file-name
                                      (delq (current-buffer) (buffer-list))))
          (second (split-window-right))
-         (third (split-window-below second)))
+         (third (split-window second nil 'below)))
     (set-window-buffer second (or (car previous-files) "*scratch*"))
     (set-window-buffer third (or (cadr previous-files) "*scratch*"))
     (balance-windows)))
@@ -70,6 +70,7 @@
 (defun spacemacs/window-split-grid ()
   "Set the layout to a 2x2 grid."
   (interactive)
+  (delete-other-windows)
   (let* ((previous-files (seq-filter #'buffer-file-name
                                      (delq (current-buffer) (buffer-list))))
          (second (split-window-below))
@@ -84,7 +85,7 @@
 (defun spacemacs/toggle-maximize-buffer ()
   "Maximize buffer"
   (interactive)
-  (if (= 1 (length (remove-if #'treemacs-is-treemacs-window? (window-list))))
+  (if (= 1 (length (window-list)))
       (jump-to-register '_)
     (progn
       (window-configuration-to-register '_)

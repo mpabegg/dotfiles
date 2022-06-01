@@ -21,10 +21,10 @@
 
        :completion
        (company +auto)           ; the ultimate code completion backend
-       ;; helm              ; the *other* search engine for love and life
+       ;; (helm +icons +childframe)              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       ;; (ivy +fuzzy +icos)               ; a search engine for love and life
-       (vertico +icons)          ; the search engine of the future
+       (ivy +fuzzy +icos)               ; a search engine for love and life
+       ;; (vertico +icons)          ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
