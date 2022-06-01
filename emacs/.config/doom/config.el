@@ -13,13 +13,13 @@
       doom-localleader-key ","
       doom-leader-alt-key "C-SPC")
 
+(setq projectile-root-bottom-up '(".project" ".projectile"))
+
 (add-hook! 'focus-out-hook (save-some-buffers t))
-(remove-hook 'org-load-hook #'+org-init-keybinds-h)
 
 (after! treemacs
   (treemacs-define-RET-action 'file-node-open #'treemacs-visit-node-ace)
   (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace))
-
 
 (map! :mode dired-mode
       :n "h" #'dired-up-directory
@@ -121,19 +121,20 @@ current window."
       :desc "Last Buffer" "TAB" #'spacemacs/alternate-buffer
       :desc "Toggle vterm popup" "'" #'+vterm/toggle)
 
-(after! orderless
-  (add-to-list 'orderless-matching-styles 'orderless-flex))
-
-
 (map! :leader
       :desc "File Manager"
       "f m" #'dired-jump-other-window)
 
 (after! lsp-ui
-  (setq! 'lsp-enable-symbol-highlighting t
-         'lsp-eldoc-enable-hover t
-         'lsp-completion-show-detail t
-         'lsp-completion-show-kind t
-         'lsp-signature-auto-activate t
-         'lsp-ui-sideline-enable nil
-         'lsp-headerline-breadcrumb-enable t))
+  (setq! lsp-enable-symbol-highlighting t
+         lsp-eldoc-enable-hover t
+         lsp-completion-show-detail t
+         lsp-completion-show-kind t
+         lsp-signature-auto-activate t
+         lsp-ui-sideline-enable nil
+         lsp-headerline-breadcrumb-enable t))
+
+
+;; global-map C-@
+;; global-map C-SPC
+;; view-mode-map .
