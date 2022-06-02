@@ -13,7 +13,10 @@
       doom-localleader-key ","
       doom-leader-alt-key "C-SPC")
 
-(setq projectile-root-bottom-up '(".project" ".projectile"))
+(setq projectile-track-known-projects-automatically nil)
+
+(setq rubocop-format-on-save t
+      rubocop-autocorrect-on-save t)
 
 (add-hook! 'focus-out-hook (save-some-buffers t))
 
