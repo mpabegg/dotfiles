@@ -96,17 +96,23 @@
 
 (after! winum
   (map! :leader
-        "0" #'treemacs-select-window
         "1" #'winum-select-window-1
         "2" #'winum-select-window-2
         "3" #'winum-select-window-3
-        "4" #'winum-select-window-4
-        "w m" #'spacemacs/toggle-maximize-buffer
-        "w M" #'ace-swap-window
-        "w 2" #'spacemacs/window-split-double-columns
-        "w @" #'spacemacs/window-split-double-rows
-        "w 3" #'spacemacs/window-split-in-three
-        "w 4" #'spacemacs/window-split-grid))
+        "4" #'winum-select-window-4))
+
+(map! :leader
+      "w m" #'spacemacs/toggle-maximize-buffer
+      "w M" #'ace-swap-window
+      "w 2" #'spacemacs/window-split-double-columns
+      "w @" #'spacemacs/window-split-double-rows
+      "w 3" #'spacemacs/window-split-in-three
+      "w 4" #'spacemacs/window-split-grid)
+
+(after! treemacs
+  (map! :leader
+        "0" (lambda () (treemacs-select-window))))
+
 
 (defun spacemacs/alternate-buffer (&optional window)
   "Switch back and forth between current and last buffer in the
