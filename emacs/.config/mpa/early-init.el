@@ -11,7 +11,8 @@
 ;; Prevent unwanted runtime compilation for gccemacs (native-comp) users;
 ;; packages are compiled ahead-of-time when they are installed and site files
 ;; are compiled when gccemacs is installed.
-(setq native-comp-deferred-compilation nil)
+(setq native-comp-deferred-compilation nil
+      native-comp-async-report-warning-errors nil)
 
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
@@ -20,13 +21,13 @@
 
 ;; Premature redisplays can substantially affect startup times and produce
 ;; ugly flashes of unstyled Emacs.
-;; (setq-default inhibit-redisplay t
-;;               inhibit-message t)
-;; (add-hook 'window-setup-hook
-;;           (lambda ()
-;;             (setq-default inhibit-redisplay nil
-;;                           inhibit-message nil)
-;;             (redisplay)))
+(setq-default inhibit-redisplay t
+              inhibit-message t)
+(add-hook 'window-setup-hook
+          (lambda ()
+            (setq-default inhibit-redisplay nil
+                          inhibit-message nil)
+            (redisplay)))
 
 ;; straight will take care of things
 (setq package-enable-at-startup nil)
@@ -41,7 +42,9 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
-(push '(mouse-color . "white") default-frame-alist)
+
+;; Loads a nice blue theme, avoids the white screen flash on startup.
+(load-theme 'deeper-blue t)
 
 ;; Ensure Emacs is running out of this file's directory
 (setq user-emacs-directory (file-name-directory load-file-name))

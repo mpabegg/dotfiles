@@ -1,0 +1,128 @@
+*Matheus' Emacs Config
+** Startup
+*** Show startup time on the minibuffer
+#+begin_src emacs-lisp
+  (add-hook 'emacs-startup-hook
+            (lambda ()
+              (message "Emacs loaded in %s."
+                       (emac-init-time))))
+#+end_src
+*** Make the initial buffer load faster by setting its mode to fundamental-mode
+#+begin_src emacs-lisp
+  (setq initial-major-mode 'fundamental-mode)
+#+end_src
+
+** Defaults
+#+begin_src elisp
+(use-package better-defaults
+  :config
+  (setq visible-bell nil) ;; The default
+  (setq ring-bell-function 'ignore))
+#+end_src
+
+** Navigation
+*** Beacon
+#+begin_src elisp
+  (use-package beacon
+    :config (beacon-mode 1))
+#+end_src
+
+** Look & Feel
+*** Font
+#+begin_src elisp
+  (set-face-attribute 'default nil :font "SauceCodePro Nerd Font" :height 130)
+#+end_src
+*** Make scrolling less stuttered
+#+begin_src elisp
+  (setq auto-window-vscroll nil
+        fast-but-imprecise-scrolling t
+        scroll-conservatively 101
+        scroll-margin 0
+        scroll-preserve-screen-position t)
+
+
+#+end_src
+*** Install and load theme
+#+begin_src elisp
+  (use-package base16-theme
+    :config
+    (load-theme 'base16-eighties t))
+#+end_src
+
+*** All the icons
+#+begin_src elisp
+(use-package all-the-icons
+  :if (display-graphic-p))
+#+end_src
+
+*** Modeline
+#+begin_src elisp
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :hook (doom-modeline-mode . size-indication-mode) ; filesize in modeline
+  :hook (doom-modeline-mode . column-number-mode)   ; cursor column in modeline
+  :init
+  (unless after-init-time
+    ;; prevent flash of unstyled modeline at startup
+    (setq-default mode-line-format nil))
+  ;; We display project info in the modeline ourselves
+  (setq projectile-dynamic-mode-line nil)
+  ;; Set these early so they don't trigger variable watchers
+  (setq doom-modeline-bar-width 3
+        doom-modeline-github nil
+        doom-modeline-mu4e nil
+        doom-modeline-persp-name nil
+        doom-modeline-minor-modes nil
+        doom-modeline-major-mode-icon nil
+        doom-modeline-buffer-file-name-style 'relative-from-project
+        doom-modeline-icon t
+        ;; Only show file encoding if it's non-UTF-8 and different line endings
+        ;; than the current OSes preference
+        doom-modeline-buffer-encoding 'nondefault
+        doom-modeline-default-eol-type 2)
+        (doom-modeline-mode 1))
+#+end_src
+*** Maximize to the whole screen
+#+begin_src elisp
+  (setq frame-resize-pixelwise t
+        window-resize-pixelwise t)
+#+end_src
+**** Evil Anzu
+#+begin_src elisp
+(use-package evil-anzu
+  :after evil
+  :config
+  (global-anzu-mode 1))
+#+end_src
+
+** Evil
+#+begin_src elisp
+(use-package evil
+  :init
+  (setq evil-want-integration t
+        evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+#+end_src
+*** Everywhere
+#+begin_src elisp
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+#+end_src
+
+** Which-key
+#+begin_src elisp
+(use-package which-key
+  :config (which-key-mode 1))
+#+end_src
+
+** Org
+*** Org Bullets
+#+begin_src elisp
+  (use-package org-bullets
+    :config (add-hook 'org-mode-hook #'org-bullets-mode))
+#+end_src
+
+** Completion
