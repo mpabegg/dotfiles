@@ -43,6 +43,7 @@ export ARCHFLAGS="-arch x86_64"
 export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
 
 export PATH="$HOME/.emacs-distros/doom/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
