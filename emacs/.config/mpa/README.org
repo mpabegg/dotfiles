@@ -1,6 +1,0 @@
-#+TITLE: Matheus' Emacs Config
-
-* Rational
-Code is mostly taken and adapted from [[https://www.spacemacs.org/][Spacemacs]], [[github:doom-emacs][Doom Emacs]], and[[github:rational-emacs][Rational Emacs]].
-
-I really like the ergonomics of Spacemacs, so that's where I aiming.
