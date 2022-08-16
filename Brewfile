@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 brew "asdf"
 brew "cmake"
 brew "emacs-plus@28", args: ["with-no-titlebar", "with-native-comp", "with-modern-doom-icon", "with-xwidgets"], restart_service: false
+brew "eslint"
 brew "gcc"
 brew "grep"
 brew "ispell"

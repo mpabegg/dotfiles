@@ -22,4 +22,4 @@
   :config
   (add-hook 'window-setup-hook #'gcmh-mode))
 
-(org-babel-load-file (expand-file-name "config.org" (file-name-directory (buffer-file-name))))
+(org-babel-load-file (expand-file-name "config.org" user-emacs-directory))
