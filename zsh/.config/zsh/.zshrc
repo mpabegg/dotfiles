@@ -1,6 +1,8 @@
 #!/usr/local/bin/zsh
 eval "$(starship init zsh)"
 
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache/"
+zstyle ':completion:*' menu select
 
 if type brew &>/dev/null
 then
@@ -8,16 +10,15 @@ then
     autoload -Uz compinit
 
     # Shamelessly borrowed from Prezto. Regenerates the completion cache approximately daily.
-    _comp_files=($XDG_CACHE_HOME/zsh/zcompcache(Nm-20))
+    _comp_files=($XDG_CACHE_HOME/zsh/zcompdump(Nm-20))
     if (( $#_comp_files )); then
-        compinit -i -C -d "$XDG_CACHE_HOME/zsh/zcompcache"
+        compinit -i -C -d "$XDG_CACHE_HOME/zsh/zcompdump"
     else
-        compinit -i -d "$XDG_CACHE_HOME/zsh/zcompcache"
+        compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump"
     fi
     unset _comp_files
 fi
 
-zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
 
