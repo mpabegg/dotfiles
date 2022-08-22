@@ -1,8 +1,12 @@
 #!/usr/local/bin/zsh
-eval "$(starship init zsh)"
 
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache/"
 zstyle ':completion:*' menu select
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+eval "$(starship init zsh)"
 
 if type brew &>/dev/null
 then
