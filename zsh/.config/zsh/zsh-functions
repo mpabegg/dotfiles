@@ -51,7 +51,3 @@ function zsh_init_plugins() {
         mkdir -p "$ZSH_PLUGIN_HOME"
     fi
 }
-
-function space() {
-    emacs --with-profile space &
-}

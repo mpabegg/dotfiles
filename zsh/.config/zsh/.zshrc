@@ -1,6 +1,9 @@
 #!/usr/local/bin/zsh
-eval "$(starship init zsh)"
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+eval "$(starship init zsh)"
 
 if type brew &>/dev/null
 then
