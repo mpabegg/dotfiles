@@ -5,7 +5,7 @@
 
       doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13)
-      doom-theme 'base16-eighties
+      doom-theme 'doom-one
       display-line-numbers-type 'relative
 
       org-directory "~/.org/"
