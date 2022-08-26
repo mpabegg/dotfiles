@@ -24,7 +24,7 @@ function change_shell(){
 		echo "> chsh -s \`which zsh\`"
 }
 
-if [[ ! -f "~/.touched" ]];then
+if [[ ! -f "/home/mpa/setup.sh" ]];then
 	echo "Set sudo password:"
 	passwd
 
@@ -34,7 +34,8 @@ if [[ ! -f "~/.touched" ]];then
 	echo "Set password for mpa:"
 	passwd mpa
 
-	touch "~/.touched"
+	echo "Cloning script into /home/mpa/setup.sh"
+        curl -s -o "/home/mpa/setup.sh" "https://raw.githubusercontent.com/mpabegg/dotfiles/master/linux/setup.sh"
 
 	echo "=> Now go back to Windows Power Shell and do:"
 	echo "> {PATH}\Arch.exe config --default-user mpa"
