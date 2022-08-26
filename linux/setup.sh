@@ -36,6 +36,7 @@ if [[ ! -f "/home/mpa/setup.sh" ]];then
 
 	echo "Cloning script into /home/mpa/setup.sh"
         curl -s -o "/home/mpa/setup.sh" "https://raw.githubusercontent.com/mpabegg/dotfiles/master/linux/setup.sh"
+	chmod +x "/home/mpa/setup.sh"
 
 	echo "=> Now go back to Windows Power Shell and do:"
 	echo "> {PATH}\Arch.exe config --default-user mpa"
