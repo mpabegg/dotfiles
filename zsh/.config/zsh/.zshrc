@@ -32,6 +32,7 @@ source "$ZDOTDIR/zsh-functions"
 zsh_init_plugins
 
 zsh_add_dir "git"
+zsh_add_bin "secrets"
 
 zsh_add_plugin "zimfw/environment"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#949494"
