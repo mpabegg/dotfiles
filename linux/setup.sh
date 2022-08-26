@@ -13,7 +13,6 @@ function init_packman(){
 
 function init_git(){
 	cd $HOME
-	mkdir "$HOME/ssh"
 	cp -r /mnt/d/ssh/ "$HOME/.ssh/"
 	git clone --recurse-submodule git@github.com:mpabegg/dotfiles.git $DOTFILES_DIR
 }
