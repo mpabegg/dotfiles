@@ -41,7 +41,7 @@ sudo reboot
 
 ** Clone the repo into the $HOME/.dotfiles
 #+BEGIN_SRC bash
-clone --recurse-submodules git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
+git clone --recurse-submodules git@github.com:mpabegg/dotfiles.git $HOME/.dotfiles
 
 cd ~/.dotfiles
 git submodule update --init --recursive

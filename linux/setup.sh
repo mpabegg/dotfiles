@@ -1,16 +1,57 @@
 #!/bin/bash
+set -e
 
-echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
-useradd -m -G wheel -s /bin/bash mpa
+DOTFILES_DIR="$HOME/.dotfiles"
 
-passwd mpa
+function init-packman(){
+	sudo pacman-key --init
+	sudo pacman-key --populate
+	sudo pacman -Syy archlinux-keyring
 
-# RUN ON WSL
-# >Arch.exe config --default-user {username}
+	sudo pacman -Syyuu git openssh
+}
 
-sudo pacman-key --init
-sudo pacman-key --populate
-sudo pacman -Syy archlinux-keyring
+function init-git(){
+	cd $HOME
+	mkdir "$HOME/ssh"
+	cp -r /mnt/d/ssh/ "$HOME/.ssh/"
+	git clone --recurse-submodule git@github.com:mpabegg/dotfiles.git $DOTFILES_DIR
+}
 
-sudo pacman -Syyuu
+function change-shell(){
+		echo "Changing shell, it will ask for sudo password."
+		echo "> sudo echo \`which zsh\` >> /etc/shells"
+		echo "> chsh -s \`which zsh\`"
+}
+
+if [[ -z "~/.touched" ]];then
+	echo "Set sudo password:"
+	passwd
+
+	echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+	useradd -m -G wheel -s /bin/bash mpa
+
+	echo "Set password for mpa:"
+	passwd mpa
+
+	touch "~/.touched"
+
+	echo "=> Now go back to Windows Power Shell and do:"
+	echo "> {PATH}\Arch.exe config --default-user mpa"
+	echo "> wsl --set-default Arch"
+	echo "=> Then run ~/setup.sh"
+
+else
+	if [[ `whoami` == mpa ]];then
+		init-packman
+		init-git
+		cd $DOTFILES_DIR
+		sh $DOTFILES_DIR/linux/packages.sh
+		change-shell
+		stow git zsh
+	fi
+fi
+
+
+
 
