@@ -3,7 +3,7 @@ set -e
 
 DOTFILES_DIR="$HOME/.dotfiles"
 
-function init-packman(){
+function init_packman(){
 	sudo pacman-key --init
 	sudo pacman-key --populate
 	sudo pacman -Syy archlinux-keyring
@@ -11,20 +11,20 @@ function init-packman(){
 	sudo pacman -Syyuu git openssh
 }
 
-function init-git(){
+function init_git(){
 	cd $HOME
 	mkdir "$HOME/ssh"
 	cp -r /mnt/d/ssh/ "$HOME/.ssh/"
 	git clone --recurse-submodule git@github.com:mpabegg/dotfiles.git $DOTFILES_DIR
 }
 
-function change-shell(){
+function change_shell(){
 		echo "Changing shell, it will ask for sudo password."
 		echo "> sudo echo \`which zsh\` >> /etc/shells"
 		echo "> chsh -s \`which zsh\`"
 }
 
-if [[ -z "~/.touched" ]];then
+if [[ ! -f "~/.touched" ]];then
 	echo "Set sudo password:"
 	passwd
 
@@ -43,11 +43,12 @@ if [[ -z "~/.touched" ]];then
 
 else
 	if [[ `whoami` == mpa ]];then
-		init-packman
-		init-git
-		cd $DOTFILES_DIR
+		init_packman
+		init_git
+		sh $DOTFILES_DIR/linux/paru.sh
 		sh $DOTFILES_DIR/linux/packages.sh
-		change-shell
+		change_shell
+		cd $DOTFILES_DIR
 		stow git zsh
 	fi
 fi
