@@ -3,9 +3,6 @@
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache/"
 zstyle ':completion:*' menu select
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
 eval "$(starship init zsh)"
 
 if type brew &>/dev/null
@@ -43,7 +40,11 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 export ASDF_CONFIG_FILE=${XDG_CONFIG_HOME}/asdf/asdfrc
 export ASDF_DATA_DIR=${XDG_DATA_HOME}/asdf
-source $(brew --prefix asdf)/libexec/asdf.sh
+if [[ $OSTYPE == linux-gnu* ]]; then
+    source /opt/asdf-vm/asdf.sh
+else
+    source $(brew --prefix asdf)/libexec/asdf.sh
+fi
 
 export ARCHFLAGS="-arch x86_64"
 export LIBRARY_PATH="/usr/local/opt/openssl@1.1/lib:$LIBRARY_PATH"
