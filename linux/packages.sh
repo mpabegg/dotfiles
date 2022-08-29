@@ -2,6 +2,7 @@ paru -Syy \
 	asdf-vm \
 	cmake \
 	gcc \
+	man \
 	neovim \
 	ripgrep \
 	starship \
