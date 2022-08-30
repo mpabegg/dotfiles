@@ -38,7 +38,7 @@ if [[ ! -f "/home/mpa/setup.sh" ]];then
 	chmod +x "/home/mpa/setup.sh"
 
 	echo "=> Now go back to Windows Power Shell and do:"
-	echo "> ./Arch.exe config --default-user mpa"
+	echo "> .\Arch.exe config --default-user mpa"
 	echo "> wsl --set-default Arch"
 	echo "=> Then run ~/setup.sh"
 
@@ -50,7 +50,7 @@ else
 		sh $DOTFILES_DIR/linux/packages.sh
 		change_shell
 		cd $DOTFILES_DIR
-		stow git zsh emacs
+		stow git zsh emacs nvim
 	fi
 fi
 

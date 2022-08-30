@@ -1,3 +1,5 @@
+#!/bin/bash
+
 paru -Syy \
 	asdf-vm \
 	cmake \
@@ -11,5 +13,6 @@ paru -Syy \
 	tldr \
 	tmux \
 	tree \
+	wget \
 	zsh-completions \
 
