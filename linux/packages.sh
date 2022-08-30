@@ -1,4 +1,4 @@
-paru -Syy --noconfirm \
+paru -Syy \
 	asdf-vm \
 	cmake \
 	emacs \
