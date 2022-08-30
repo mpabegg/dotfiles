@@ -28,7 +28,10 @@ autoload -Uz colors && colors
 source "$ZDOTDIR/zsh-functions"
 zsh_init_plugins
 
-zsh_add_dir "git"
+for f in $ZDOTDIR/adds/*.zsh; do
+    source $f
+done
+
 zsh_add_bin "secrets"
 
 zsh_add_plugin "zimfw/environment"
