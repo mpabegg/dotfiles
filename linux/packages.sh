@@ -1,6 +1,7 @@
-paru -Syy \
+paru -Syy --noconfirm \
 	asdf-vm \
 	cmake \
+	emacs \
 	gcc \
 	man \
 	neovim \

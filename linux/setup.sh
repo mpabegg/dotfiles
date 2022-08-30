@@ -8,7 +8,7 @@ function init_packman(){
 	sudo pacman-key --populate
 	sudo pacman -Syy archlinux-keyring
 
-	sudo pacman -Syyuu git openssh
+	sudo pacman -Syyuu --noconfirm git openssh
 }
 
 function init_git(){
