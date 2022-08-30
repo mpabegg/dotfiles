@@ -50,7 +50,7 @@ else
 		sh $DOTFILES_DIR/linux/packages.sh
 		change_shell
 		cd $DOTFILES_DIR
-		stow git zsh
+		stow git zsh emacs
 	fi
 fi
 
