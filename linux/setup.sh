@@ -38,7 +38,7 @@ if [[ ! -f "/home/mpa/setup.sh" ]];then
 	chmod +x "/home/mpa/setup.sh"
 
 	echo "=> Now go back to Windows Power Shell and do:"
-	echo "> {PATH}\Arch.exe config --default-user mpa"
+	echo "> ./Arch.exe config --default-user mpa"
 	echo "> wsl --set-default Arch"
 	echo "=> Then run ~/setup.sh"
 
