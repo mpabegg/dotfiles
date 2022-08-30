@@ -6,4 +6,4 @@
 	url = https://github.com/plexus/chemacs2
 [submodule "emacs/.emacs-distros/crafted"]
 	path = emacs/.emacs-distros/crafted
-	url = https://github.com/SystemCrafters/crafted-emacs.git
+	url = https://github.com/SystemCrafters/crafted-emacs
