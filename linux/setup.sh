@@ -6,8 +6,8 @@ DOTFILES_DIR="$HOME/.dotfiles"
 function init_packman(){
 	sudo pacman-key --init
 	sudo pacman-key --populate
-	sudo pacman -Syy archlinux-keyring
 
+	sudo pacman -Syy --noconfirm archlinux-keyring
 	sudo pacman -Syyuu --noconfirm git openssh
 }
 
