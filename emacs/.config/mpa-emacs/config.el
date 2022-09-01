@@ -41,10 +41,10 @@
 (add-hook 'emacs-startup-hook
           (lambda ()
             (custom-set-faces
-             `(default ((t (:font "JetBrains Mono Light 18"))))
+             `(default ((t (:font "SauceCodePro Nerd Font 13"))))
              `(fixed-pitch ((t (:inherit (default)))))
              `(fixed-pitch-serif ((t (:inherit (default)))))
-             `(variable-pitch ((t (:font "Arial 18")))))))
+             `(variable-pitch ((t (:font "Ubuntu Nerd Font 13")))))))
 
 ;; Themes are color customization packages which coordinate the
 ;; various colors, and in some cases, font-sizes for various aspects
@@ -55,7 +55,7 @@
 (crafted-package-install-package 'doom-themes)
 (progn
   (disable-theme 'deeper-blue)          ; first turn off the deeper-blue theme
-  (load-theme 'doom-palenight t))       ; load the doom-palenight theme
+  (load-theme 'doom-one t))       ; load the doom-palenight theme
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 ;; (setq crafted-load-custom-file nil)
