@@ -10,7 +10,7 @@ local opts = {
   number = true,
   shiftwidth = 2,
   showmode = false,
-  signcolumn = "yes",
+--signcolumn = "yes",
   smartcase = true,
   splitbelow = true,
   splitright = true,
@@ -23,7 +23,7 @@ local opts = {
   writebackup = false,
 }
 
-vim.opt.formatoptions:remove "cro"
+vim.opt.formatoptions:remove "c,r,o"
 vim.opt.iskeyword:append "_"
 vim.opt.fillchars:append {
   eob = " ",
