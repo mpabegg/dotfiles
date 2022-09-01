@@ -1,1 +1,1 @@
-print("Hello from mpa")
+require('mpa.options')
