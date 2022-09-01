@@ -1,12 +1,30 @@
-local nnoremap = require("mpa.keymap").nnoremap
+local n = require("mpa.keymap").nnoremap
+local v = require("mpa.keymap").vnoremap
+local i = require("mpa.keymap").inoremap
 
-local function leader(rhs, lhs)
-  nnoremap("<leader>" .. rhs, lhs)
+local function l(rhs, lhs)
+  n("<leader>" .. rhs, lhs)
 end
+
 
 vim.g.mapleader = " "
 
-leader("fs", "<cmd>w<Cr>")
-leader("fm", "<cmd>Ex<Cr>")
+-- Better defaults
+v("<", "<gv")
+v(">", ">gv")
+i("jk", "<ESC>")
+i("kj", "<ESC>")
 
-leader("wV", "C-wv")
+
+-- File
+l("fs", "<cmd>w<Cr>")
+l("fm", "<cmd>Ex<Cr>")
+
+-- Window
+l("wv", "<cmd>vsplit<Cr>")
+l("ws", "<cmd>split<Cr>")
+l("wd", "<cmd>quit<Cr>")
+l("wj", "<C-w>j")
+l("wh", "<C-w>h")
+l("wl", "<C-w>l")
+l("wk", "<C-w>k")
