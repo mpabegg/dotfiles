@@ -1,4 +1,4 @@
-local ok, cmp = pcall(require, 'cmp')
+local ok, cmp = pcall(require, "cmp")
 if not ok then
   return
 end
@@ -61,7 +61,7 @@ end
 cmp.setup({
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end,
   },
   window = {
@@ -72,23 +72,23 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
-    ['<C-h>'] = cmp.mapping { 
+    ["<C-h>"] = cmp.mapping({
       i = cmp.mapping.abort(),
-      c = cmp.mapping.close()
-    },
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<C-l>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<Tab>"] = cmp.mapping(tab, { "i", "s", }),
+      c = cmp.mapping.close(),
+    }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<C-l>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<Tab>"] = cmp.mapping(tab, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(s_tab, { "i", "s" }),
   }),
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
-    { name = "path" }
+    { name = "path" },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -107,12 +107,12 @@ cmp.setup({
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
-    select = false
-  }, 
+    select = false,
+  },
   experimental = {
     ghost_text = true,
     native_menu = false,
-  }
+  },
 })
 
 -- Set configuration for specific filetype.

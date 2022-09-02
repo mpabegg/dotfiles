@@ -4,7 +4,7 @@ local opts = {
   background = "dark",
   backup = false,
   clipboard = "unnamed",
-  completeopt = {"menuone","preview","noselect"},
+  completeopt = { "menuone", "preview", "noselect" },
   cursorline = true,
   expandtab = true,
   number = true,
@@ -26,10 +26,10 @@ local opts = {
 
 vim.opt.formatoptions:remove "c,r,o"
 vim.opt.iskeyword:append "_"
-vim.opt.fillchars:append {
+vim.opt.fillchars:append({
   eob = " ",
-  stl = " "
-}
+  stl = " ",
+})
 
 for k, v in pairs(opts) do
   vim.opt[k] = v
