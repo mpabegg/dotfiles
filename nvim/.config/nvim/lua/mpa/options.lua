@@ -19,7 +19,7 @@ local opts = {
   termguicolors = true,
   undofile = true,
   updatetime = 100,
-  timeoutlen = 300,
+  timeoutlen = 500,
   wrap = false,
   writebackup = false,
 }
