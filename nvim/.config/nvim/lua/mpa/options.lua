@@ -10,7 +10,7 @@ local opts = {
   number = true,
   shiftwidth = 2,
   showmode = false,
---signcolumn = "yes",
+  signcolumn = "yes",
   smartcase = true,
   splitbelow = true,
   splitright = true,
@@ -19,6 +19,7 @@ local opts = {
   termguicolors = true,
   undofile = true,
   updatetime = 100,
+  timeoutlen = 300,
   wrap = false,
   writebackup = false,
 }
