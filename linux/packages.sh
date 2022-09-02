@@ -15,4 +15,5 @@ paru -Syy \
 	tree \
 	wget \
 	zsh-completions \
+  stylua \
 

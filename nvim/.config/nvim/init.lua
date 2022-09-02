@@ -7,4 +7,3 @@ require "mpa.illuminate"
 require "mpa.cmp"
 require "mpa.lsp"
 
-

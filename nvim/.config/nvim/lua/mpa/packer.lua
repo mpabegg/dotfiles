@@ -35,8 +35,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use "nvim-lua/plenary.nvim" 
+
   use "GustavoPrietoP/doom-themes.nvim"
   use "folke/tokyonight.nvim"
+  use "chriskempson/base16-vim"
 
   use "folke/which-key.nvim"
 

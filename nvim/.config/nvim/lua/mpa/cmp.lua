@@ -104,7 +104,7 @@ cmp.setup({
       })[entry.source.name]
       return vim_item
     end,
-  }, 
+  },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false

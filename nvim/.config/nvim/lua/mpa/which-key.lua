@@ -7,16 +7,13 @@ local function cmd(s)
   return function() vim.cmd(s) end
 end
 
-local setup = {
-}
-
 local leader_mappings = {
-  f = { 
+  f = {
     name = "File",
     s = { cmd "w", "Save" },
     m = { cmd "Ex", "Ex" }
   },
-  w = { 
+  w = {
     name = "Window",
     v = { cmd "vsplit", "Split Right" },
     s = { cmd "split", "Split Below" },
@@ -25,6 +22,12 @@ local leader_mappings = {
     h = { "<C-w>h", "left" },
     l = { "<C-w>l", "right" },
     k = { "<C-w>k", "up" }
+  },
+  l = {
+    name = "LSP",
+    f = { vim.lsp.buf.formatting, "Format" },
+    i = { "<cmd>LspInfo<cr>", "Info" },
+    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
   }
 }
 which_key.register(leader_mappings, { prefix = "<leader>" })
