@@ -96,33 +96,36 @@ packer.init({
 })
 
 packer.startup(function(use)
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
+  -- Basics
+  use "wbthomason/packer.nvim" -- Packer can manage itself
+  use "nvim-lua/plenary.nvim" -- Bunch of utlils, used by many plugins
 
-  use "GustavoPrietoP/doom-themes.nvim"
+  -- Colorschemes
   use "folke/tokyonight.nvim"
-  use "chriskempson/base16-vim"
 
+  --Keybindings
   use "folke/which-key.nvim"
 
+  -- Completion
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
-  use "saadparwaiz1/cmp_luasnip"
-  use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
-  use "folke/lua-dev.nvim"
+  use "hrsh7th/cmp-nvim-lsp"
 
-  use "RRethy/vim-illuminate"
-
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
-
+  -- LSP
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "jose-elias-alvarez/null-ls.nvim"
+
+  -- snippets
+  use "L3MON4D3/LuaSnip"
+  use "saadparwaiz1/cmp_luasnip"
+  use "rafamadriz/friendly-snippets"
+
+  use "RRethy/vim-illuminate"
+  use "folke/lua-dev.nvim"
 
   use({
     "nvim-treesitter/nvim-treesitter",
@@ -133,10 +136,11 @@ packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "theHamsta/nvim-treesitter-pairs"
 
+  use 'sunjon/shade.nvim'
+
   use({
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
-    requires = { { "nvim-lua/plenary.nvim" } },
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
