@@ -4,7 +4,7 @@ if not ok then
 end
 
 local telescope = require "telescope.builtin"
-local pairs = require "nvim-treesitter.pairs"
+-- local pairs = require "nvim-treesitter.pairs"
 
 local function cmd(s)
   return function()
@@ -31,6 +31,17 @@ local leader_mappings = {
         "find",
       },
     },
+    h = {
+      name = "help",
+      h = { telescope.help_tags, "telescope" },
+      k = { telescope.keymaps, "keys" }
+    },
+    l = {
+      name = "LSP",
+      f = { vim.lsp.buf.formatting, "Format" },
+      i = { cmd "LspInfo", "Info" },
+      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    },
     w = {
       name = "Window",
       v = { cmd "vsplit", "Split Right" },
@@ -40,17 +51,6 @@ local leader_mappings = {
       h = { "<C-w>h", "left" },
       l = { "<C-w>l", "right" },
       k = { "<C-w>k", "up" },
-    },
-    l = {
-      name = "LSP",
-      f = { vim.lsp.buf.formatting, "Format" },
-      i = { "<cmd>LspInfo<cr>", "Info" },
-      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    },
-    h = {
-      name = "help",
-      h = { telescope.help_tags, "telescope" },
-      k = { telescope.keymaps, "keys" }
     },
   },
 }
