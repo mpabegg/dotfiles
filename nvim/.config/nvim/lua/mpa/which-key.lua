@@ -18,7 +18,18 @@ local leader_mappings = {
       name = "File",
       s = { cmd "w", "save" },
       m = { cmd "Ex", "Ex" },
-      f = { telescope.find_files, "find" },
+      d = {
+        function()
+          telescope.git_files({ cwd = "$MYDOTDIR", hidden = true })
+        end,
+        "find",
+      },
+      f = {
+        function()
+          telescope.find_files({ hidden = true })
+        end,
+        "find",
+      },
     },
     w = {
       name = "Window",
@@ -35,6 +46,11 @@ local leader_mappings = {
       f = { vim.lsp.buf.formatting, "Format" },
       i = { "<cmd>LspInfo<cr>", "Info" },
       I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    },
+    h = {
+      name = "help",
+      h = { telescope.help_tags, "telescope" },
+      k = { telescope.keymaps, "keys" }
     },
   },
 }
