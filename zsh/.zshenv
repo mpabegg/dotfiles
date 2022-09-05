@@ -9,6 +9,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export HISTFILE=$XDG_CACHE_HOME/.zhistory
 
+export MYDOTDIR=$HOME/.dotfiles/
 # This prevents Apple Terminal from cluttering the .config/zsh folder with .zsh_sessions
 export SHELL_SESSIONS_DISABLE=1
 
