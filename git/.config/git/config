@@ -35,6 +35,9 @@
 [push]
 	default = simple
 
+[pull]
+  rebase = false
+
 [user]
 	name = Matheus Abegg
 	email = 1006630+mpabegg@users.noreply.github.com
