@@ -3,9 +3,9 @@
 (setq user-full-name "Matheus Abegg"
       user-mail-address "1006630+mpabegg@users.noreply.github.com"
 
-      doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13 :weight 'normal)
+      doom-font (font-spec :family "ComicCode Nerd Font" :size 13 :weight 'normal)
       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 13)
-      doom-theme 'doom-one
+      doom-theme 'doom-tokyo-night
       display-line-numbers-type 'relative
 
       org-directory "~/.org/"
@@ -14,9 +14,6 @@
       doom-leader-alt-key "C-SPC")
 
 (setq projectile-track-known-projects-automatically nil)
-
-(setq rubocop-format-on-save t
-      rubocop-autocorrect-on-save t)
 
 (add-hook! 'focus-out-hook (save-some-buffers t))
 
