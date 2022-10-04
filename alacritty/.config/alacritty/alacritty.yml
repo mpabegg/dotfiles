@@ -62,7 +62,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: buttonless
+  decorations: none
 
   # Background opacity
   #
@@ -85,7 +85,7 @@ window:
   #title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+  dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -119,7 +119,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "SauceCodePro Nerd Font"
+    family: "ComicCode Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -158,7 +158,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 13.0
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -184,12 +184,10 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-colors:
-  # Default colors
-  primary:
-    background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+# # TokyoNight Alacritty Colors
+import:
+  # - ~/.dotfiles/alacritty/.config/alacritty/base16-eighties.yml
+  - ~/.dotfiles/alacritty/.config/alacritty/tokyonight_storm.yml
 
     # Bright and dim foreground colors
     #
