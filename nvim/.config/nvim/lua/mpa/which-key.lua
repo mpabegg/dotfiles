@@ -14,6 +14,10 @@ end
 
 local leader_mappings = {
   ["<leader>"] = {
+    b = {
+      name = "Buffers",
+      b = { telescope.buffers, "List" }
+    },
     f = {
       name = "File",
       s = { cmd "w", "save" },
@@ -22,7 +26,7 @@ local leader_mappings = {
         function()
           telescope.git_files({ cwd = "$MYDOTDIR", hidden = true })
         end,
-        "find",
+        "find dotfile",
       },
       f = {
         function()
@@ -34,7 +38,7 @@ local leader_mappings = {
     h = {
       name = "help",
       h = { telescope.help_tags, "telescope" },
-      k = { telescope.keymaps, "keys" }
+      k = { telescope.keymaps, "keys" },
     },
     l = {
       name = "LSP",
