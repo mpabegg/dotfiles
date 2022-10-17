@@ -1,3 +1,4 @@
+# vim: set filetype=zsh :
 # Quickly change to frequently used directories
 
 local -A aliases
