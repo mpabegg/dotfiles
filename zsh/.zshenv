@@ -1,15 +1,31 @@
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Specification
-# Where user-specific data files should be written (analogous to /usr/share).
-export XDG_DATA_HOME=$HOME/.local/share
-# Where user-specific non-essential (cached) data should be written (analogous to /var/cache)
-export XDG_CONFIG_HOME=$HOME/.config
-# Where user-specific non-essential (cached) data should be written (analogous to /var/cache).
-export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state/
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
 
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-export HISTFILE=$XDG_CACHE_HOME/.zhistory
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export HISTFILE="$XDG_CACHE_HOME"/.zhistory
 
-export MYDOTDIR=$HOME/.dotfiles/
+export MYDOTDIR="$HOME"/.dotfiles/
+export MYPROJECTSDIR="$HOME"/code
+
+# Ruby stuff
+export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle/config
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+
+# Rust
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+
+# ASDF
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME"/asdf/asdfrc
+export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
+
 # This prevents Apple Terminal from cluttering the .config/zsh folder with .zsh_sessions
 export SHELL_SESSIONS_DISABLE=1
 

@@ -1,0 +1,11 @@
+# Quickly change to frequently used directories
+
+local -A aliases
+aliases=(
+    d        "$MYPROJECTSDIR"
+    df       "$MYDOTDIR"
+    t        "$MYPROJECTSDIR"/tempo
+)
+
+cd ${aliases[${1:-d}]}
+pwd
