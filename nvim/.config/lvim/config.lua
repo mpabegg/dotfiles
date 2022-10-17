@@ -14,11 +14,13 @@ lvim.log.level = "warn"
 --   timeout = 5000
 -- }
 lvim.format_on_save = false
-lvim.colorscheme = "tokyonight-storm"
+lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "base16-eighties"
 
 -- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
+lvim.builtin.theme.options.dim_inactive = true
+lvim.builtin.theme.options.style = "moon"
+lvim.builtin.theme.options.transparent = true
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -184,19 +186,19 @@ lvim.plugins = {
   --   "folke/trouble.nvim",
   --   cmd = "TroubleToggle",
   -- },
-  'RRethy/nvim-base16'
+  "RRethy/nvim-base16"
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.json", "*.jsonc" },
+  -- enable wrap mode for json files only
+  command = "setlocal wrap",
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zsh",
+  callback = function()
+    -- let treesitter use bash highlight for zsh files as well
+    require("nvim-treesitter.highlight").attach(0, "bash")
+  end,
+})
