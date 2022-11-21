@@ -9,15 +9,15 @@ eval "$(starship init zsh)"
 
 if type brew &>/dev/null
 then
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    autoload -Uz compinit
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
 
     # Shamelessly borrowed from Prezto. Regenerates the completion cache approximately daily.
     _comp_files=($XDG_CACHE_HOME/zsh/zcompdump(Nm-20))
     if (( $#_comp_files )); then
-        compinit -i -C -d "$XDG_CACHE_HOME/zsh/zcompdump"
+      compinit -i -C -d "$XDG_CACHE_HOME/zsh/zcompdump"
     else
-        compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump"
+      compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump"
     fi
     unset _comp_files
 fi
@@ -36,7 +36,7 @@ source "$ZDOTDIR/zsh-functions"
 zsh_init_plugins
 
 for f in $ZDOTDIR/adds/*.zsh; do
-    source $f
+  source $f
 done
 
 zsh_add_bin "secrets"
@@ -48,11 +48,12 @@ bindkey '^L' autosuggest-accept
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 if [[ $OSTYPE == linux-gnu* ]]; then
-    source /opt/asdf-vm/asdf.sh
+  source /opt/asdf-vm/asdf.sh
 else
-    source $(brew --prefix asdf)/libexec/asdf.sh
+  source $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export ARCHFLAGS="-arch $(uname -m)"
 
 export PATH="$HOME/.emacs-distros/doom/bin:$PATH"
