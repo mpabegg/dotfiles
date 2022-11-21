@@ -73,11 +73,10 @@ lvim.builtin.which_key.mappings["*"] = { "<cmd>Telescope grep_string<cr>", "Seac
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.breadcrumbs.active = true
+lvim.builtin.breadcrumbs.active = false
 lvim.builtin.bufferline.active = false
 vim.opt.showtabline = 0
 
@@ -88,14 +87,16 @@ lvim.builtin.treesitter.ensure_installed = {
   "javascript",
   "json",
   "lua",
-  "ruby",
   "rust",
   "tsx",
+  "ruby",
   "typescript",
   "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.rainbow.enable = true
+vim.list_extend(lvim.builtin.treesitter.indent.disable, { "ruby" })
 lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
