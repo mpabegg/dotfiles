@@ -7,3 +7,6 @@
 [submodule "emacs/.emacs-distros/crafted"]
 	path = emacs/.emacs-distros/crafted
 	url = https://github.com/SystemCrafters/crafted-emacs
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
