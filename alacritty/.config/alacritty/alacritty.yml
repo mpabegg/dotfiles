@@ -14,14 +14,15 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  # TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -46,12 +47,12 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
+  # padding:
   #  x: 0
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: false
 
   # Window decorations
   #
@@ -68,7 +69,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.95
+  opacity: 1
 
   # Startup Mode (changes require restart)
   #
@@ -79,7 +80,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Maximized
+  startup_mode: SimpleFullscreen
 
   # Window title
   #title: Alacritty
@@ -158,7 +159,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 13
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -184,10 +185,13 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# # TokyoNight Alacritty Colors
 import:
   # - ~/.dotfiles/alacritty/.config/alacritty/base16-eighties.yml
-  - ~/.dotfiles/alacritty/.config/alacritty/tokyonight_storm.yml
+  # - ~/.dotfiles/alacritty/.config/alacritty/tokyonight_storm.yml
+  # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-latte.yml
+  # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-frappe.yml
+  # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-mocha.yml
+  - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-macchiato.yml
 
     # Bright and dim foreground colors
     #
@@ -448,7 +452,7 @@ live_config_reload: true
 #working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
+alt_send_esc: false
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
