@@ -141,6 +141,8 @@ packer.startup(function(use)
     tag = "0.1.0",
   })
 
+  use 'christoomey/vim-tmux-navigator'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

@@ -14,8 +14,7 @@ lvim.log.level = "warn"
 --   timeout = 5000
 -- }
 lvim.format_on_save = false
-lvim.colorscheme = "tokyonight"
--- lvim.colorscheme = "base16-eighties"
+lvim.colorscheme = "catppuccin-macchiato"
 
 -- Change theme settings
 lvim.builtin.theme.options.dim_inactive = true
@@ -189,7 +188,8 @@ lvim.plugins = {
   --   "folke/trouble.nvim",
   --   cmd = "TroubleToggle",
   -- },
-  "RRethy/nvim-base16"
+  { "catppuccin/nvim", as = "catppuccin" },
+  "christoomey/vim-tmux-navigator"
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -205,3 +205,5 @@ vim.api.nvim_create_autocmd("FileType", {
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
+
+lvim.builtin.lir.show_hidden_files = true
