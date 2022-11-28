@@ -1,9 +1,7 @@
 tap 'homebrew/cask-fonts'
-tap 'd12frosted/emacs-plus'
 
 brew 'asdf'
 brew 'cmake'
-brew 'emacs-plus@28', args: %w[with-no-titlebar with-native-comp with-modern-doom-icon with-xwidgets], restart_service: false
 brew 'eslint'
 brew 'gcc'
 brew 'grep'
