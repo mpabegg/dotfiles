@@ -16,20 +16,15 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "catppuccin-macchiato"
 
--- Change theme settings
-lvim.builtin.theme.options.dim_inactive = true
-lvim.builtin.theme.options.style = "moon"
-lvim.builtin.theme.options.transparent = true
-
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -76,8 +71,8 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.breadcrumbs.active = false
-lvim.builtin.bufferline.active = false
-vim.opt.showtabline = 0
+lvim.builtin.bufferline.active = true
+vim.opt.relativenumber = true -- set relative numbered lines
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
