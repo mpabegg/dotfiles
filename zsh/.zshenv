@@ -29,7 +29,12 @@ export ASDF_DATA_DIR="$XDG_DATA_HOME"/asdf
 # This prevents Apple Terminal from cluttering the .config/zsh folder with .zsh_sessions
 export SHELL_SESSIONS_DISABLE=1
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_CTYPE=UTF-8
-
+if [[ $OSTYPE == linux-gnu* ]]; then
+  export LC_ALL=en_US.utf-8
+  export LANG=en_US.utf-8
+  export LC_CTYPE=en_US.utf-8
+else
+  export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export LC_CTYPE=en_US.UTF-8
+fi

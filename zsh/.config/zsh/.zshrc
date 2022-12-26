@@ -3,7 +3,11 @@
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache/"
 zstyle ':completion:*' menu select
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $OSTYPE == linux-gnu* ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 eval "$(starship init zsh)"
 
@@ -47,11 +51,7 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 bindkey '^L' autosuggest-accept
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
-if [[ $OSTYPE == linux-gnu* ]]; then
-  source /opt/asdf-vm/asdf.sh
-else
-  source $(brew --prefix asdf)/libexec/asdf.sh
-fi
+source $(brew --prefix asdf)/libexec/asdf.sh
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export ARCHFLAGS="-arch $(uname -m)"
