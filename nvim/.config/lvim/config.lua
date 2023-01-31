@@ -15,6 +15,7 @@ lvim.log.level = "warn"
 -- }
 lvim.format_on_save = false
 lvim.colorscheme = "catppuccin-macchiato"
+vim.opt.hlsearch = false
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -184,7 +185,9 @@ lvim.plugins = {
   --   cmd = "TroubleToggle",
   -- },
   { "catppuccin/nvim", as = "catppuccin" },
-  "christoomey/vim-tmux-navigator"
+  "christoomey/vim-tmux-navigator",
+  'j-hui/fidget.nvim',
+
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
