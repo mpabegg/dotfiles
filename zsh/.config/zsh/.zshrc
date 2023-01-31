@@ -43,13 +43,12 @@ for f in $ZDOTDIR/adds/*.zsh; do
   source $f
 done
 
-zsh_add_bin "secrets"
-
 zsh_add_plugin "zimfw/environment"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#949494"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-bindkey '^L' autosuggest-accept
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+bindkey '^Y' autosuggest-accept
 
 source $(brew --prefix asdf)/libexec/asdf.sh
 
