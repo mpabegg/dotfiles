@@ -1,6 +1,6 @@
--- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
+-- since this is just an example spec, don't actually load anything here and return an empty spec
+if true then return { } end
 
 -- every spec file under config.plugins will be loaded automatically by lazy.nvim
 --
@@ -168,8 +168,8 @@ return {
     opts = function(_, opts)
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
-          "tsx",
-          "typescript",
+        "tsx",
+        "typescript",
       })
     end,
   },
