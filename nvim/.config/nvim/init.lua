@@ -20,24 +20,61 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("mpabegg.options")
 require("lazy").setup({
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		config = function() 
-			vim.cmd.colorscheme "catppuccin-macchiato"
-		end
-	},
-	{ 
-		"alexghergh/nvim-tmux-navigation",
-		config = { 
-			disable_when_zoomed = true,
-			keybindings = {
-				left = "<C-h>",
-				down = "<C-j>",
-				up = "<C-k>",
-				right = "<C-l>",
-			},
-		},
-	},
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function() 
+      vim.cmd.colorscheme "catppuccin-macchiato"
+    end
+  },
+  { 
+    "alexghergh/nvim-tmux-navigation",
+    config = { 
+      disable_when_zoomed = true,
+      keybindings = {
+        left = "<C-h>",
+        down = "<C-j>",
+        up = "<C-k>",
+        right = "<C-l>",
+      },
+    },
+  },
+  { 
+    'nvim-treesitter/nvim-treesitter',
+    init = function ()
+      require("nvim-treesitter.configs").setup({
+        highlight = { enabled = true },
+        indent = { enabled = true },
+        ensure_installed = {
+          "bash",
+          "elixir",
+          "html",
+          "javascript",
+          "json",
+          "luadoc", 
+          "markdown",
+          "markdown_inline",
+          "query",
+          "ruby",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc", 
+          "yaml",
+        }
+      })
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ":TSUpdate",
+  },
+  {
+    "mbbill/undotree",
+    init = function ()
+      vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
+    end
+  }
 })
