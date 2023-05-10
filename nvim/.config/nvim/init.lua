@@ -1,4 +1,4 @@
--- Set <space> as the leader key
+
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -29,6 +29,7 @@ require("lazy").setup({
       vim.cmd.colorscheme "catppuccin-macchiato"
     end
   },
+
   { 
     "alexghergh/nvim-tmux-navigation",
     config = { 
@@ -41,8 +42,10 @@ require("lazy").setup({
       },
     },
   },
+
   { 
     'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
     init = function ()
       require("nvim-treesitter.configs").setup({
         highlight = { enabled = true },
@@ -61,20 +64,19 @@ require("lazy").setup({
           "tsx",
           "typescript",
           "vim",
-          "vimdoc", 
+          "vimdoc",     
           "yaml",
         }
       })
     end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ":TSUpdate",
   },
-  {
+
+  {          
     "mbbill/undotree",
     init = function ()
       vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
     end
-  }
+  },
+  
+  { "tpope/vim-sleuth" }
 })
