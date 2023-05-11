@@ -1,4 +1,3 @@
-
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -25,8 +24,9 @@ require("lazy").setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    config = function() 
-      vim.cmd.colorscheme "catppuccin-macchiato"
+    init = function() 
+      require("catppuccin").setup({ flavour = "frappe" })
+      vim.cmd.colorscheme "catppuccin"
     end
   },
 
@@ -77,6 +77,4 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
     end
   },
-  
-  { "tpope/vim-sleuth" }
 })
