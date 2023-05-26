@@ -189,9 +189,9 @@ import:
   # - ~/.dotfiles/alacritty/.config/alacritty/base16-eighties.yml
   # - ~/.dotfiles/alacritty/.config/alacritty/tokyonight_storm.yml
   # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-latte.yml
-  # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-frappe.yml
+  - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-frappe.yml
   # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-mocha.yml
-  - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-macchiato.yml
+  # - ~/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-macchiato.yml
 
     # Bright and dim foreground colors
     #
@@ -452,7 +452,7 @@ live_config_reload: true
 #working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: false
+# alt_send_esc: false
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
