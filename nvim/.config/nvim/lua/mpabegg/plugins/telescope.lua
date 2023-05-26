@@ -1,44 +1,44 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  tag = "0.1.1",
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.1',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
     {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     },
   },
   init = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
-    local fb_actions = require("telescope").extensions.file_browser.actions
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
+    local fb_actions = require('telescope').extensions.file_browser.actions
 
     telescope.setup({
       extensions = {
         file_browser = {
-          initial_mode = "normal",
-          theme = "ivy",
+          initial_mode = 'normal',
+          theme = 'ivy',
           prview = false,
         },
       },
       defaults = {
         mappings = {
-          ["i"] = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-x>"] = actions.toggle_selection,
+          ['i'] = {
+            ['<C-k>'] = actions.move_selection_previous,
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-x>'] = actions.toggle_selection,
           },
-          ["n"] = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["x"] = actions.toggle_selection,
+          ['n'] = {
+            ['<C-k>'] = actions.move_selection_previous,
+            ['<C-j>'] = actions.move_selection_next,
+            ['x'] = actions.toggle_selection,
           },
         },
       },
     })
 
-    telescope.load_extension("file_browser")
-    pcall(telescope.load_extension("fzf"))
+    telescope.load_extension('file_browser')
+    pcall(telescope.load_extension('fzf'))
   end,
 }
