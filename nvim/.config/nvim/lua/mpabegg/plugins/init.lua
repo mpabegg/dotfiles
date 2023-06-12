@@ -17,7 +17,7 @@ return {
 
   {
     'alexghergh/nvim-tmux-navigation',
-    config = {
+    opts = {
       disable_when_zoomed = true,
       keybindings = {
         left = '<C-h>',
@@ -45,4 +45,5 @@ return {
   { 'echasnovski/mini.comment', config = true },
   { 'echasnovski/mini.indentscope', config = true },
   { 'echasnovski/mini.trailspace', config = true },
+  { 'MaximilianLloyd/lazy-reload.nvim', config = true },
 }

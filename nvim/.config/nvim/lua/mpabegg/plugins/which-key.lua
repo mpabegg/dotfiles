@@ -1,9 +1,3 @@
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
@@ -31,10 +25,21 @@ return {
         v = { '<C-w>v', 'Split to the Right' },
         h = { '<C-w>h', 'Focus Left' },
         l = { '<C-w>l', 'Focus Right' },
+        d = { '<C-w>c', 'Delete' },
+      },
+      h = {
+        name = "+help",
+        k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
+        h = { '<cmd>Telescope help_tags<cr>', 'Help' },
       },
       ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search Project' },
       ['*'] = { '<cmd>Telescope grep_string<cr>', 'Find Word' },
       ['U'] = { vim.cmd.UndotreeToggle, 'Undo Tree' },
+      ['rk'] = { '<cmd>ReloadPlugin which-key.nvim<cr>', 'Reloads which-key' },
     }, { prefix = '<leader>' })
+
+    wk.register({
+      d = { [["_d]], "Delete into void register" }
+    }, { prefix = '<leader>', mode = { 'n', 'v' }})
   end,
 }
