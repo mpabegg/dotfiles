@@ -40,7 +40,6 @@ return {
             function()
               local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
 
-              -- local buf_ft = vim.bo.filetype
               local buf_client_names = {}
 
               -- add client
@@ -50,13 +49,17 @@ return {
                 end
               end
 
-              -- local s = require "null-ls.sources"
-              -- local supported_formatters = table.sort(sources.get_supported(buf_ft, "formatting"))
-              -- local supported_linters = table.sort(sources.get_supported(buf_ft, "diagnostics"))
-
-              -- vim.list_extend(buf_client_names, supported_formatters)
-              -- vim.list_extend(buf_client_names, supported_linters)
+              -- local buf_ft = vim.bo.filetype
+              -- local sources = require('null-ls.sources')
+              -- local null_ls = require('null-ls')
               --
+              -- local supported_formatters = sources.get_supported(buf_ft, null_ls.methods.FORMATTING)
+              -- local formatters = table.sort(supported_formatters)
+              -- vim.list_extend(buf_client_names, formatters)
+              --
+              -- local supported_linters = table.sort(sources.get_supported(buf_ft, null_ls.methods.DIAGNOSTICS))
+              -- vim.list_extend(buf_client_names, supported_linters)
+
               local unique_client_names = table.concat(buf_client_names, ', ')
               local language_servers = string.format('[%s]', unique_client_names)
 
