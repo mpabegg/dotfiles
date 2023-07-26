@@ -10,7 +10,7 @@ return {
         if client.server_capabilities.documentSymbolProvider then
           require('nvim-navic').attach(client, bufnr)
         end
-        lsp.default_keymaps({ buffer = bufnr })
+        lsp.default_keymaps({ buffer = bufnr, preserve_mappings = false })
       end)
 
       lsp.extend_cmp()
