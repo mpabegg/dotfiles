@@ -14,10 +14,10 @@ return {
       },
       f = {
         name = '+file',
-        b = { '<cmd>Telescope file_browser<cr>', 'File Browser' },
         f = { '<cmd>Telescope find_files<cr>', 'Find File' },
         r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
-        t = { vim.cmd.Ex, 'Netrw' },
+        t = { vim.cmd.Neotree, 'Neotree' },
+        s = { '<cmd>w<cr>', 'Save File' },
       },
       w = {
         name = '+window',
@@ -25,6 +25,8 @@ return {
         v = { '<C-w>v', 'Split to the Right' },
         h = { '<C-w>h', 'Focus Left' },
         l = { '<C-w>l', 'Focus Right' },
+        j = { '<C-w>j', 'Focus Down' },
+        k = { '<C-w>k', 'Focus Up' },
         d = { '<C-w>c', 'Delete' },
       },
       h = {

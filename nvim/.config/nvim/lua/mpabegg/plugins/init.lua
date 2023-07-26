@@ -1,21 +1,5 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    init = function()
-      require('catppuccin').setup({
-        flavour = 'frappe',
-        custom_highlights = function(colors)
-          return {
-            ['Error'] = { bg = colors.red, fg = colors.base },
-          }
-        end,
-      })
-      vim.cmd.colorscheme('catppuccin')
-    end,
-  },
-
-  {
     'alexghergh/nvim-tmux-navigation',
     opts = {
       disable_when_zoomed = true,
@@ -45,5 +29,6 @@ return {
   { 'echasnovski/mini.comment', config = true },
   { 'echasnovski/mini.indentscope', config = true },
   { 'echasnovski/mini.trailspace', config = true },
+  -- { 'echasnovski/mini.pairs', config = true },
   { 'MaximilianLloyd/lazy-reload.nvim', config = true },
 }

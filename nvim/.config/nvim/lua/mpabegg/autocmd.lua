@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     require('mini.trailspace').trim_last_lines()
   end,
 })
+
+-- Don't auto commenting new lines
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = mpabegg,
+  pattern = '',
+  command = 'set fo-=c fo-=r fo-=o'
+})
