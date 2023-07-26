@@ -30,7 +30,7 @@ return {
         d = { '<C-w>c', 'Delete' },
       },
       h = {
-        name = "+help",
+        name = '+help',
         k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
         h = { '<cmd>Telescope help_tags<cr>', 'Help' },
       },
@@ -41,7 +41,7 @@ return {
     }, { prefix = '<leader>' })
 
     wk.register({
-      d = { [["_d]], "Delete into void register" }
-    }, { prefix = '<leader>', mode = { 'n', 'v' }})
+      d = { [["_d]], 'Delete into void register' },
+    }, { prefix = '<leader>', mode = { 'n', 'v' } })
   end,
 }

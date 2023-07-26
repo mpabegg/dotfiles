@@ -24,5 +24,5 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 vim.api.nvim_create_autocmd('BufEnter', {
   group = mpabegg,
   pattern = '',
-  command = 'set fo-=c fo-=r fo-=o'
+  command = 'set fo-=c fo-=r fo-=o',
 })
