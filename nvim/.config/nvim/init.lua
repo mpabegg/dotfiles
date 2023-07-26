@@ -22,7 +22,4 @@ require('lazy').setup({
   install = {
     colorscheme = { 'catppuccin frappe' },
   },
-  change_detection = {
-    notify = false,
-  },
 })
