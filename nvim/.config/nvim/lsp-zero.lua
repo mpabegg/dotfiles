@@ -1,13 +1,12 @@
 local setup_competion = function(lsp)
   lsp.extend_cmp()
   local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
+  local cmp_action = require('lsp-zero').cmp_action()
   local select_opts = { behavior = cmp.SelectBehavior.Select }
   cmp.setup({
     mapping = {
-
-    ['<Tab>'] = cmp_action.luasnip_supertab(),
-    ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+      ['<Tab>'] = cmp_action.luasnip_supertab(),
+      ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
       ['<CR>'] = cmp.mapping.confirm({ select = false }),
       ['<C-k>'] = cmp.mapping(function()
         if cmp.visible() then
@@ -55,7 +54,7 @@ return {
       require('mason-lspconfig').setup({
         -- Replace the language servers listed here
         -- with the ones you want to install
-        ensure_installed = { 'tsserver', 'lua_ls', 'solargraph' },
+        ensure_installed = { 'tsserver', 'lua_ls', 'solargraph', 'clangd' },
         handlers = {
           lsp.default_setup,
           lua_ls = function()
@@ -73,6 +72,7 @@ return {
         ensure_installed = {
           'solargraph',
           'stylua',
+          'clang-format',
         },
         automatic_installation = false,
         handlers = {},

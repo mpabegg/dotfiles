@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require('mpabegg.options')
 require('mpabegg.autocmd')
 require('mpabegg.remap')
+require('mpabegg.diagnostics')
 require('lazy').setup({
   spec = 'mpabegg.plugins',
   install = {

@@ -24,6 +24,7 @@ vim.opt.termguicolors = true
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.opt.undofile = true
 vim.opt.wrap = false
+vim.opt.autochdir = false
 
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldmethod = 'expr'

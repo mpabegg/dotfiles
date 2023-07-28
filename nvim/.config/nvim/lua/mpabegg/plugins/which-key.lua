@@ -18,6 +18,7 @@ return {
         r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
         t = { vim.cmd.Neotree, 'Neotree' },
         s = { '<cmd>w<cr>', 'Save File' },
+        S = { '<cmd>wa<cr>', 'Save File' },
       },
       w = {
         name = '+window',
