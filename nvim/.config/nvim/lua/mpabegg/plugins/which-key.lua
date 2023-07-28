@@ -35,6 +35,9 @@ return {
         k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
         h = { '<cmd>Telescope help_tags<cr>', 'Help' },
       },
+      g = {
+        ["="] = { vim.cmd.Format, "Format Buffer" },
+      },
       ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search Project' },
       ['*'] = { '<cmd>Telescope grep_string<cr>', 'Find Word' },
       ['U'] = { vim.cmd.UndotreeToggle, 'Undo Tree' },
