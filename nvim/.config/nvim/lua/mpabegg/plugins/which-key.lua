@@ -20,6 +20,9 @@ return {
         s = { '<cmd>w<cr>', 'Save File' },
         S = { '<cmd>wa<cr>', 'Save File' },
       },
+      l = {
+        name = '+lsp',
+      },
       w = {
         name = '+window',
         s = { '<C-w>s', 'Split Below' },
@@ -34,6 +37,11 @@ return {
         name = '+help',
         k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
         h = { '<cmd>Telescope help_tags<cr>', 'Help' },
+      },
+      g = {
+        name = '+git',
+        h = { name = '+hunk' },
+        s = { require('neogit').open, 'Git Status' },
       },
       ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search Project' },
       ['*'] = { '<cmd>Telescope grep_string<cr>', 'Find Word' },
