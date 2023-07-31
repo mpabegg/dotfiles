@@ -38,42 +38,6 @@ return {
           },
           {
             function()
-              local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-
-              local buf_client_names = {}
-
-              -- add client
-              for _, client in pairs(buf_clients) do
-                if client.name ~= 'null-ls' then
-                  table.insert(buf_client_names, client.name)
-                end
-              end
-
-              -- local buf_ft = vim.bo.filetype
-              -- local sources = require('null-ls.sources')
-              -- local null_ls = require('null-ls')
-              --
-              -- local supported_formatters = sources.get_supported(buf_ft, null_ls.methods.FORMATTING)
-              -- local formatters = table.sort(supported_formatters)
-              -- vim.list_extend(buf_client_names, formatters)
-              --
-              -- local supported_linters = table.sort(sources.get_supported(buf_ft, null_ls.methods.DIAGNOSTICS))
-              -- vim.list_extend(buf_client_names, supported_linters)
-
-              local unique_client_names = table.concat(buf_client_names, ', ')
-              local language_servers = string.format('[%s]', unique_client_names)
-
-              return language_servers
-            end,
-            cond = function()
-              local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-              return #buf_clients ~= 0
-            end,
-            color = { gui = 'bold' },
-            separator = '',
-          },
-          {
-            function()
               local shiftwidth = vim.api.nvim_buf_get_option(0, 'shiftwidth')
               return icons.ui.tab .. ' ' .. shiftwidth
             end,
