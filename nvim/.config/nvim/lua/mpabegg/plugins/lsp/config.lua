@@ -53,6 +53,7 @@ M.on_attach = function(lsp)
     -- whichever one creates the Format command as well :)
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
       vim.lsp.buf.format()
+      vim.cmd.write()
     end, { desc = 'Format current buffer with LSP' })
   end)
 end
