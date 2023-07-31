@@ -14,3 +14,5 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q:", "<nop>")
+
+vim.keymap.set("n", "g=", vim.cmd.Format, { desc = "Format Buffer" })
