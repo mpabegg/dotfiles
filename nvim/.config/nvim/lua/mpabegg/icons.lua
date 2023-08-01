@@ -3,6 +3,10 @@ return {
     bug = '',
     clock = '',
     tab = '󰌒',
+    carret_right = '',
+    carret_left = '',
+    carret_down = '',
+    carret_up = '',
   },
   file = {
     modified = '',
