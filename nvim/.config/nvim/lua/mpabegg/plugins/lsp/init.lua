@@ -36,9 +36,5 @@ return {
     config = true,
     dependencies = { 'L3MON4D3/LuaSnip' },
   },
-  {
-    'SmiteshP/nvim-navic',
-    dependencies = { 'neovim/nvim-lspconfig' },
-  },
   { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
 }
