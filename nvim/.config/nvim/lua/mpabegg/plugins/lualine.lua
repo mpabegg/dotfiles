@@ -10,42 +10,37 @@ return {
         disabled_filetypes = { statusline = { 'dashboard', 'alpha' } },
       },
       sections = {
-        -- lualine_a = { { "mode", fmt = function(str) return str:sub(1,1) end } },
-        lualine_a = { { 'branch', color = { gui = 'italic' } } },
+        lualine_a = {
+          {
+            'filetype',
+            icon_only = true,
+            separator = '',
+            colored = false,
+            padding = {
+              left = 1,
+              right = 1,
+            },
+          },
+        },
         lualine_b = {
-          { 'diff', symbols = icons.git },
-          { 'filename', path = 1, symbols = { modified = icons.file.modified, readonly = '', unnamed = '' } },
+          { 'filename', path = 4, symbols = { modified = icons.file.modified, readonly = '', unnamed = '' } },
         },
         lualine_c = {
           {
-            function()
-              return require('nvim-navic').get_location()
-            end,
-            cond = function()
-              return package.loaded['nvim-navic'] and require('nvim-navic').is_available()
-            end,
+            'diagnostics',
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
           },
         },
         lualine_x = {
-          {
-            'diagnostics',
-            symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
-            },
-          },
-          {
-            function()
-              local shiftwidth = vim.api.nvim_buf_get_option(0, 'shiftwidth')
-              return icons.ui.tab .. ' ' .. shiftwidth
-            end,
-            padding = 1,
-          },
+          { 'diff', symbols = icons.git },
         },
         lualine_y = {
-          { 'filetype', icon_only = false, separator = '', padding = { left = 1, right = 2 } },
+          { 'branch', color = { gui = 'italic' } },
         },
         lualine_z = {
           { 'fileformat', padding = { left = 1, right = 2 } },
