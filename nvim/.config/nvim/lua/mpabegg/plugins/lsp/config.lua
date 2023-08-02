@@ -31,9 +31,7 @@ end
 
 M.on_attach = function(lsp)
   lsp.on_attach(function(client, bufnr)
-    if client.name == 'solargraph' then
-      client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-    end
+    require('mpabegg.plugins.lsp.ruby').on_attach(client, bufnr)
 
     lsp.default_keymaps()
 
@@ -67,13 +65,8 @@ M.setup_mason = function(lsp)
       lua_ls = function()
         require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
       end,
-      solargraph = function()
-        require('lspconfig').solargraph.setup({
-          root_dir = require('lspconfig.util').root_pattern('.git'),
-          debounce_text_changes = 150,
-        })
-      end,
-    },
+      solargraph = require('mpabegg.plugins.lsp.ruby').solargraph,
+    }
   })
 end
 
@@ -85,37 +78,7 @@ M.setup_null_ls = function()
     automatic_installation = false,
     handlers = {},
   })
-
-  local null_ls = require('null-ls')
-  local rubocop_format = null_ls.builtins.formatting.rubocop
-  local rubocop_diagnostic = null_ls.builtins.diagnostics.rubocop
-  local has_gemfile = function(utils)
-    return utils.root_has_file({ 'Gemfile', '*.gemspec' })
-  end
-  local does_not_have_gemfile = function(utils)
-    return not has_gemfile(utils)
-  end
-
-  null_ls.setup({
-    update_in_insert = false,
-    debounce = 150,
-    sources = {
-      rubocop_format.with({
-        condition = has_gemfile,
-        command = 'bundle',
-        args = vim.list_extend({ 'exec', 'rubocop', '-a' }, rubocop_format._opts.args),
-        timeout = -1,
-      }),
-      rubocop_format.with({ condition = does_not_have_gemfile }),
-      rubocop_diagnostic.with({
-        condition = has_gemfile,
-        command = 'bundle',
-        args = vim.list_extend({ 'exec', 'rubocop', '-a' }, rubocop_diagnostic._opts.args),
-        timeout = -1,
-      }),
-      rubocop_diagnostic.with({ condition = does_not_have_gemfile }),
-    },
-  })
+  require('mpabegg.plugins.lsp.ruby').null_ls()
 end
 
 return M
