@@ -31,9 +31,10 @@ end
 
 M.on_attach = function(lsp)
   lsp.on_attach(function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-      require('nvim-navic').attach(client, bufnr)
+    if client.name == 'solargraph' then
+      client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
     end
+
     lsp.default_keymaps()
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = 'Goto Declaration' })
@@ -41,6 +42,10 @@ M.on_attach = function(lsp)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr, desc = 'Goto References' })
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP Hover' })
     vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = bufnr, desc = 'Signature Help' })
+    vim.keymap.set('n', 'g=', vim.lsp.buf.format, { buffer = bufnr, desc = 'Format Buffer' })
+    vim.keymap.set('n', '<leader>lF', function()
+      vim.lsp.buf.format({ async = true })
+    end, { buffer = bufnr, desc = 'Format Buffer' })
 
     if client.server_capabilities.renameProvider then
       vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { buffer = bufnr, desc = 'Rename' })
@@ -48,13 +53,6 @@ M.on_attach = function(lsp)
     if client.server_capabilities.codeActionProvider then
       vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = bufnr, desc = 'Code Action' })
     end
-
-    -- Hopefully this will work together with linter.nvim or formatters.nvim,
-    -- whichever one creates the Format command as well :)
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-      vim.lsp.buf.format()
-      vim.cmd.write()
-    end, { desc = 'Format current buffer with LSP' })
   end)
 end
 
@@ -71,6 +69,7 @@ M.setup_mason = function(lsp)
       end,
       solargraph = function()
         require('lspconfig').solargraph.setup({
+          root_dir = require('lspconfig.util').root_pattern('.git'),
           debounce_text_changes = 150,
         })
       end,
@@ -81,7 +80,6 @@ end
 M.setup_null_ls = function()
   require('mason-null-ls').setup({
     ensure_installed = {
-      'solargraph',
       'stylua',
     },
     automatic_installation = false,
@@ -99,6 +97,8 @@ M.setup_null_ls = function()
   end
 
   null_ls.setup({
+    update_in_insert = false,
+    debounce = 150,
     sources = {
       rubocop_format.with({
         condition = has_gemfile,

@@ -22,8 +22,6 @@ return {
     vim.keymap.set('n', 'q:', '<nop>')
     vim.keymap.set('n', '?:', '<nop>')
 
-    vim.keymap.set('n', 'g=', vim.cmd.Format, { desc = 'Format Buffer' })
-
     local wk = require('which-key')
     wk.register({
       b = {
