@@ -23,7 +23,7 @@ return {
           },
         },
         lualine_b = {
-          { 'filename', path = 4, symbols = { modified = icons.file.modified, readonly = '', unnamed = '' } },
+          { 'filename', path = 1, symbols = { modified = icons.file.modified, readonly = '', unnamed = '' } },
         },
         lualine_c = {
           {
