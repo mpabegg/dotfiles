@@ -1,7 +1,7 @@
 local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = 'Goto Declaration' })
-  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'Goto Definition' })
   vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { buffer = bufnr, desc = 'Goto Definition' })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.type_definition, { buffer = bufnr, desc = 'Goto Type' })
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { buffer = bufnr, desc = 'Goto References' })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP Hover' })
   vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = bufnr, desc = 'Signature Help' })
@@ -10,7 +10,7 @@ local on_attach = function(client, bufnr)
     { buffer = bufnr, desc = 'Document Symbols' })
   vim.keymap.set('n', '<leader>lF', function()
     vim.lsp.buf.format({ async = true })
-  end, { buffer = bufnr, desc = 'Format Buffer' })
+  end, { buffer = bufnr, desc = 'Format Buffer - async' })
 
   if client.server_capabilities.renameProvider then
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { buffer = bufnr, desc = 'Rename' })
