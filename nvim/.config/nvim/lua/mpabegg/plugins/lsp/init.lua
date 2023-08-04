@@ -6,7 +6,7 @@ return {
       require('neodev').setup({})
 
       local lsp = require('lsp-zero').preset({})
-      require('mpabegg.plugins.lsp.config').on_attach(lsp)
+      lsp.on_attach(require('mpabegg.plugins.lsp.config').on_attach)
       require('mpabegg.plugins.lsp.config').setup_completion(lsp)
       require('mpabegg.plugins.lsp.config').setup_mason(lsp)
       require('mpabegg.plugins.lsp.config').setup_null_ls()
