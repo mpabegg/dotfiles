@@ -22,10 +22,10 @@ end
 
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
-      "neovim/nvim-lspconfig",
+      "williamboman/mason-lspconfig.nvim",
       "folke/neodev.nvim",
       'hrsh7th/cmp-nvim-lsp',
       { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
