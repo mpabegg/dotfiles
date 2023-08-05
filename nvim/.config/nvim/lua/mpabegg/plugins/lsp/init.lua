@@ -27,6 +27,8 @@ return {
       "williamboman/mason.nvim",
       "neovim/nvim-lspconfig",
       "folke/neodev.nvim",
+      'hrsh7th/cmp-nvim-lsp',
+      { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
     },
     config = function()
       require('neodev').setup()
@@ -38,7 +40,19 @@ return {
         }
       })
 
-      require('lspconfig').lua_ls.setup({ on_attach = on_attach })
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+      require('lspconfig').lua_ls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+          }
+        }
+      })
     end
   }
 }
