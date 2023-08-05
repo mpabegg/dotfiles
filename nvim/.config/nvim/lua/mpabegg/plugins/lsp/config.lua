@@ -55,7 +55,7 @@ M.setup_mason = function(lsp)
   require('mason-lspconfig').setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
-    ensure_installed = { 'tsserver', 'lua_ls', 'solargraph' },
+    ensure_installed = { 'tsserver', 'lua_ls', 'solargraph', 'clangd' },
     handlers = {
       lsp.default_setup,
       lua_ls = function()
