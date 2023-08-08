@@ -1,34 +1,5 @@
 local M = {}
 
-M.setup_completion = function(lsp)
-  lsp.extend_cmp()
-  local cmp = require('cmp')
-  local cmp_action = require('lsp-zero').cmp_action()
-
-  local select_opts = { behavior = cmp.SelectBehavior.Select }
-  cmp.setup({
-    mapping = {
-      ['<Tab>'] = cmp_action.luasnip_supertab(),
-      ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-      ['<CR>'] = cmp.mapping.confirm({ select = false }),
-      ['<C-k>'] = cmp.mapping(function()
-        if cmp.visible() then
-          cmp.select_prev_item(select_opts)
-        else
-          cmp.complete()
-        end
-      end),
-      ['<C-j>'] = cmp.mapping(function()
-        if cmp.visible() then
-          cmp.select_next_item(select_opts)
-        else
-          cmp.complete()
-        end
-      end),
-    },
-  })
-end
-
 M.on_attach = function(client, bufnr)
   require('mpabegg.plugins.lsp.ruby').on_attach(client, bufnr)
 
