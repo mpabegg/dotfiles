@@ -18,6 +18,8 @@ local config = {
     },
   },
   filesystem = {
+    use_libuv_file_watcher = true,
+    bind_to_cwd = false,
     follow_current_file = {
       enabled = true, -- This will find and focus the file in the active buffer every time
       --               -- the current file is changed while the tree is open.
