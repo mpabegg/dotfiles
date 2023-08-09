@@ -23,6 +23,17 @@ M.on_attach = function(client, bufnr)
   if client.server_capabilities.codeActionProvider then
     vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = bufnr, desc = 'Code Action' })
   end
+  if client.server_capabilities.inlayHintProvider then
+    vim.keymap.set('n', '<leader>lh', function()
+      if vim.g.inlay_hint then
+        vim.g.inlay_hint = nil
+      else
+        vim.g.inlay_hint = true
+      end
+
+      vim.lsp.inlay_hint(bufnr, vim.g.inlay_hint)
+    end, { buffer = bufnr, desc = 'Toggle Inlay Hint' })
+  end
 end
 
 M.setup_mason = function(lsp)
@@ -34,7 +45,17 @@ M.setup_mason = function(lsp)
     handlers = {
       lsp.default_setup,
       lua_ls = function()
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+        require('lspconfig').lua_ls.setup(vim.tbl_deep_extend('force', lsp.nvim_lua_ls(), {
+          settings = {
+            Lua = {
+              hint = {
+                enable = true,
+                arrayIndex = 'Enable',
+                setType = true,
+              },
+            },
+          },
+        }))
       end,
       solargraph = require('mpabegg.plugins.lsp.ruby').solargraph,
     },

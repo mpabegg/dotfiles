@@ -1,11 +1,14 @@
 return {
-  {
+ {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'dev-v3',
     config = function()
       require('neodev').setup({})
 
       local lsp = require('lsp-zero').preset({float_border = 'none'})
+
+      vim.g.inlay_hint = false
+
       lsp.on_attach(require('mpabegg.plugins.lsp.config').on_attach)
       require('mpabegg.plugins.lsp.config').setup_mason(lsp)
       require('mpabegg.plugins.lsp.config').setup_null_ls()
