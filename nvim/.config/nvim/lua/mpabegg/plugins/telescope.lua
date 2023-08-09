@@ -31,6 +31,7 @@ return {
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-j>'] = actions.move_selection_next,
             ['x'] = actions.toggle_selection,
+            ['d'] = actions.delete_buffer,
           },
         },
       },
