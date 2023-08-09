@@ -20,6 +20,8 @@ return {
     error = ' ',
     warn = ' ',
     info = ' ',
+    information = ' ',
+    other = ' ',
   },
   git = {
     added = ' ',
