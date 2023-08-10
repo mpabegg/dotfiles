@@ -25,13 +25,8 @@ M.on_attach = function(client, bufnr)
   end
   if client.server_capabilities.inlayHintProvider then
     vim.keymap.set('n', '<leader>lh', function()
-      if vim.g.inlay_hint then
-        vim.g.inlay_hint = nil
-      else
-        vim.g.inlay_hint = true
-      end
-
-      vim.lsp.inlay_hint(bufnr, vim.g.inlay_hint)
+      require('mpabegg.state').toggle('inlay_hint')
+      vim.lsp.inlay_hint(bufnr, require('mpabegg.state').get('inlay_hint'))
     end, { buffer = bufnr, desc = 'Toggle Inlay Hint' })
   end
 end
