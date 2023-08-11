@@ -11,16 +11,6 @@ return {
       require('mpabegg.plugins.lsp.config').setup_mason(lsp)
     end,
   },
-  {
-    'jay-babu/mason-null-ls.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
-    dependencies = {
-      'williamboman/mason.nvim',
-      'jose-elias-alvarez/null-ls.nvim',
-    },
-    config = false,
-  },
-
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'folke/neodev.nvim', opts = {} },
