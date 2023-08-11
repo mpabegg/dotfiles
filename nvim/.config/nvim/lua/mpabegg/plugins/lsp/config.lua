@@ -1,8 +1,6 @@
 local M = {}
 
 M.on_attach = function(client, bufnr)
-  require('mpabegg.plugins.lsp.ruby').on_attach(client, bufnr)
-
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = 'Goto Declaration' })
   vim.keymap.set('n', 'gd', function()
     require('trouble').open('lsp_definitions')
@@ -34,8 +32,6 @@ end
 M.setup_mason = function(lsp)
   require('mason').setup({})
   require('mason-lspconfig').setup({
-    -- Replace the language servers listed here
-    -- with the ones you want to install
     ensure_installed = { 'tsserver', 'lua_ls', 'solargraph', 'clangd', 'elixirls' },
     handlers = {
       lsp.default_setup,
@@ -52,42 +48,12 @@ M.setup_mason = function(lsp)
           },
         }))
       end,
-      solargraph = require('mpabegg.plugins.lsp.ruby').solargraph,
+      solargraph = require('lspconfig').solargraph.setup({
+        root_dir = require('lspconfig.util').root_pattern('.git'),
+        debounce_text_changes = 150,
+      }),
     },
   })
-end
-
-M.setup_null_ls = function()
-  require('mason-null-ls').setup({
-    ensure_installed = {
-      'stylua', 'mix',
-    },
-    automatic_installation = false,
-    sources = {
-      require('null-ls').builtins.formatting.mix,
-    },
-    on_attach = function(client, bufnr)
-      local augroup = vim.api.nvim_create_augroup('LspFormatting', { clear = true })
-      if not client.server_capabilities.documentFormattingProvider then
-        return
-      end
-
-      if client.name == 'solargraph' then
-        return
-      end
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-          -- on later neovim version, you should use vim.lsp.buf.format({ async = false }) instead
-          vim.lsp.buf.format({ async = false })
-        end,
-      })
-    end,
-  })
-  require('mpabegg.plugins.lsp.ruby').null_ls()
 end
 
 return M
