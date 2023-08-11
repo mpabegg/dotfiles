@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   {
     'hrsh7th/nvim-cmp',
@@ -96,7 +97,6 @@ return {
           }),
         },
       })
-
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         formatting = {

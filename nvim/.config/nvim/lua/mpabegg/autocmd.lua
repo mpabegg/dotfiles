@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+  group = mpabegg,
+  pattern = { '*.lua', '*.ex', '*.exs' },
+  command = 'FormatWrite',
+})
+
 -- Don't auto commenting new lines
 vim.api.nvim_create_autocmd('BufEnter', {
   group = mpabegg,

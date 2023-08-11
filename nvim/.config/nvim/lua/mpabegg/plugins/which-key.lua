@@ -22,6 +22,8 @@ return {
     vim.keymap.set('n', 'q:', '<nop>')
     vim.keymap.set('n', '?:', '<nop>')
 
+    vim.keymap.set('n', 'g=', vim.cmd.FormatWrite, { desc = 'Format Buffer' })
+
     local wk = require('which-key')
     wk.register({
       b = {
@@ -61,7 +63,7 @@ return {
         s = { require('neogit').open, 'Git Status' },
       },
       x = {
-        name = "+trouble",
+        name = '+trouble',
         x = { '<cmd>TroubleToggle<cr>', 'Toggle Trouble' },
         w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace Diagnostics' },
         d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document Diagnostics' },
