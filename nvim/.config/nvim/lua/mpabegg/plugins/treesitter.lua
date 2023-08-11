@@ -11,6 +11,8 @@ return {
       ensure_installed = {
         'bash',
         'elixir',
+        'eex',
+        'heex',
         'html',
         'javascript',
         'json',
@@ -41,5 +43,6 @@ return {
         },
       },
     })
+
   end,
 }
