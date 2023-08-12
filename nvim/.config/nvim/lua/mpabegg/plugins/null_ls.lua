@@ -16,7 +16,7 @@ return {
       handlers = {},
     })
     require('null-ls').setup({
-      sources = { },
+      sources = {},
     })
   end,
 }

@@ -26,3 +26,17 @@ vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '',
   command = 'set fo-=c fo-=r fo-=o',
 })
+
+local M = {}
+
+function M.format_on_save(filetypes)
+  vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+    group = mpabegg,
+    pattern = filetypes,
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
+end
+
+return M

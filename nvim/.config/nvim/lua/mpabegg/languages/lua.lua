@@ -1,3 +1,5 @@
+require('mpabegg.autocmd').format_on_save({ '*.lua' })
+
 return {
   {
     'neovim/nvim-lspconfig',
