@@ -10,7 +10,10 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = bufnr, desc = 'Signature Help' })
 
   if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set('n', 'g=', vim.lsp.buf.format, { buffer = bufnr, desc = 'Format Buffer' })
+    vim.keymap.set('n', 'g=', function()
+      vim.lsp.buf.format()
+      vim.cmd[[:w]]
+    end, { buffer = bufnr, desc = 'Format Buffer' })
   end
 
   if client.server_capabilities.renameProvider then
@@ -57,6 +60,6 @@ return {
   },
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
-  { 'neovim/nvim-lspconfig', dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
-  { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
+  { 'neovim/nvim-lspconfig',            dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
+  { 'j-hui/fidget.nvim',                tag = 'legacy',                           config = true },
 }

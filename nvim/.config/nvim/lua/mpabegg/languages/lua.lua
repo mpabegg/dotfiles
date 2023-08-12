@@ -7,6 +7,12 @@ return {
       return vim.tbl_deep_extend('force', opts or {}, {
         servers = {
           lua_ls = {
+            on_attach = function(client, bufnr)
+              opts.defaults.on_attach(client, bufnr)
+              if client.name == 'lua_ls' then
+                client.server_capabilities.documentFormattingProvider = false
+              end
+            end,
             settings = {
               Lua = {
                 workspace = { checkThirdParty = false },
@@ -20,6 +26,15 @@ return {
             },
           },
         },
+      })
+    end,
+  },
+
+  {
+    'jay-babu/mason-null-ls.nvim',
+    opts = function(_, opts)
+      return vim.tbl_deep_extend('force', opts, {
+        ensure_installed = vim.list_extend(opts.ensure_installed or {}, { 'stylua' }),
       })
     end,
   },
