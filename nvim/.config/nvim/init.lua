@@ -18,7 +18,10 @@ require('mpabegg.options')
 require('mpabegg.autocmd')
 require('mpabegg.diagnostics')
 require('lazy').setup({
-  spec = 'mpabegg.plugins',
+  spec = {
+    { import = 'mpabegg.plugins' },
+    { import = 'mpabegg.languages' },
+  },
   install = {
     colorscheme = { 'catppuccin frappe' },
   },
