@@ -4,15 +4,12 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  init = function()
-    require('nvim-treesitter.configs').setup({
+  opts = function()
+    return {
       highlight = { enabled = true },
       indent = { enabled = true },
       ensure_installed = {
         'bash',
-        'elixir',
-        'eex',
-        'heex',
         'html',
         'javascript',
         'json',
@@ -20,7 +17,6 @@ return {
         'markdown',
         'markdown_inline',
         'query',
-        'ruby',
         'tsx',
         'typescript',
         'vim',
@@ -42,7 +38,9 @@ return {
           },
         },
       },
-    })
-
+    }
+  end,
+  config = function(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
   end,
 }
