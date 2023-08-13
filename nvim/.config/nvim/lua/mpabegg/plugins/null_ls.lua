@@ -15,8 +15,10 @@ return {
       automatic_installation = false,
       handlers = {},
     })
+
     require('null-ls').setup({
-      sources = {},
+      update_in_insert = false,
+      sources = opts.sources or {},
     })
   end,
 }

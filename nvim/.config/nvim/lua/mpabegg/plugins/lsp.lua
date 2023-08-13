@@ -9,24 +9,19 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP Hover' })
   vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = bufnr, desc = 'Signature Help' })
 
-  if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set('n', 'g=', function()
-      vim.lsp.buf.format()
-      vim.cmd[[:w]]
-    end, { buffer = bufnr, desc = 'Format Buffer' })
-  end
+  vim.keymap.set('n', 'g=', function()
+    vim.lsp.buf.format({ timeout_ms = 30000 })
+  end, { buffer = bufnr, desc = 'Format Buffer' })
+
+  vim.keymap.set('n', '<leader>lF', function()
+    vim.lsp.buf.format({ async = true })
+  end, { buffer = bufnr, desc = 'Format Buffer (async)' })
 
   if client.server_capabilities.renameProvider then
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, { buffer = bufnr, desc = 'Rename' })
   end
   if client.server_capabilities.codeActionProvider then
     vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = bufnr, desc = 'Code Action' })
-  end
-  if client.server_capabilities.inlayHintProvider then
-    vim.keymap.set('n', '<leader>lh', function()
-      require('mpabegg.state').toggle('inlay_hint')
-      vim.lsp.inlay_hint(bufnr, require('mpabegg.state').get('inlay_hint'))
-    end, { buffer = bufnr, desc = 'Toggle Inlay Hint' })
   end
 end
 
@@ -60,6 +55,6 @@ return {
   },
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
-  { 'neovim/nvim-lspconfig',            dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
-  { 'j-hui/fidget.nvim',                tag = 'legacy',                           config = true },
+  { 'neovim/nvim-lspconfig', dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
+  { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
 }
