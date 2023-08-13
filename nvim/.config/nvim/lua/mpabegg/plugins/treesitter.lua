@@ -13,7 +13,6 @@ return {
         'html',
         'javascript',
         'json',
-        'luadoc',
         'markdown',
         'markdown_inline',
         'query',

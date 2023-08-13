@@ -31,13 +31,18 @@ return {
       })
     end,
   },
-
   {
     'jay-babu/mason-null-ls.nvim',
     opts = function(_, opts)
       return vim.tbl_deep_extend('force', opts, {
         ensure_installed = vim.list_extend(opts.ensure_installed or {}, { 'stylua' }),
       })
+    end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { 'lua', 'luadoc' })
     end,
   },
 }
