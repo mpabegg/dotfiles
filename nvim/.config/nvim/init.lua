@@ -18,8 +18,16 @@ require('mpabegg.options')
 require('mpabegg.autocmd')
 require('mpabegg.diagnostics')
 require('lazy').setup({
-  spec = 'mpabegg.plugins',
+  spec = {
+    { import = 'mpabegg.plugins' },
+    { import = 'mpabegg.languages' },
+  },
   install = {
     colorscheme = { 'catppuccin frappe' },
+  },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = true,
+    notify = false, -- get a notification when changes are found
   },
 })
