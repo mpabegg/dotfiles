@@ -52,4 +52,13 @@ return {
       vim.list_extend(opts.ensure_installed, { 'ruby' })
     end,
   },
+  {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      config = function()
+        require('luasnip').filetype_extend('ruby', { 'rails' })
+      end,
+    },
+  },
 }

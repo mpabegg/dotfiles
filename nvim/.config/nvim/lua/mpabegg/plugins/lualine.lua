@@ -23,18 +23,18 @@ return {
           },
         },
         lualine_b = {
-          { 'filename', path = 1, symbols = { modified = icons.file.modified, readonly = '', unnamed = '' } },
-        },
-        lualine_c = {
           {
-            'diagnostics',
+            'filename',
+            path = 1,
             symbols = {
-              error = icons.diagnostics.error,
-              warn = icons.diagnostics.warn,
-              info = icons.diagnostics.info,
-              hint = icons.diagnostics.hint,
+              modified = icons.file.modified,
+              readonly = '',
+              unnamed = '',
             },
           },
+        },
+        lualine_c = {
+          { 'diagnostics', symbols = icons.diagnostics },
         },
         lualine_x = {
           { 'diff', symbols = icons.git },
