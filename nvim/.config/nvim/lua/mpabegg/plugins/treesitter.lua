@@ -11,13 +11,10 @@ return {
       ensure_installed = {
         'bash',
         'html',
-        'javascript',
         'json',
         'markdown',
         'markdown_inline',
         'query',
-        'tsx',
-        'typescript',
         'vim',
         'vimdoc',
         'yaml',
