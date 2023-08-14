@@ -29,7 +29,13 @@ vim.api.nvim_create_autocmd('BufEnter', {
 
 local M = {}
 
-function M.format_on_save(filetypes)
+function M.format_on_save(filetypes, callback)
+  if not callback then
+    callback = function()
+      vim.lsp.buf.format()
+    end
+  end
+
   vim.api.nvim_clear_autocmds({
     event = { 'BufWritePre' },
     pattern = filetypes,
@@ -38,9 +44,7 @@ function M.format_on_save(filetypes)
   vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     group = mpabegg,
     pattern = filetypes,
-    callback = function()
-      vim.lsp.buf.format()
-    end,
+    callback = callback,
   })
 end
 

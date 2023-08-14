@@ -18,6 +18,9 @@ local config = {
     },
   },
   filesystem = {
+    filtered_items = {
+      visible = true,
+    },
     use_libuv_file_watcher = true,
     bind_to_cwd = false,
     follow_current_file = {
@@ -47,9 +50,9 @@ local config = {
       symbol = icons.file.modified,
     },
     git_status = {
-      symbols = icons.git
+      symbols = icons.git,
     },
-  }
+  },
 }
 
 return {
