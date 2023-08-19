@@ -1,14 +1,18 @@
 return {
-  "lewis6991/gitsigns.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  'lewis6991/gitsigns.nvim',
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = {
+    current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+      virt_text = true,
+    },
     signs = {
-      add = { text = "▎" },
-      change = { text = "▎" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "▎" },
-      untracked = { text = "▎" },
+      add = { text = '▎' },
+      change = { text = '▎' },
+      delete = { text = '' },
+      topdelete = { text = '' },
+      changedelete = { text = '▎' },
+      untracked = { text = '▎' },
     },
     on_attach = function(buffer)
       local gs = package.loaded.gitsigns
