@@ -27,5 +27,5 @@ return {
   { 'echasnovski/mini.comment', config = true },
   { 'echasnovski/mini.indentscope', config = true },
   { 'echasnovski/mini.trailspace', config = true },
-  { 'echasnovski/mini.pairs', config = true },
+  -- { 'echasnovski/mini.pairs', config = true },
 }
