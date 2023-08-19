@@ -22,6 +22,7 @@ local config = {
       visible = true,
     },
     use_libuv_file_watcher = true,
+    hijack_netrw_behavior = 'disabled',
     bind_to_cwd = false,
     follow_current_file = {
       enabled = true, -- This will find and focus the file in the active buffer every time
