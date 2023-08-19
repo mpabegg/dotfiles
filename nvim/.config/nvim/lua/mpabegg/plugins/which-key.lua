@@ -31,9 +31,15 @@ return {
       },
       f = {
         name = '+file',
-        f = { '<cmd>Telescope find_files<cr>', 'Find File' },
+        f = {
+          function()
+            require('telescope.builtin').find_files({ hidden = true })
+          end,
+          'Find File',
+        },
         r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
         t = { '<cmd>Neotree toggle<CR>', 'Neotree' },
+        m = { require('oil').open, 'Open parent directory' },
         s = { '<cmd>w<cr>', 'Save File' },
         S = { '<cmd>wa<cr>', 'Save File' },
       },
