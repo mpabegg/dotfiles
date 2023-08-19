@@ -43,23 +43,25 @@ for f in $ZDOTDIR/adds/*.zsh; do
   source $f
 done
 
+source "$ZDOTDIR/alias.zsh"
+
 zsh_add_plugin "zimfw/environment"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#949494"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 bindkey '^Y' autosuggest-accept
+set bell-style off
 
 source $(brew --prefix asdf)/libexec/asdf.sh
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export ARCHFLAGS="-arch $(uname -m)"
 
-export PATH="$HOME/.emacs-distros/doom/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
 export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 export PATH="$(brew --prefix postgresql@11)/bin:$PATH"
 
-set bell-style off
+eval "$(zoxide init zsh)"
