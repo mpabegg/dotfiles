@@ -4,7 +4,20 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gr', function()
     require('trouble').open('lsp_references')
   end, { buffer = bufnr, desc = 'Goto References' })
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP Hover' })
+  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP Hover' })
+
+  vim.keymap.set('n', 'K', function()
+    local ufo_ok, ufo = pcall(require, 'ufo')
+    if ufo_ok then
+      local winid = ufo.peekFoldedLinesUnderCursor()
+      if not winid then
+        vim.lsp.buf.hover()
+      end
+    else
+      vim.lsp.buf.hover()
+    end
+  end, { buffer = bufnr, desc = 'LSP Hover' })
+
   vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { buffer = bufnr, desc = 'Signature Help' })
 
   if client.server_capabilities.documentFormattingProvider then
