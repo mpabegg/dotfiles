@@ -4,7 +4,6 @@ vim.opt.colorcolumn = '120'
 vim.opt.completeopt = { 'menu', 'menuone' }
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.foldenable = false
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
@@ -25,9 +24,6 @@ vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.autochdir = false
-
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldmethod = 'expr'
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
