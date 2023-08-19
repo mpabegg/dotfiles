@@ -36,12 +36,10 @@ return {
 
       return vim.tbl_deep_extend('force', opts, {
         sources = {
-          sources = {
-            formatting.rubocop.with({ condition = with_gemfile, command = 'bin/rubocop', timeout = -1 }),
-            formatting.rubocop.with({ condition = without_gemfile, timeout = -1 }),
-            diagnostics.rubocop.with({ condition = with_gemfile, command = 'bin/rubocop', timeout = -1 }),
-            diagnostics.rubocop.with({ condition = without_gemfile, timeout = -1 }),
-          },
+          formatting.rubocop.with({ condition = with_gemfile, command = 'bin/rubocop', timeout = -1 }),
+          formatting.rubocop.with({ condition = without_gemfile, timeout = -1 }),
+          diagnostics.rubocop.with({ condition = with_gemfile, command = 'bin/rubocop', timeout = -1 }),
+          diagnostics.rubocop.with({ condition = without_gemfile, timeout = -1 }),
         },
       })
     end,
