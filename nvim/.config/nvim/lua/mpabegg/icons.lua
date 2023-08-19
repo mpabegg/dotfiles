@@ -35,6 +35,9 @@ return {
     staged = '',
     conflict = '',
   },
+  kinds = {
+    copilot = ' ',
+  },
   lazy = {
     kind = {
       Array = '',
