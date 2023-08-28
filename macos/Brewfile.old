@@ -4,6 +4,7 @@ tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "qmk/qmk"
+
 brew "act"
 brew "jpeg-xl"
 brew "aom"
@@ -96,6 +97,7 @@ brew "zoxide"
 brew "zsh"
 brew "zsh-completions"
 brew "qmk/qmk/qmk"
+
 cask "1password"
 cask "1password-cli"
 cask "alacritty"
@@ -120,13 +122,18 @@ cask "via"
 cask "visual-studio-code"
 cask "whatsapp"
 cask "zoom"
+
 mas "1Password for Safari", id: 1569813296
 mas "Ampado", id: 1296740756
 mas "Capo", id: 696977615
 mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "iReal Pro", id: 409035833
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
+
 vscode "adpyke.vscode-sql-formatter"
 vscode "bodil.file-browser"
 vscode "bung87.rails"
