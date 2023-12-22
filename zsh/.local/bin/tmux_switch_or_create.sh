@@ -1,8 +1,6 @@
 # vim: set filetype=zsh :
 #!/bin/bash
 
-# exec &> /tmp/tmux_switch_or_create.log
-
 query=$1
 session_name="$query"
 
