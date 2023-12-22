@@ -1,11 +1,11 @@
 require('mpabegg.autocmd').format_on_save({
   '*.ts',
   '*.tsx',
-  '*.js',
   '*.jsx',
 }, function()
   vim.cmd([[EslintFixAll]])
 end)
+
 return {
   {
     'neovim/nvim-lspconfig',

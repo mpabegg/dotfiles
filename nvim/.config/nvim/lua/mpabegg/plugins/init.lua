@@ -13,7 +13,6 @@ return {
   },
 
   'mbbill/undotree',
-  'tpope/vim-sleuth',
   { 'tpope/vim-surround', dependencies = { 'tpope/vim-repeat' } },
 
   {

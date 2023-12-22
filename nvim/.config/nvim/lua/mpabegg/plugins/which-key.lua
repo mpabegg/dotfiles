@@ -21,6 +21,7 @@ return {
     vim.keymap.set('n', 'Q', '<nop>')
     vim.keymap.set('n', 'q:', '<nop>')
     vim.keymap.set('n', '?:', '<nop>')
+    vim.keymap.set('i', '<C-c>', '<Esc>')
 
     local wk = require('which-key')
     wk.register({
@@ -33,7 +34,7 @@ return {
         name = '+file',
         f = {
           function()
-            require('telescope.builtin').find_files({ hidden = true })
+            require('telescope.builtin').find_files({ hidden = false })
           end,
           'Find File',
         },
