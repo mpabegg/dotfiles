@@ -4,14 +4,12 @@ return {
     cmd = 'Copilot',
     build = ':Copilot auth',
     opts = {
-      suggestion = {
-        enabled = true,
-        auto_trigger = true,
-        keymap = {
-          accept = '<C-y>',
-          dismiss = '<Esc>',
-        },
-      },
+      suggestion = { enabled = false },
+      panel = { enabled = false },
     },
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    opts = {},
   },
 }
