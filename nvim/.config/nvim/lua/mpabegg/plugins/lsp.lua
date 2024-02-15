@@ -1,6 +1,6 @@
 local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = 'Goto Declaration' })
-  vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { buffer = bufnr, desc = 'LSP Definitions' })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'LSP Definitions' })
   vim.keymap.set('n', 'gr', function()
     require('trouble').open('lsp_references')
   end, { buffer = bufnr, desc = 'Goto References' })

@@ -63,5 +63,5 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
 export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 export PATH="$(brew --prefix postgresql@11)/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
-eval "$(zoxide init zsh)"
