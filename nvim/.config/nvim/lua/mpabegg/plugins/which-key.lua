@@ -19,9 +19,11 @@ return {
     vim.keymap.set('n', 'n', 'nzzzv')
     vim.keymap.set('n', 'N', 'Nzzzv')
     vim.keymap.set('n', 'Q', '<nop>')
-    vim.keymap.set('n', 'q:', '<nop>')
-    vim.keymap.set('n', '?:', '<nop>')
+    vim.keymap.set('n', '>', '>gv')
+    vim.keymap.set('n', '<', '<gv')
     vim.keymap.set('i', '<C-c>', '<Esc>')
+    vim.keymap.set('i', 'kj', '<Esc>')
+    vim.keymap.set('i', 'jk', '<Esc>')
 
     local wk = require('which-key')
     wk.register({
@@ -38,9 +40,9 @@ return {
           end,
           'Find File',
         },
-        r = { '<cmd>Telescope oldfiles<cr>', 'Open Recent File' },
+        r = { '<cmd>Neotree reveal_file=%<cr>', 'Reveal Current File on Neotree' },
         t = { '<cmd>Neotree toggle<CR>', 'Neotree' },
-        m = { require('oil').open, 'Open parent directory' },
+        m = { require('mini.files').open, 'Open parent directory' },
         s = { '<cmd>w<cr>', 'Save File' },
         S = { '<cmd>wa<cr>', 'Save File' },
       },
@@ -56,6 +58,12 @@ return {
         j = { '<C-w>j', 'Focus Down' },
         k = { '<C-w>k', 'Focus Up' },
         d = { '<C-w>c', 'Delete' },
+        w = {
+          function()
+            require('window-picker').pick_window({ hint = 'floating-big-letter' })
+          end,
+          'Pick Window',
+        },
       },
       h = {
         name = '+help',
@@ -74,6 +82,13 @@ return {
         d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document Diagnostics' },
         q = { '<cmd>TroubleToggle quickfix<cr>', 'Quickfix' },
         l = { '<cmd>TroubleToggle loclist<cr>', 'Loclist' },
+      },
+      s = {
+        name = '+seach',
+        q = {
+          require('telescope.builtin').quickfix,
+          'Quickfix',
+        },
       },
       ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search Project' },
       ['*'] = { '<cmd>Telescope grep_string<cr>', 'Find Word' },

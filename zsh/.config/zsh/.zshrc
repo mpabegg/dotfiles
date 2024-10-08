@@ -1,5 +1,7 @@
 #!/usr/local/bin/zsh
 
+bindkey -e
+
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache/"
 zstyle ':completion:*' menu select
 
@@ -64,4 +66,3 @@ export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
 export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 export PATH="$(brew --prefix postgresql@11)/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-

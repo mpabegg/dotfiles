@@ -148,7 +148,9 @@ return {
           { 'branch', color = { gui = 'italic' } },
         },
         lualine_z = {
-          { 'fileformat', padding = { left = 1, right = 2 } },
+          {
+            'location',
+          },
         },
       },
       extensions = { 'neo-tree', 'lazy' },

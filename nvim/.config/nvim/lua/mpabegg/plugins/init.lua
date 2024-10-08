@@ -28,8 +28,12 @@ return {
   { 'echasnovski/mini.indentscope', config = true },
   { 'echasnovski/mini.trailspace', config = true },
   { 'echasnovski/mini.splitjoin', config = true },
-  { 'echasnovski/mini.pairs', config = true },
-  { 'echasnovski/mini.files', config = true, keys = { '<leader>fm', require('mini.files').open() } },
+  {
+    'echasnovski/mini.files',
+    config = function()
+      vim.keymap.set('n', '<leader>fm', require('mini.files').open)
+    end,
+  },
 
   {
     'folke/persistence.nvim',
@@ -40,11 +44,5 @@ return {
       { '<leader>qr', [[:lua require("persistence").load({ last = true })<CR>]], desc = 'Restore', silent = true },
       { '<leader>ql', [[:lua require("persistence").load()<CR>]], desc = 'Load', silent = true },
     },
-  },
-
-  {
-    'gregorias/coerce.nvim',
-    tag = 'v0.1.1',
-    config = true,
   },
 }

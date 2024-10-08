@@ -10,6 +10,8 @@ export HISTFILE="$XDG_CACHE_HOME"/.zhistory
 export MYDOTDIR="$HOME"/.dotfiles/
 export MYPROJECTSDIR="$HOME"/code
 
+export EDITOR="nvim"
+
 # Ruby stuff
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle

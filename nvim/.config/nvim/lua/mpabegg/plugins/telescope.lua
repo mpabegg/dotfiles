@@ -26,10 +26,12 @@ return {
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-j>'] = actions.move_selection_next,
             ['<C-x>'] = actions.toggle_selection,
+            ['<C-q>'] = actions.send_to_qflist,
           },
           ['n'] = {
             ['<C-k>'] = actions.move_selection_previous,
             ['<C-j>'] = actions.move_selection_next,
+            ['<C-q>'] = actions.send_to_qflist,
             ['x'] = actions.toggle_selection,
             ['d'] = actions.delete_buffer,
           },
