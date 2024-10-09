@@ -91,7 +91,7 @@ return {
         }),
 
         sources = cmp.config.sources({
-          { name = 'copilot', group_index = 1, priority = 100 },
+          { name = 'codeium' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         }, {
@@ -101,6 +101,9 @@ return {
         formatting = {
           format = require('lspkind').cmp_format({
             mode = 'symbol_text',
+            maxwidth = 50,
+            ellipsis_char = '...',
+            symbol_map = { Codeium = '' },
           }),
         },
       })
