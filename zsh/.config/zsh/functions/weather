@@ -1,3 +1,0 @@
-# vim: set filetype=zsh :
-
-curl "https://wttr.in/${1:-porto_alegre}?M"

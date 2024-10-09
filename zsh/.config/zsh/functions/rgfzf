@@ -1,4 +1,5 @@
 # vim: set filetype=zsh :
+
 local selected
 
 selected=$(rg --color=always --hidden --no-messages "$1" 2> /dev/null \
