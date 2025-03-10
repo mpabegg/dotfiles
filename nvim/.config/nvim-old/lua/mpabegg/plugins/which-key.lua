@@ -84,11 +84,12 @@ return {
         l = { '<cmd>TroubleToggle loclist<cr>', 'Loclist' },
       },
       s = {
-        name = '+seach',
+        name = '+search',
         q = {
           require('telescope.builtin').quickfix,
           'Quickfix',
         },
+        l = { require('telescope.builtin').resume, 'Resume' },
       },
       ['/'] = { '<cmd>Telescope live_grep<cr>', 'Search Project' },
       ['*'] = { '<cmd>Telescope grep_string<cr>', 'Find Word' },

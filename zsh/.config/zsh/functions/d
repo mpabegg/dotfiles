@@ -7,6 +7,7 @@ aliases=(
   d    "$MYPROJECTSDIR"
   df   "$MYDOTDIR"
   t    "$MYPROJECTSDIR"/tempo
+  tempo    "$MYPROJECTSDIR"/tempo
 )
 
 cd ${aliases[${1:-d}]}

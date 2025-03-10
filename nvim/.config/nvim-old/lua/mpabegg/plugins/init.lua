@@ -45,4 +45,9 @@ return {
       { '<leader>ql', [[:lua require("persistence").load()<CR>]], desc = 'Load', silent = true },
     },
   },
+  {
+    'chrisgrieser/nvim-early-retirement',
+    config = true,
+    event = 'VeryLazy',
+  },
 }

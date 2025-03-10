@@ -41,7 +41,7 @@
 [user]
 	name = Matheus Abegg
 	email = 1006630+mpabegg@users.noreply.github.com
-	signingkey = 4F96EF825BB3E3C6
+	signingkey = 3B9F1033
 
 [commit]
 	gpgsign = true

@@ -36,27 +36,6 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.ConfirmBehavior.Replace })
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif has_words_before() then
-              cmp.complete()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.ConfirmBehavior.Replace })
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
           -- ['<CR>'] = cmp.mapping.confirm({ select = false }),
           -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#safely-select-entries-with-cr
           ['<CR>'] = cmp.mapping({
