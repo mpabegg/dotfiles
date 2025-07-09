@@ -2,12 +2,42 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "space": null,
-      "space g s": "git_panel::ToggleFocus",
+      "space w": null,
       "space w v": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w l"],
       "space w s": ["workspace::SendKeystrokes", "ctrl-w s ctrl-w j"],
-      "space w d": ["workspace::SendKeystrokes", "ctrl-w a"],
+      "space w m": "zed::ToggleFullScreen",
+
+      "shift-h": ["workspace::SendKeystrokes", "cmd-{"],
+      "shift-l": ["workspace::SendKeystrokes", "cmd-}"],
+
+      "space f": null,
+      "space f f": "file_finder::Toggle",
+      "space f s": "workspace::Save",
+      "space f S": "workspace::SaveAll",
       "0": ["workspace::SendKeystrokes", "_"]
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "s": "git::ToggleStaged",
+      "x": "git::Restore"
+    }
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      "space w": null,
+      "space w d": ["pane::CloseActiveItem", { "close_pinned": false }]
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "use_key_equivalents": true,
+    "bindings": {
+      "space f n": "workspace::NewFile"
     }
   },
   {
@@ -18,26 +48,34 @@
     }
   },
   {
-    "context": "GitPanel && ChangesList",
-    "use_key_equivalents": true,
+    "context": "Editor && edit_prediction",
     "bindings": {
-      "space g s": "git_panel::ToggleFocus",
-      "escape": "git_panel::Close"
+      "ctrl-y": "editor::AcceptEditPrediction"
     }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": { "escape": "workspace::CloseActiveDock" }
   },
   {
     "context": "AgentPanel || GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
     "bindings": {
       // window related commands (ctrl-w X)
       "ctrl-w": null,
-      "ctrl-h": "workspace::ActivateNextPane",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-h": ["workspace::SendKeystrokes", "ctrl-w h"],
+      "ctrl-j": ["workspace::SendKeystrokes", "ctrl-w j"],
+      "ctrl-k": ["workspace::SendKeystrokes", "ctrl-w k"],
+      "ctrl-l": ["workspace::SendKeystrokes", "ctrl-w l"],
       "ctrl-shift-h": "workspace::SwapPaneLeft",
       "ctrl-shift-l": "workspace::SwapPaneRight",
       "ctrl-shift-k": "workspace::SwapPaneUp",
-      "ctrl-shift-j": "workspace::SwapPaneDown"
+      "ctrl-shift-j": "workspace::SwapPaneDown",
+
+      "space w": null,
+
+      "space": null,
+      "space g s": "git_panel::ToggleFocus",
+      "space f e": "project_panel::ToggleFocus"
     }
   }
 ]

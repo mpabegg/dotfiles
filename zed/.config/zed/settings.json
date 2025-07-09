@@ -2,7 +2,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Frappé"
+    "dark": "One Dark"
   },
   "icon_theme": "Zed (Default)",
   "buffer_font_family": "ComicCode Nerd Font",
