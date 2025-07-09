@@ -46,20 +46,20 @@
   // Toolbar related settings
   "toolbar": {
     // Whether to show breadcrumbs.
-    "breadcrumbs": true,
+    "breadcrumbs": false,
     // Whether to show quick action buttons.
-    "quick_actions": true,
+    "quick_actions": false,
     // Whether to show the Selections menu in the editor toolbar.
-    "selections_menu": true,
+    "selections_menu": false,
     // Whether to show agent review buttons in the editor toolbar.
-    "agent_review": true,
+    "agent_review": false,
     // Whether to show code action buttons in the editor toolbar.
     "code_actions": false
   },
   // Titlebar related settings
   "title_bar": {
     // Whether to show the branch icon beside branch switcher in the titlebar.
-    "show_branch_icon": true,
+    "show_branch_icon": false,
     // Whether to show the branch name button in the titlebar.
     "show_branch_name": true,
     // Whether to show the project host and name in the titlebar.
