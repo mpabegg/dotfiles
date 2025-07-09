@@ -79,8 +79,7 @@
     "context": "GitPanel",
     "bindings": {
       "escape": "workspace::CloseActiveDock",
-      "shift-p": "git::Push",
-      "ctrl-space": "git_panel::GenerateCommitMessage"
+      "shift-p": "git::Push"
     }
   },
   {
@@ -102,8 +101,6 @@
       "ctrl-shift-l": "workspace::SwapPaneRight",
       "ctrl-shift-k": "workspace::SwapPaneUp",
       "ctrl-shift-j": "workspace::SwapPaneDown",
-
-      "space w": null,
 
       "space": null,
       "space g s": "git_panel::ToggleFocus",
