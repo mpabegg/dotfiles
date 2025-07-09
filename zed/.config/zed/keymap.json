@@ -63,7 +63,10 @@
   },
   {
     "context": "GitPanel",
-    "bindings": { "escape": "workspace::CloseActiveDock" }
+    "bindings": {
+      "escape": "workspace::CloseActiveDock",
+      "shift-p": "git::Push"
+    }
   },
   {
     "context": "AgentPanel || GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
