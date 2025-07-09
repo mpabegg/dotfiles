@@ -21,7 +21,8 @@
     "context": "GitPanel",
     "bindings": {
       "q": "git_panel::Close",
-      "shift-p": "git::Push"
+      "shift-p": "git::Push",
+      "p": "git::Pull"
     }
   },
   {
