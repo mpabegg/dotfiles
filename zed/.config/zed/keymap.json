@@ -79,7 +79,14 @@
     "context": "GitPanel",
     "bindings": {
       "escape": "workspace::CloseActiveDock",
-      "shift-p": "git::Push"
+      "shift-p": "git::Push",
+      "ctrl-space": "git_panel::GenerateCommitMessage"
+    }
+  },
+  {
+    "context": "GitPanel && !CommitEditor",
+    "bindings": {
+      "q": "workspace::CloseActiveDock"
     }
   },
   {
