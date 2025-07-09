@@ -20,7 +20,8 @@
   {
     "context": "GitPanel",
     "bindings": {
-      "q": "git_panel::Close"
+      "q": "git_panel::Close",
+      "shift-p": "git::Push"
     }
   },
   {
@@ -148,6 +149,7 @@
       "space c f": "editor::Format",
       // File explorer
       "space e": "workspace::ToggleLeftDock",
+      "space f t": "project_panel::ToggleFocus",
       // Telescope
       "space f f": "file_finder::Toggle",
       "space space": "file_finder::Toggle",
