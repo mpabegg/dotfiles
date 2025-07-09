@@ -28,6 +28,7 @@
       "space f f": "file_finder::Toggle",
       "space f s": "workspace::Save",
       "space f S": "workspace::SaveAll",
+
       "0": ["workspace::SendKeystrokes", "_"]
     }
   },
