@@ -1,6 +1,6 @@
 [
   {
-    "context": "Workspace",
+    "context": "Workspace && vim_mode == normal",
     "use_key_equivalents": true,
     "bindings": {
       "space b": "workspace::ToggleLeftDock",
@@ -17,6 +17,7 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
+      "space": null,
       "space w": null,
       "space w v": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w l"],
       "space w s": ["workspace::SendKeystrokes", "ctrl-w s ctrl-w j"],
@@ -49,7 +50,7 @@
     }
   },
   {
-    "context": "Pane",
+    "context": "Pane && vim_mode == normal",
     "use_key_equivalents": true,
     "bindings": {
       "space w": null,
@@ -57,7 +58,7 @@
     }
   },
   {
-    "context": "Workspace && !Terminal",
+    "context": "Workspace && !Terminal vim_mode == normal",
     "use_key_equivalents": true,
     "bindings": {
       "space f n": "workspace::NewFile"
@@ -103,7 +104,6 @@
       "ctrl-shift-k": "workspace::SwapPaneUp",
       "ctrl-shift-j": "workspace::SwapPaneDown",
 
-      "space": null,
       "space g s": "git_panel::ToggleFocus",
       "space f t": "project_panel::ToggleFocus"
     }
