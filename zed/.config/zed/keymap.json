@@ -1,11 +1,25 @@
 [
   {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "space b": "workspace::ToggleLeftDock",
+      "space r": "workspace::ToggleRightDock",
+      "space j": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "KeyContextView",
+    "bindings": {
+      "q": ["workspace::SendKeystrokes", "cmd-w"]
+    }
+  },
+  {
     "context": "VimControl && !menu",
     "bindings": {
       "space w": null,
       "space w v": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w l"],
       "space w s": ["workspace::SendKeystrokes", "ctrl-w s ctrl-w j"],
-      "space w m": "zed::ToggleFullScreen",
 
       "shift-h": ["workspace::SendKeystrokes", "cmd-{"],
       "shift-l": ["workspace::SendKeystrokes", "cmd-}"],
@@ -86,7 +100,7 @@
 
       "space": null,
       "space g s": "git_panel::ToggleFocus",
-      "space f e": "project_panel::ToggleFocus"
+      "space f t": "project_panel::ToggleFocus"
     }
   }
 ]
