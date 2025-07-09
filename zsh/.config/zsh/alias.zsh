@@ -8,3 +8,4 @@ alias l="exa"
 alias fco="git branch | fzf --prompt=' Checkout Branch ' | xargs git checkout"
 
 alias c="cursor"
+alias z="zed"
