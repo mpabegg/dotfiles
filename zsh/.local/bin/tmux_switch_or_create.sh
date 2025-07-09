@@ -1,25 +1,23 @@
 # vim: set filetype=zsh :
 #!/bin/bash
 
-query=$1
-session_name="$query"
-
-# If no query was provided, use fzf to select a session
-if [ -z "$query" ]; then
-    session_name=$(tmux ls | awk -F: '{print $1}' | fzf-tmux --prompt="🖥  Switch Session: " --reverse -p -w 62% -h 38% -m --border --exit-0)
+# Get session name from argument or fzf selection
+session_name=$1
+if [ -z "$session_name" ]; then
+    session_name=$(tmux ls | awk -F: '{print $1}' | \
+        fzf-tmux --prompt="🖥  Switch Session: " -p -w 62% -h 38% --border --reverse)
 fi
 
-# If there's a session_name at this point (either from the original $query or from fzf)
-if [ -n "$session_name" ]; then
-    # If the session does not exist, create a new detached session
-    if ! tmux has-session -t "$session_name" 2>/dev/null; then
-        tmux new-session -d -s "$session_name"
-    fi
+# Exit if no session selected
+[ -z "$session_name" ] && exit 0
 
-    # Depending on whether we're inside a tmux session or not, switch to or attach to the session
-    if [ -n "$TMUX" ]; then
-        tmux switch-client -t "$session_name"
-    else
-        tmux attach-session -t "$session_name"
-    fi
+# Create session if it doesn't exist
+tmux has-session -t "$session_name" 2>/dev/null || \
+    tmux new-session -d -s "$session_name"
+
+# Connect to session
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name"
+else
+    tmux attach-session -t "$session_name"
 fi
