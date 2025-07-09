@@ -25,6 +25,18 @@
     }
   },
   {
+    "context": "GitPanel && ChangesList",
+    "bindings": {
+      "ctrl-j": "git_panel::FocusEditor"
+    }
+  },
+  {
+    "context": "GitPanel > Editor",
+    "bindings": {
+      "ctrl-k": "git_panel::FocusChanges"
+    }
+  },
+  {
     "context": "AgentPanel",
     "bindings": {
       "space r": "workspace::ToggleRightDock"
