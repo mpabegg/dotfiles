@@ -116,35 +116,9 @@ cask "rectangle"
 cask "sequel-ace"
 cask "spotify"
 cask "tuple"
-cask "via"
-cask "visual-studio-code"
 cask "whatsapp"
 cask "zoom"
-mas "1Password for Safari", id: 1569813296
-mas "Ampado", id: 1296740756
+cask "zed"
 mas "Capo", id: 696977615
 mas "GarageBand", id: 682658836
 mas "iReal Pro", id: 409035833
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-vscode "adpyke.vscode-sql-formatter"
-vscode "bodil.file-browser"
-vscode "bung87.rails"
-vscode "bung87.vscode-gemfile"
-vscode "bungcip.better-toml"
-vscode "castwide.solargraph"
-vscode "Catppuccin.catppuccin-vsc"
-vscode "evgeniypeshkov.syntax-highlighter"
-vscode "jacobdufault.fuzzy-search"
-vscode "kahole.magit"
-vscode "misogi.ruby-rubocop"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vsliveshare.vsliveshare"
-vscode "rebornix.ruby"
-vscode "redhat.vscode-xml"
-vscode "shardulm94.trailing-spaces"
-vscode "sianglim.slim"
-vscode "vscodevim.vim"
-vscode "VSpaceCode.vspacecode"
-vscode "VSpaceCode.whichkey"
-vscode "wingrunr21.vscode-ruby"
