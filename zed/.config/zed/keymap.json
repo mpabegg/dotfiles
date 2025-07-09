@@ -34,7 +34,8 @@
   {
     "context": "GitPanel > Editor",
     "bindings": {
-      "ctrl-k": "git_panel::FocusChanges"
+      "ctrl-k": "git_panel::FocusChanges",
+      "ctrl-space": "git::GenerateCommitMessage"
     }
   },
   {
