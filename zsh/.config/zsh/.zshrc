@@ -76,7 +76,10 @@ export ARCHFLAGS="-arch $(uname -m)"
 # Modify PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
+export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
+export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
 export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 export PATH="$(brew --prefix postgresql@11)/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"

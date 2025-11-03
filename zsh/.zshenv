@@ -41,6 +41,4 @@ else
   export LC_CTYPE=en_US.UTF-8
 fi
 
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 . "/Users/mpa/.local/share/cargo/env"

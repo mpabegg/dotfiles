@@ -6,9 +6,16 @@
       "ctrl-/": "workspace::ToggleBottomDock"
     }
   },
+  {
+    "context": "KeyContextView",
+    "bindings": {
+      "space w d": "pane::CloseAllItems",
+      "q": "pane::CloseAllItems"
+    }
+  },
   // Window's navigation
   {
-    "context": "Dock || Terminal || Editor",
+    "context": "Dock || Terminal || Editor || KeyContextView",
     "bindings": {
       // Window's motions
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -18,17 +25,12 @@
     }
   },
   {
-    "context": "GitPanel",
+    "context": "GitPanel && VimControl",
     "bindings": {
       "q": "git_panel::Close",
+      "ctrl-j": "git_panel::FocusEditor",
       "shift-p": "git::Push",
       "p": "git::Pull"
-    }
-  },
-  {
-    "context": "GitPanel && ChangesList",
-    "bindings": {
-      "ctrl-j": "git_panel::FocusEditor"
     }
   },
   {
@@ -39,7 +41,7 @@
     }
   },
   {
-    "context": "AgentPanel",
+    "context": "AgentPanel && VimControl",
     "bindings": {
       "space r": "workspace::ToggleRightDock"
     }
@@ -137,6 +139,8 @@
       "space 0": "pane::ActivateLastItem",
       "] b": "pane::ActivateNextItem",
       "[ b": "pane::ActivatePreviousItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
       "space ,": "tab_switcher::Toggle",
       // Jump to the previous location
       "space b b": "pane::AlternateFile",
@@ -160,7 +164,8 @@
       "space s d": "diagnostics::Deploy",
       "space s s": "outline::Toggle",
       // Format
-      "space c f": "editor::Format",
+      // "space c f": "editor::Format",
+      "space c f": ["workspace::SendKeystrokes", "m a g g = G"],
       // File explorer
       "space e": "workspace::ToggleLeftDock",
       "space f t": "project_panel::ToggleFocus",
@@ -198,7 +203,9 @@
     "bindings": {
       // Line's Motions
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
+      "shift-k": "editor::MoveLineUp",
+      ">": ["workspace::SendKeystrokes", "> g v"],
+      "<": ["workspace::SendKeystrokes", "< g v"]
     }
   },
   // Center the cursor on the screen when scrolling and find all references
@@ -237,6 +244,12 @@
     "context": "KeyContextView",
     "bindings": {
       "q": ["workspace::SendKeystrokes", "cmd-w"]
+    }
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "bindings": {
+      "ctrl-y": "editor::AcceptEditPrediction"
     }
   }
 ]
@@ -311,12 +324,6 @@
 //     "bindings": {
 //       ">": ["workspace::SendKeystrokes", "> g v"],
 //       "<": ["workspace::SendKeystrokes", "< g v"]
-//     }
-//   },
-//   {
-//     "context": "Editor && edit_prediction",
-//     "bindings": {
-//       "ctrl-y": "editor::AcceptEditPrediction"
 //     }
 //   },
 //   {
