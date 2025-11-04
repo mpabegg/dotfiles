@@ -41,4 +41,17 @@ return {
 
     pcall(telescope.load_extension('fzf'))
   end,
+  config = function()
+    -- Telescope keymaps
+    vim.keymap.set('n', '<leader>ff', function()
+      require('telescope.builtin').find_files({ hidden = false })
+    end, { desc = 'Find File' })
+    vim.keymap.set('n', '<leader>bb', require('telescope.builtin').buffers, { desc = 'List Buffers' })
+    vim.keymap.set('n', '<leader>hk', '<cmd>Telescope keymaps<cr>', { desc = 'Keymaps' })
+    vim.keymap.set('n', '<leader>hh', '<cmd>Telescope help_tags<cr>', { desc = 'Help' })
+    vim.keymap.set('n', '<leader>sq', require('telescope.builtin').quickfix, { desc = 'Quickfix' })
+    vim.keymap.set('n', '<leader>sl', require('telescope.builtin').resume, { desc = 'Resume' })
+    vim.keymap.set('n', '<leader>/', '<cmd>Telescope live_grep<cr>', { desc = 'Search Project' })
+    vim.keymap.set('n', '<leader>*', '<cmd>Telescope grep_string<cr>', { desc = 'Find Word' })
+  end,
 }

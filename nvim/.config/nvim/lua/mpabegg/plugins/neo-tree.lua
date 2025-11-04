@@ -74,4 +74,10 @@ return {
     },
   },
   opts = config,
+  config = function()
+    -- Neo-tree keymaps
+    vim.keymap.set('n', '<leader>fr', '<cmd>Neotree reveal_file=%<cr>', { desc = 'Reveal Current File on Neotree' })
+    vim.keymap.set('n', '<leader>ft', '<cmd>Neotree toggle<CR>', { desc = 'Neotree' })
+    vim.keymap.set('n', '<leader>0', vim.cmd.Neotree, { desc = 'Focus on Neotree' })
+  end,
 }

@@ -12,7 +12,12 @@ return {
     },
   },
 
-  'mbbill/undotree',
+  {
+    'mbbill/undotree',
+    config = function()
+      vim.keymap.set('n', '<leader>U', vim.cmd.UndotreeToggle, { desc = 'Undo Tree' })
+    end,
+  },
 
   { 'NStefan002/visual-surround.nvim', config = true },
   { 'kylechui/nvim-surround', event = 'VeryLazy', config = true },
@@ -23,7 +28,13 @@ return {
     end,
   },
 
-  { 'echasnovski/mini.bufremove', config = true },
+  {
+    'echasnovski/mini.bufremove',
+    config = true,
+    keys = {
+      { '<leader>bd', function() require('mini.bufremove').delete() end, desc = 'Delete Buffer' },
+    },
+  },
   { 'echasnovski/mini.comment', config = true },
   { 'echasnovski/mini.indentscope', config = true },
   { 'echasnovski/mini.trailspace', config = true },

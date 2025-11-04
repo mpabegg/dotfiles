@@ -31,4 +31,12 @@ return {
     win_config = { border = 'none' }, -- window configuration for floating windows. See |nvim_open_win()|.
     signs = require('mpabegg.icons').diagnostics,
   },
+  config = function()
+    -- Trouble keymaps
+    vim.keymap.set('n', '<leader>xx', '<cmd>TroubleToggle<cr>', { desc = 'Toggle Trouble' })
+    vim.keymap.set('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { desc = 'Workspace Diagnostics' })
+    vim.keymap.set('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', { desc = 'Document Diagnostics' })
+    vim.keymap.set('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { desc = 'Quickfix' })
+    vim.keymap.set('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>', { desc = 'Loclist' })
+  end,
 }

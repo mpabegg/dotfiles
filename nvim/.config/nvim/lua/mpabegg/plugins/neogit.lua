@@ -10,4 +10,8 @@ return {
       item = { icons.ui.carret_right, icons.ui.carret_down },
     },
   },
+  config = function()
+    -- Neogit keymaps
+    vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Git Status' })
+  end,
 }
