@@ -57,12 +57,14 @@ return {
     end,
     config = function(_, opts)
       require('mason').setup({})
-      require('mason-lspconfig').setup({ ensure_installed = vim.tbl_keys(opts.servers) })
-      require('mason-lspconfig').setup_handlers({
-        function(server_name)
-          local config = vim.tbl_deep_extend('force', opts.defaults, opts.servers[server_name] or {})
-          require('lspconfig')[server_name].setup(config)
-        end,
+      require('mason-lspconfig').setup({
+        ensure_installed = vim.tbl_keys(opts.servers or {}),
+        handlers = {
+          function(server_name)
+            local config = vim.tbl_deep_extend('force', opts.defaults, opts.servers[server_name] or {})
+            require('lspconfig')[server_name].setup(config)
+          end,
+        },
       })
     end,
   },

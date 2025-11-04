@@ -1,6 +1,6 @@
 local function get_attached_clients()
-  local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-  if #buf_clients == 0 or (#buf_clients == 1 and buf_clients[1].name == 'copilot') then
+  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #buf_clients == 0 then
     return nil
   end
 
@@ -9,7 +9,7 @@ local function get_attached_clients()
 
   -- add client
   for _, client in pairs(buf_clients) do
-    if client.name ~= 'copilot' and client.name ~= 'null-ls' then
+    if client.name ~= 'null-ls' then
       table.insert(buf_client_names, client.name)
     end
   end
@@ -110,21 +110,6 @@ return {
             cond = function()
               return get_attached_clients() ~= nil
             end,
-          },
-          {
-            function()
-              local icon = require('mpabegg.icons').kinds.copilot
-              local status = require('copilot.api').status.data
-              return icon .. (status.message or '')
-            end,
-            cond = function()
-              local ok, clients = pcall(vim.lsp.get_active_clients, { name = 'copilot', bufnr = 0 })
-              return ok and #clients > 0
-            end,
-            padding = {
-              left = 1,
-              right = 0,
-            },
           },
         },
         lualine_b = {

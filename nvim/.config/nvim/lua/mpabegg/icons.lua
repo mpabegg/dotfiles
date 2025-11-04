@@ -35,7 +35,5 @@ return {
     staged = '',
     conflict = '',
   },
-  kinds = {
-    copilot = ' ',
-  },
+  kinds = {},
 }

@@ -5,6 +5,7 @@ rm -rf ~/.local/share/nvim/
 rm -rf ~/.local/state/nvim/
 rm -rf ~/.cache/nvim/
 
-rm -rf ~/.local/share/mini.deps/
-rm -rf ~/.local/state/mini.deps/
-rm -rf ~/.cache/mini.deps/
+rm -rf ~/.local/share/nvim-old/
+rm -rf ~/.local/state/nvim-old/
+rm -rf ~/.cache/nvim-old/
+
