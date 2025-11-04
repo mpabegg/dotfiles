@@ -11,14 +11,6 @@ return {
       },
     },
   },
-
-  {
-    'mbbill/undotree',
-    config = function()
-      vim.keymap.set('n', '<leader>U', vim.cmd.UndotreeToggle, { desc = 'Undo Tree' })
-    end,
-  },
-
   { 'NStefan002/visual-surround.nvim', config = true },
   { 'kylechui/nvim-surround', event = 'VeryLazy', config = true },
   {
@@ -44,21 +36,5 @@ return {
     config = function()
       vim.keymap.set('n', '<leader>fm', require('mini.files').open)
     end,
-  },
-
-  {
-    'folke/persistence.nvim',
-    event = 'VeryLazy',
-    config = true,
-    keys = {
-      { '<leader>qq', [[:lua require("persistence").save(); vim.cmd.quitall()<CR>]], desc = 'Quit', silent = true },
-      { '<leader>qr', [[:lua require("persistence").load({ last = true })<CR>]], desc = 'Restore', silent = true },
-      { '<leader>ql', [[:lua require("persistence").load()<CR>]], desc = 'Load', silent = true },
-    },
-  },
-  {
-    'chrisgrieser/nvim-early-retirement',
-    config = true,
-    event = 'VeryLazy',
   },
 }
