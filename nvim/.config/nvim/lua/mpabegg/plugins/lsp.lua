@@ -1,3 +1,5 @@
+local add = MiniDeps.add
+
 local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr, desc = 'Goto Declaration' })
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'LSP Definitions' })
@@ -38,24 +40,34 @@ local function on_attach(client, bufnr)
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-local ok, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
-if ok then
-  capabilities = cmp_lsp.default_capabilities(capabilities)
-end
+add({ source = 'hrsh7th/cmp-nvim-lsp' })
 
-return {
-  {
-    'neovim/nvim-lspconfig',
-    opts = function()
-      return {
+add({ source = 'williamboman/mason.nvim', hooks = { post_checkout = function() require('mason').setup({}) end } })
+
+add({
+  source = 'williamboman/mason-lspconfig.nvim',
+  depends = { 'williamboman/mason.nvim' },
+})
+
+add({
+  source = 'neovim/nvim-lspconfig',
+  depends = { 'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp' },
+  hooks = {
+    post_checkout = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local ok, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
+      if ok then
+        capabilities = cmp_lsp.default_capabilities(capabilities)
+      end
+
+      local opts = {
         defaults = {
           on_attach = on_attach,
           capabilities = capabilities,
         },
+        servers = {},
       }
-    end,
-    config = function(_, opts)
+
       require('mason').setup({})
       require('mason-lspconfig').setup({
         ensure_installed = vim.tbl_keys(opts.servers or {}),
@@ -68,8 +80,6 @@ return {
       })
     end,
   },
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
-  { 'neovim/nvim-lspconfig', dependencies = { 'hrsh7th/cmp-nvim-lsp' } },
-  { 'j-hui/fidget.nvim', tag = 'legacy', config = true },
-}
+})
+
+add({ source = 'j-hui/fidget.nvim', checkout = 'legacy', hooks = { post_checkout = function() require('fidget').setup({}) end } })

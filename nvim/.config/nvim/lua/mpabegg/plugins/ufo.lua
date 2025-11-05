@@ -1,8 +1,14 @@
-return {
-  {
-    'kevinhwang91/nvim-ufo',
-    dependencies = { 'kevinhwang91/promise-async', 'nvim-treesitter/nvim-treesitter' },
-    opts = function()
+local add = MiniDeps.add
+
+add({
+  source = 'kevinhwang91/promise-async',
+})
+
+add({
+  source = 'kevinhwang91/nvim-ufo',
+  depends = { 'kevinhwang91/promise-async', 'nvim-treesitter/nvim-treesitter' },
+  hooks = {
+    post_checkout = function()
       local handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
         local suffix = (' 󰁂 %d '):format(endLnum - lnum)
@@ -31,7 +37,7 @@ return {
         return newVirtText
       end
 
-      return {
+      local opts = {
         fold_virt_text_handler = handler,
         provider_selector = function()
           return { 'treesitter', 'indent' }
@@ -44,8 +50,7 @@ return {
           },
         },
       }
-    end,
-    config = function(_, opts)
+
       vim.o.foldcolumn = '0' -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
@@ -54,4 +59,4 @@ return {
       require('ufo').setup(opts)
     end,
   },
-}
+})

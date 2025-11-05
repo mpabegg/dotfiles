@@ -1,33 +1,26 @@
 -- Install package manager
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
+--    https://github.com/nvim-mini/mini.nvim
+--    `:help mini-deps.txt` for more info
+local minideps_path = vim.fn.stdpath('data') .. '/site/pack/deps/start/mini.nvim'
+if not vim.loop.fs_stat(minideps_path) then
   vim.fn.system({
     'git',
     'clone',
     '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
+    'https://github.com/nvim-mini/mini.nvim.git',
+    '--depth=1',
+    minideps_path,
   })
 end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(minideps_path)
 
 require('mpabegg.options')
 require('mpabegg.autocmd')
 require('mpabegg.diagnostics')
-require('lazy').setup({
-  spec = {
-    { import = 'mpabegg.plugins' },
-    { import = 'mpabegg.languages' },
-  },
-  install = {
-    colorscheme = { 'catppuccin frappe' },
-  },
-  change_detection = {
-    -- automatically check for config file changes and reload the ui
-    enabled = true,
-    notify = false, -- get a notification when changes are found
-  },
-})
+
+-- Setup mini.deps
+require('mini.deps').setup({})
+
+-- Load plugins
+require('mpabegg.plugins')
+require('mpabegg.languages')

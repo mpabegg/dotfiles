@@ -1,25 +1,52 @@
+local add = MiniDeps.add
+
 ---@diagnostic disable: missing-fields
-return {
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      {
-        'L3MON4D3/LuaSnip',
-        dependencies = {
-          'rafamadriz/friendly-snippets',
-          config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-          end,
-        },
-      },
-      'saadparwaiz1/cmp_luasnip',
-      'onsails/lspkind.nvim',
-    },
-    event = 'InsertEnter',
-    config = function()
+add({
+  source = 'rafamadriz/friendly-snippets',
+  hooks = {
+    post_checkout = function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end,
+  },
+})
+
+add({
+  source = 'L3MON4D3/LuaSnip',
+  depends = { 'rafamadriz/friendly-snippets' },
+})
+
+add({
+  source = 'hrsh7th/cmp-buffer',
+})
+
+add({
+  source = 'hrsh7th/cmp-path',
+})
+
+add({
+  source = 'hrsh7th/cmp-cmdline',
+})
+
+add({
+  source = 'saadparwaiz1/cmp_luasnip',
+})
+
+add({
+  source = 'onsails/lspkind.nvim',
+})
+
+add({
+  source = 'hrsh7th/nvim-cmp',
+  depends = {
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind.nvim',
+  },
+  hooks = {
+    post_checkout = function()
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -96,4 +123,4 @@ return {
       })
     end,
   },
-}
+})

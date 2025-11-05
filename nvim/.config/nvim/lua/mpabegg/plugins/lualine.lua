@@ -81,64 +81,67 @@ local function get_attached_clients()
   return language_servers
 end
 
-return {
-  'nvim-lualine/lualine.nvim',
-  event = 'VeryLazy',
-  opts = function()
-    local icons = require('mpabegg.icons')
-    return {
-      options = {
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        theme = 'auto',
-        globalstatus = true,
-        disabled_filetypes = { statusline = { 'dashboard', 'alpha' } },
-      },
-      sections = {
-        lualine_a = {
-          {
-            'filetype',
-            icon_only = true,
-            colored = false,
-            padding = {
-              left = 1,
-              right = 1,
+local add = MiniDeps.add
+
+add({
+  source = 'nvim-lualine/lualine.nvim',
+  hooks = {
+    post_checkout = function()
+      local icons = require('mpabegg.icons')
+      require('lualine').setup({
+        options = {
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
+          theme = 'auto',
+          globalstatus = true,
+          disabled_filetypes = { statusline = { 'dashboard', 'alpha' } },
+        },
+        sections = {
+          lualine_a = {
+            {
+              'filetype',
+              icon_only = true,
+              colored = false,
+              padding = {
+                left = 1,
+                right = 1,
+              },
+            },
+            {
+              get_attached_clients,
+              cond = function()
+                return get_attached_clients() ~= nil
+              end,
             },
           },
-          {
-            get_attached_clients,
-            cond = function()
-              return get_attached_clients() ~= nil
-            end,
+          lualine_b = {
+            {
+              'filename',
+              path = 1,
+              symbols = {
+                modified = icons.file.modified,
+                readonly = '',
+                unnamed = '',
+              },
+            },
           },
-        },
-        lualine_b = {
-          {
-            'filename',
-            path = 1,
-            symbols = {
-              modified = icons.file.modified,
-              readonly = '',
-              unnamed = '',
+          lualine_c = {
+            { 'diagnostics', symbols = icons.diagnostics },
+          },
+          lualine_x = {
+            { 'diff', symbols = icons.git },
+          },
+          lualine_y = {
+            { 'branch', color = { gui = 'italic' } },
+          },
+          lualine_z = {
+            {
+              'location',
             },
           },
         },
-        lualine_c = {
-          { 'diagnostics', symbols = icons.diagnostics },
-        },
-        lualine_x = {
-          { 'diff', symbols = icons.git },
-        },
-        lualine_y = {
-          { 'branch', color = { gui = 'italic' } },
-        },
-        lualine_z = {
-          {
-            'location',
-          },
-        },
-      },
-      extensions = { 'neo-tree', 'lazy' },
-    }
-  end,
-}
+        extensions = { 'neo-tree' },
+      })
+    end,
+  },
+})

@@ -1,21 +1,24 @@
-return {
-  {
-    'neovim/nvim-lspconfig',
-    opts = function(_, opts)
-      return vim.tbl_deep_extend('force', opts or {}, {
-        servers = {
-          clangd = {},
-        },
-      })
+local add = MiniDeps.add
+
+add({
+  source = 'neovim/nvim-lspconfig',
+  hooks = {
+    post_checkout = function()
+      require('lspconfig').clangd.setup({})
     end,
   },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        'c',
-        'cpp',
-      })
+})
+
+add({
+  source = 'nvim-treesitter/nvim-treesitter',
+  hooks = {
+    post_checkout = function()
+      local configs = require('nvim-treesitter.configs')
+      local current_config = configs.get_config()
+      if not current_config.ensure_installed then
+        current_config.ensure_installed = {}
+      end
+      vim.list_extend(current_config.ensure_installed, { 'c', 'cpp' })
     end,
   },
-}
+})
