@@ -1,26 +1,23 @@
--- Install package manager
---    https://github.com/nvim-mini/mini.nvim
---    `:help mini-deps.txt` for more info
-local minideps_path = vim.fn.stdpath('data') .. '/site/pack/deps/start/mini.nvim'
-if not vim.loop.fs_stat(minideps_path) then
-  vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/nvim-mini/mini.nvim.git',
-    '--depth=1',
-    minideps_path,
-  })
-end
-vim.opt.rtp:prepend(minideps_path)
+local config_file = vim.fn.expand("$MYVIMRC")
+vim.keymap.set("n", "<leader>hr", function()
+  vim.cmd("source " .. config_file)
+  print("Reloaded " .. config_file)
+end, { desc = "Reload Neovim config" })
 
-require('mpabegg.options')
-require('mpabegg.autocmd')
-require('mpabegg.diagnostics')
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
--- Setup mini.deps
-require('mini.deps').setup({})
+require('mpa.opts')
+require('mpa.colors')
+require('mpa.tmux')
 
--- Load plugins
-require('mpabegg.plugins')
-require('mpabegg.languages')
+vim.pack.add({
+  { src = "https://github.com/nvim-mini/mini.nvim" },
+}, { confirm = false })
+
+require("mini.pick").setup()
+
+vim.keymap.set("n", "<leader>hh", MiniPick.builtin.help)
+vim.keymap.set("n", "<leader>wv", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>ws", ":split<CR>")
+vim.keymap.set("n", "<leader>wd", ":quit<CR>")
