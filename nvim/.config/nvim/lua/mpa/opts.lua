@@ -27,7 +27,7 @@ vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.autochdir = false
 
-vim.g.netrw_browse_split = 0
+vim.g.netrw_browse_split = 0 -- vertically   splitting the window first
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
