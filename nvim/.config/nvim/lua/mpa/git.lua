@@ -4,22 +4,22 @@ require('gitsigns').setup({
   current_line_blame_opts = {
     virt_text = true,
   },
-      signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "" },
-        topdelete = { text = "" },
-        changedelete = { text = "▎" },
-        untracked = { text = "▎" },
-      },
-      signs_staged = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "" },
-        topdelete = { text = "" },
-        changedelete = { text = "▎" },
-      },
- on_attach = function(buffer)
+  signs = {
+    add = { text = "▎" },
+    change = { text = "▎" },
+    delete = { text = "" },
+    topdelete = { text = "" },
+    changedelete = { text = "▎" },
+    untracked = { text = "▎" },
+  },
+  signs_staged = {
+    add = { text = "▎" },
+    change = { text = "▎" },
+    delete = { text = "" },
+    topdelete = { text = "" },
+    changedelete = { text = "▎" },
+  },
+  on_attach = function(buffer)
     local gs = package.loaded.gitsigns
 
     local function map(mode, l, r, desc)
@@ -41,11 +41,11 @@ vim.pack.add{
 local icons = require'mpa.icons'
 require('neogit').setup({
   signs = {
-      -- { CLOSED, OPENED }
-      section = { icons.ui.carret_right, icons.ui.carret_down },
-      item = { icons.ui.carret_right, icons.ui.carret_down },
-    },
-  })
-  -- Neogit keymaps
-  vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Git Status' }
+    -- { CLOSED, OPENED }
+    section = { icons.ui.carret_right, icons.ui.carret_down },
+    item = { icons.ui.carret_right, icons.ui.carret_down },
+  },
+})
+-- Neogit keymaps
+vim.keymap.set('n', '<leader>gs', require('neogit').open, { desc = 'Git Status' }
 )
