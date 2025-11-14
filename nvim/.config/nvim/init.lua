@@ -4,6 +4,7 @@ require'mpa.colors'
 require'mpa.git'
 require'mpa.lang'
 require'mpa.tmux'
+require'mpa.diagnostics'
 
 vim.pack.add{{src="https://github.com/folke/snacks.nvim"}}
 vim.pack.add{{src="https://github.com/folke/ts-comments.nvim"}}
@@ -14,33 +15,16 @@ require'snacks'.setup({
   explorer = { enable = true },
 })
 
-local icons = require('mpa.icons')
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
-      [vim.diagnostic.severity.WARN]  = icons.diagnostics.warn,
-      [vim.diagnostic.severity.HINT]  = icons.diagnostics.hint,
-      [vim.diagnostic.severity.INFO]  = icons.diagnostics.info,
-    }
-  },
-  virtual_text = false,
-  update_in_insert = false,
-  underline = false,
-  severity_sort = true,
-  float = {
-    focusable = true,
-    style = 'minimal',
-    border = 'rounded',
-    source = 'always',
-    header = '',
-    prefix = '',
-  },
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = mpabegg,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 100,
+    })
+  end,
 })
-
-vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
 vim.pack.add{
   { src = "https://github.com/folke/flash.nvim" },
@@ -51,20 +35,6 @@ vim.keymap.set({ "n", "x", "o" }, 'S', require'flash'.treesitter )
 vim.keymap.set('o', 'r', require'flash'.remote )
 vim.keymap.set({ 'o', 'x' }, 'R', require'flash'.treesitter_search )
 vim.keymap.set( 'c' , '<c-s>', require'flash'.toggle )
--- keys = {
---   { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
---   -- Simulate nvim-treesitter incremental selection
---   { "<c-space>", mode = { "n", "o", "x" },
---   function()
---     require("flash").treesitter({
---       actions = {
---         ["<c-space>"] = "next",
---         ["<BS>"] = "prev"
---       }
---     }) 
---   end, desc = "Treesitter Incremental Selection" },
--- },
---   },
 
 vim.pack.add { 
   { src = "https://github.com/stevearc/oil.nvim" },
