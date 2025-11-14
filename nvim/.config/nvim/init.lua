@@ -3,17 +3,7 @@ require'mpa.folds'
 require'mpa.colors'
 require'mpa.git'
 require'mpa.lang'
-
-vim.pack.add({ { src = 'https://github.com/alexghergh/nvim-tmux-navigation' } })
-require('nvim-tmux-navigation').setup({
-  disable_when_zoomed = true,
-  keybindings = {
-    left = '<C-h>',
-    down = '<C-j>',
-    up = '<C-k>',
-    right = '<C-l>',
-  },
-})
+require'mpa.tmux'
 
 vim.pack.add{{src="https://github.com/folke/snacks.nvim"}}
 vim.pack.add{{src="https://github.com/folke/ts-comments.nvim"}}
@@ -21,7 +11,6 @@ vim.pack.add{{src="https://github.com/folke/lazydev.nvim"}}
 require'ts-comments'.setup()
 require'snacks'.setup({
   indent = { enable = true },
-  scope = { enable = true },
   explorer = { enable = true },
 })
 
