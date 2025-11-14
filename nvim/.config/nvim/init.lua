@@ -2,9 +2,19 @@ require'mpa.opts'
 require'mpa.folds'
 require'mpa.colors'
 require'mpa.git'
+require'mpa.lang'
+
+vim.pack.add{{src="https://github.com/folke/snacks.nvim"}}
+vim.pack.add{{src="https://github.com/folke/ts-comments.nvim"}}
+vim.pack.add{{src="https://github.com/folke/lazydev.nvim"}}
+require'ts-comments'.setup()
+require'snacks'.setup({
+  indent = { enable = true },
+  scope = { enable = true },
+  explorer = { enable = true },
+})
 
 local icons = require('mpa.icons')
-
 vim.diagnostic.config({
   signs = {
     text = {
@@ -32,6 +42,30 @@ vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
+vim.pack.add{
+  { src = "https://github.com/folke/flash.nvim" },
+}
+require'flash'.setup{}
+vim.keymap.set({ "n", "x", "o" }, 's', require'flash'.jump )
+vim.keymap.set({ "n", "x", "o" }, 'S', require'flash'.treesitter )
+vim.keymap.set('o', 'r', require'flash'.remote )
+vim.keymap.set({ 'o', 'x' }, 'R', require'flash'.treesitter_search )
+vim.keymap.set( 'c' , '<c-s>', require'flash'.toggle )
+-- keys = {
+--   { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+--   -- Simulate nvim-treesitter incremental selection
+--   { "<c-space>", mode = { "n", "o", "x" },
+--   function()
+--     require("flash").treesitter({
+--       actions = {
+--         ["<c-space>"] = "next",
+--         ["<BS>"] = "prev"
+--       }
+--     }) 
+--   end, desc = "Treesitter Incremental Selection" },
+-- },
+--   },
+
 vim.pack.add { 
   { src = "https://github.com/stevearc/oil.nvim" },
 }
@@ -45,11 +79,13 @@ vim.keymap.set("n", "<leader>x", function()
   print("Reloaded " .. config_file)
 end, { desc = "Reload Neovim config" })
  
-vim.pack.add({ 
-	{ src = 'https://github.com/nvim-mini/mini.nvim' } }, 
-{ confirm = false })
+vim.pack.add({
+  {src = 'https://github.com/nvim-mini/mini.nvim'}
+}, { confirm = false })
+require'mini.splitjoin'.setup{}
 
-require'mini.pick'.setup {}
+Snacks.keymap.set("n", "<leader>ff", Snacks.picker.smart)
+Snacks.keymap.set("n", "<leader>ft", Snacks.picker.explorer)
+Snacks.keymap.set("n", "<leader>bb", Snacks.picker.buffers)
+Snacks.keymap.set("n", "<leader>hh", Snacks.picker.help)
 
-vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files)
-vim.keymap.set("n", "<leader>hh", MiniPick.builtin.help)
