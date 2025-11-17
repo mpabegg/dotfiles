@@ -50,6 +50,53 @@ end, { desc = "Reload Neovim config" })
 
 require 'mini.splitjoin'.setup {}
 
+Snacks.keymap.set("n", "<leader>wv", "<c-w>v")
+Snacks.keymap.set("n", "<leader>ws", "<c-w>s")
+Snacks.keymap.set("n", "<leader>wd", function()
+  if #vim.api.nvim_list_wins() > 1 then
+    vim.cmd('close')
+  end
+end
+)
+
+local api = vim.api
+
+local function ToggleMaximizeWindow()
+  local cur_tab = api.nvim_get_current_tabpage()
+
+  -- If this tab knows where to go back, we're in the "zoom" tab
+  if vim.t._max_restore_tab and api.nvim_tabpage_is_valid(vim.t._max_restore_tab) then
+    local restore_tab = vim.t._max_restore_tab
+
+    -- Go back to the original tab
+    api.nvim_set_current_tabpage(restore_tab)
+
+    -- Close the zoom tab (the one we were just in)
+    local zoom_tabnr = api.nvim_tabpage_get_number(cur_tab)
+    vim.cmd(zoom_tabnr .. "tabclose")
+
+    -- Clean up the tab-local var
+    vim.t._max_restore_tab = nil
+  else
+    -- We are in a normal tab: create a "zoom" tab
+    local original_tab = cur_tab
+
+    -- Open the current window in a new tab as the only window
+    vim.cmd("tab split")
+
+    -- In the new tab, remember where to go back
+    vim.t._max_restore_tab = original_tab
+  end
+end
+
+vim.keymap.set("n", "<leader>wm", ToggleMaximizeWindow, {
+  desc = "Toggle maximize current window (zoom tab)",
+})
+
+Snacks.keymap.set('n', '<leader>wm', ToggleMaximizeWindow, {
+  desc = "Toggle maximize window"
+})
+
 Snacks.keymap.set("n", "<leader>ff", Snacks.picker.smart)
 Snacks.keymap.set("n", "<leader>ft", Snacks.picker.explorer)
 Snacks.keymap.set("n", "<leader>bb", Snacks.picker.buffers)
