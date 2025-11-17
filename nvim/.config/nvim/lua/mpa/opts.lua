@@ -26,6 +26,7 @@ vim.opt.undodir = vim.fn.stdpath('data') .. '/undodir'
 vim.opt.undofile = true
 vim.opt.wrap = false
 vim.opt.autochdir = false
+vim.opt.winborder = 'rounded'
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
@@ -35,4 +36,3 @@ vim.g.netrw_winsize = 25
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
-

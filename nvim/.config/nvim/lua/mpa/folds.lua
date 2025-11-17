@@ -36,13 +36,13 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 local opts = {
- -- fold_virt_text_handler = handler,
+  -- fold_virt_text_handler = handler,
   provider_selector = function(bufnr, filetype, buftype)
     for _, client in pairs(vim.lsp.get_clients({ bufnr = buf })) do
       local caps = client.server_capabilities or {}
       if caps.foldingRangeProvider then return '' end
     end
-    return {'treesitter', 'indent'}
+    return { 'treesitter', 'indent' }
   end,
   preview = {
     win_config = {
@@ -54,7 +54,7 @@ local opts = {
 }
 
 vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
