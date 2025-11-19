@@ -1,0 +1,40 @@
+{
+  "plugins": {
+    "gitsigns.nvim": {
+      "rev": "20ad441",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2",
+      "src": "https://github.com/rktjmp/lush.nvim"
+    },
+    "mini.nvim": {
+      "rev": "f43357b",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neogit": {
+      "rev": "614a6348",
+      "src": "https://github.com/NeogitOrg/neogit"
+    },
+    "nvim-ufo": {
+      "rev": "72d54c3",
+      "src": "https://github.com/kevinhwang91/nvim-ufo"
+    },
+    "oil.nvim": {
+      "rev": "7e1cd77",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "promise-async": {
+      "rev": "119e896",
+      "src": "https://github.com/kevinhwang91/promise-async"
+    },
+    "zenbones.nvim": {
+      "rev": "a934bc0",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
+    }
+  }
+}
