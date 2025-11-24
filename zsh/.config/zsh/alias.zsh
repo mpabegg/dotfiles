@@ -9,3 +9,4 @@ alias fco="git branch | fzf --prompt=' Checkout Branch ' | xargs git checkout
 
 alias c="cursor"
 alias z="zed"
+alias lv="NVIM_APPNAME='lazy-vim' nvim"
