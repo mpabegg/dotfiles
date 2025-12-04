@@ -1,9 +1,5 @@
 {
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Catppuccin Frappé"
-  },
+  "theme": "Everforest Dark Soft",
   "icon_theme": "Catppuccin Macchiato",
   "buffer_font_family": "ComicCode Nerd Font",
   "buffer_font_size": 12,
@@ -65,7 +61,7 @@
     "activate_on_close": "left_neighbour",
     "show_diagnostics": "all"
   },
-  "file_finder": { "include_ignored": true },
+  "file_finder": { "include_ignored": "all" },
   "tab_size": 2,
   "git": { "inline_blame": { "enabled": false } },
   "journal": {
