@@ -1,5 +1,104 @@
-import = ["/Users/mpa/.dotfiles/alacritty/.config/alacritty/catpuccin/catppuccin-frappe.toml"]
-live_config_reload = true
+## CATPPUCCIN-FRAPPE
+# [[colors.indexed_colors]]
+# color = "#EF9F76"
+# index = 16
+#
+# [[colors.indexed_colors]]
+# color = "#F2D5CF"
+# index = 17
+#
+# [colors.bright]
+# black = "#626880"
+# blue = "#8CAAEE"
+# cyan = "#81C8BE"
+# green = "#A6D189"
+# magenta = "#F4B8E4"
+# red = "#E78284"
+# white = "#A5ADCE"
+# yellow = "#E5C890"
+#
+# [colors.cursor]
+# cursor = "#F2D5CF"
+# text = "#303446"
+#
+# [colors.dim]
+# black = "#51576D"
+# blue = "#8CAAEE"
+# cyan = "#81C8BE"
+# green = "#A6D189"
+# magenta = "#F4B8E4"
+# red = "#E78284"
+# white = "#B5BFE2"
+# yellow = "#E5C890"
+#
+# [colors.hints.end]
+# background = "#A5ADCE"
+# foreground = "#303446"
+#
+# [colors.hints.start]
+# background = "#E5C890"
+# foreground = "#303446"
+#
+# [colors.normal]
+# black = "#51576D"
+# blue = "#8CAAEE"
+# cyan = "#81C8BE"
+# green = "#A6D189"
+# magenta = "#F4B8E4"
+# red = "#E78284"
+# white = "#B5BFE2"
+# yellow = "#E5C890"
+#
+# [colors.primary]
+# background = "#303446"
+# bright_foreground = "#C6D0F5"
+# dim_foreground = "#C6D0F5"
+# foreground = "#C6D0F5"
+#
+# [colors.search.focused_match]
+# background = "#A6D189"
+# foreground = "#303446"
+#
+# [colors.search.matches]
+# background = "#A5ADCE"
+# foreground = "#303446"
+#
+# [colors.selection]
+# background = "#F2D5CF"
+# text = "#303446"
+#
+# [colors.vi_mode_cursor]
+# cursor = "#BABBF1"
+# text = "#303446"
+
+
+## EVERFOREST
+# Default colors
+[colors.primary]
+background = '#2d353b'
+foreground = '#d3c6aa'
+
+# Normal colors
+[colors.normal]
+black = '#475258'
+red = '#e67e80'
+green = '#a7c080'
+yellow = '#dbbc7f'
+blue = '#7fbbb3'
+magenta = '#d699b6'
+cyan = '#83c092'
+white = '#d3c6aa'
+
+# Bright colors
+[colors.bright]
+black = '#475258'
+red = '#e67e80'
+green = '#a7c080'
+yellow = '#dbbc7f'
+blue = '#7fbbb3'
+magenta = '#d699b6'
+cyan = '#83c092'
+white = '#d3c6aa'
 
 [cursor]
 unfocused_hollow = true
