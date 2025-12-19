@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "lazy.nvim": {
+      "rev": "85c7ff3",
+      "src": "https://github.com/folke/lazy.nvim"
+    },
+    "mini.deps": {
+      "rev": "8f6f74a",
+      "src": "https://github.com/nvim-mini/mini.deps"
+    },
+    "zenbones.nvim": {
+      "rev": "a934bc0",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
+    }
+  }
+}
