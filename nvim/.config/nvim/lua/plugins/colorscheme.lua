@@ -1,9 +1,10 @@
 return {
   {
     'e-ink-colorscheme/e-ink.nvim',
+    lazy = false,
+    enabled = false,
     config = function()
       require('e-ink').setup()
-      vim.opt.background = 'light'
       vim.cmd.colorscheme('e-ink')
     end,
   },
@@ -15,7 +16,7 @@ return {
   {
     'sainnhe/everforest',
     lazy = false,
-    enabled = false,
+    -- enabled = false,
     config = function()
       vim.g.everforest_background = 'soft'
       vim.cmd.colorscheme([[everforest]])
