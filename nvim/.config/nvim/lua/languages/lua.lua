@@ -10,11 +10,7 @@ vim.api.nvim_create_autocmd('FileType', {
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, {
-        ensure_installed = { 'lua', 'luadoc' },
-      })
-    end,
+    opts = MakeOpts({ ensure_installed = { 'lua', 'luadoc' } }),
   },
   {
     'folke/lazydev.nvim',
@@ -27,46 +23,40 @@ return {
   },
   {
     'saghen/blink.cmp',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, {
-        sources = {
-          default = { 'lazydev' },
-          providers = {
-            lazydev = {
-              module = 'lazydev.integrations.blink',
-              score_offset = 100,
-            },
+    opts = MakeOpts({
+      sources = {
+        default = { 'lazydev' },
+        providers = {
+          lazydev = {
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
           },
         },
-      })
-    end,
+      },
+    }),
   },
   {
     'mason-org/mason-lspconfig.nvim',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, { ensure_installed = { 'stylua', 'lua_ls' } })
-    end,
+    opts = MakeOpts({ ensure_installed = { 'stylua', 'lua_ls' } }),
   },
   {
     'neovim/nvim-lspconfig',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, {
-        servers = {
-          lua_ls = {
-            settings = {
-              Lua = {
-                completion = {
-                  callSnippet = 'Replace',
-                },
-                diagnostics = {
-                  disable = { 'missing-fields' },
-                  globals = { 'vim' },
-                },
+    opts = MakeOpts({
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+              diagnostics = {
+                disable = { 'missing-fields' },
+                globals = { 'vim' },
               },
             },
           },
         },
-      })
-    end,
+      },
+    }),
   },
 }

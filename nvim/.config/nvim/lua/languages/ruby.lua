@@ -78,35 +78,31 @@ end
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, {
-        ensure_installed = { 'ruby' },
-      })
-    end,
+    opts = MakeOpts({
+      ensure_installed = { 'ruby' },
+    }),
   },
   {
     'mason-org/mason-lspconfig.nvim',
-    opts = function(_, opts) return utils.deep_extend(opts, { ensure_installed = { 'ruby_lsp' } }) end,
+    opts = MakeOpts({ ensure_installed = { 'ruby_lsp' } }),
   },
   {
     'neovim/nvim-lspconfig',
-    opts = function(_, opts)
-      return utils.deep_extend(opts, {
-        servers = {
-          ruby_lsp = {
-            root_dir = root_dir,
-            cmd = ruby_lsp_cmd(),
-            on_new_config = function(new_config, new_root_dir)
-              if vim.fn.filereadable(vim.fs.joinpath(new_root_dir, 'bin', 'rubocop')) == 1 then
-                new_config.init_options = new_config.init_options or {}
-                new_config.init_options.formatter = 'none'
-                new_config.init_options.enabledFeatures = new_config.init_options.enabledFeatures
-                  or {}
-              end
-            end,
-          },
+    opts = MakeOpts({
+      servers = {
+        ruby_lsp = {
+          root_dir = root_dir,
+          cmd = ruby_lsp_cmd(),
+          on_new_config = function(new_config, new_root_dir)
+            if vim.fn.filereadable(vim.fs.joinpath(new_root_dir, 'bin', 'rubocop')) == 1 then
+              new_config.init_options = new_config.init_options or {}
+              new_config.init_options.formatter = 'none'
+              new_config.init_options.enabledFeatures = new_config.init_options.enabledFeatures
+                or {}
+            end
+          end,
         },
-      })
-    end,
+      },
+    }),
   },
 }

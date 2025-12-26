@@ -1,12 +1,4 @@
-local M = {}
-
---- Deep extend tables with specific behavior:
---- 1. Handles nil inputs gracefully
---- 2. Always merges recursively (like 'force' behavior)
---- 3. Extends lists (integer-indexed tables) instead of overwriting them
----@param ... table|nil
----@return table
-function M.deep_extend(...)
+local function deep_extend(...)
   local result = {}
   local count = select('#', ...)
 
@@ -27,7 +19,7 @@ function M.deep_extend(...)
             result[k] = new_list
           else
             -- Recurse for maps or mixed tables
-            result[k] = M.deep_extend(existing, v)
+            result[k] = deep_extend(existing, v)
           end
         else
           -- Overwrite (equivalent to 'force' behavior)
@@ -43,6 +35,15 @@ function M.deep_extend(...)
 
   return result
 end
+
+--- Create a function that deep-extends original opts with given params.
+---@param opts table|nil
+---@return fun(_, original_opts: table|nil): table
+function MakeOpts(opts)
+  return function(_, original_opts) return deep_extend(original_opts, opts) end
+end
+
+local M = {}
 
 --- Setup auto-formatting for specific files
 ---@param pattern string|table Glob pattern(s) to match files (e.g. "*.lua")

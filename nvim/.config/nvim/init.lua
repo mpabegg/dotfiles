@@ -3,6 +3,7 @@ vim.pack.add({ 'https://github.com/folke/lazy.nvim' })
 require('mpa.options')
 require('mpa.keymaps')
 require('mpa.autocmds')
+require('mpa.utils')
 
 require('lazy').setup({
   spec = {

@@ -1,10 +1,10 @@
 return {
   {
     'e-ink-colorscheme/e-ink.nvim',
-    lazy = false,
     enabled = false,
     config = function()
       require('e-ink').setup()
+      vim.opt.background = 'dark'
       vim.cmd.colorscheme('e-ink')
     end,
   },
