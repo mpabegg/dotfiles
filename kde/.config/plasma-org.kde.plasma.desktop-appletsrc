@@ -16,7 +16,8 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][Wallpaper][org.kde.image][General]
-Image=/usr/share/wallpapers/convergence.jxl
+Image=file:///usr/share/wallpapers/SafeLanding/
+SlidePaths=/usr/share/wallpapers/
 
 [Containments][2]
 activityId=
@@ -53,6 +54,9 @@ plugin=org.kde.plasma.panelspacer
 [Containments][2][Applets][5]
 immutability=1
 plugin=org.kde.plasma.icontasks
+
+[Containments][2][Applets][5][Configuration][General]
+launchers=
 
 [Containments][2][Applets][6]
 immutability=1
@@ -105,7 +109,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][2][Applets][7][Applets][17][Configuration]
-PreloadWeight=55
+PreloadWeight=60
 
 [Containments][2][Applets][7][Applets][18]
 immutability=1
@@ -131,21 +135,21 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][2][Applets][7][Applets][24][Configuration]
-PreloadWeight=42
+PreloadWeight=34
 
 [Containments][2][Applets][7][Applets][25]
 immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][2][Applets][7][Applets][25][Configuration]
-PreloadWeight=34
+PreloadWeight=26
 
 [Containments][2][Applets][7][Applets][26]
 immutability=1
 plugin=org.kde.plasma.brightness
 
 [Containments][2][Applets][7][Applets][26][Configuration]
-PreloadWeight=34
+PreloadWeight=26
 
 [Containments][2][Applets][7][Applets][8]
 immutability=1

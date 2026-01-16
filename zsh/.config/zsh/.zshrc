@@ -14,8 +14,6 @@ else
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Initialize Starship prompt
-eval "$(starship init zsh)"
 
 # Set up Homebrew completions
 if type brew &>/dev/null
@@ -79,4 +77,8 @@ export PATH="/usr/local/sbin:$PATH"
 
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
+fi
+
+if type starship &> /dev/null; then
+  eval "$(starship init zsh)"
 fi

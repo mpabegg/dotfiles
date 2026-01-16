@@ -8,8 +8,6 @@ karouselEnabled=true
 kwin4_effect_geometry_changeEnabled=true
 
 [Script-karousel]
-gapsInnerHorizontal=4
-gapsInnerVertical=4
 gapsOuterBottom=8
 gapsOuterLeft=8
 gapsOuterRight=8
@@ -17,8 +15,7 @@ gapsOuterTop=8
 gestureScroll=true
 gestureScrollInvert=true
 noLayering=true
-presetWidths=25%, 33.333%, 50%, 66.6667% 75%, 100%
-stackOffsetX=4
+presetWidths=25%, 33.333%, 50%, 66.6667%, 75%, 100%
 stackOffsetY=16
 tiledKeepBelow=false
 untileOnDrag=false
@@ -27,6 +24,9 @@ untileOnDrag=false
 padding=4
 
 [Tiling][98a513d6-a928-483b-8788-4a63d2017db7][39407ee0-9bf0-45f1-b4e2-ff4bb59f6b19]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][98a513d6-a928-483b-8788-4a63d2017db7][bb335fd4-a82f-4417-9ec4-4d1f2674bc91]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
