@@ -3,7 +3,7 @@
 Source: `.config/kglobalshortcutsrc`.
 
 ## Column movement
-- Move column left: `Meta+Ctrl+Shift+A`
+- Move column left: `Meta+Ctrl+H`
 - Move column right: `Meta+Ctrl+Shift+D`
 - Move column to start: `Meta+Ctrl+Shift+Home`
 - Move column to end: `Meta+Ctrl+Shift+End`
@@ -37,7 +37,7 @@ Source: `.config/kglobalshortcutsrc`.
 ## Column layout/width
 - Toggle stacked layout for focused column: `Meta+X`
 - Decrease column width: `Meta+Ctrl+-`
-- Increase column width: `Meta+Ctrl++`
+- Increase column width: `Meta+Ctrl+=`
 - Squeeze right column onto the screen: `Meta+Ctrl+D`
 - Squeeze left column onto the screen: (unassigned)
 - Equalize widths of visible columns: (unassigned)
@@ -69,8 +69,8 @@ Source: `.config/kglobalshortcutsrc`.
 ## Grid scroll
 - Scroll left: `Meta+Alt+PgUp`
 - Scroll right: `Meta+Alt+PgDown`
-- Scroll one column to the left: `Meta+Alt+A`
-- Scroll one column to the right: `Meta+Alt+D`
+- Scroll one column to the left: `Meta+Alt+H`
+- Scroll one column to the right: (unassigned)
 - Scroll to start: `Meta+Alt+Home`
 - Scroll to end: `Meta+Alt+End`
 - Center focused window: `Meta+Alt+Return`
@@ -93,8 +93,8 @@ Source: `.config/kglobalshortcutsrc`.
 - Move this and all following columns to desktop 12: `Meta+Ctrl+Alt+Shift+F12`
 
 ## Window movement
-- Move window up: `Meta+Shift+W`
-- Move window right: `Meta+Shift+D`
+- Move window up: `Meta+Shift+K`
+- Move window right: `Meta+Shift+L`
 - Move window to start: `Meta+Shift+Home`
 - Move window to end: `Meta+Shift+End`
 - Move window to column 1: `Meta+Shift+1`
@@ -106,8 +106,8 @@ Source: `.config/kglobalshortcutsrc`.
 - Move window to column 7: `Meta+Shift+7`
 - Move window to column 8: `Meta+Shift+8`
 - Move window to column 9: `Meta+Shift+9`
-- Move window down: (unassigned)
-- Move window left: (unassigned)
+- Move window down: `Meta+Shift+J`
+- Move window left: `Meta+Shift+H`
 - Move window to the next position in grid: (unassigned)
 - Move window to the previous position in grid: (unassigned)
 - Move window to column 10: (unassigned)
