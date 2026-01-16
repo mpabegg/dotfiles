@@ -5,6 +5,7 @@ Rows=1
 
 [Plugins]
 karouselEnabled=true
+kwin4_effect_geometry_changeEnabled=true
 
 [Tiling]
 padding=4
