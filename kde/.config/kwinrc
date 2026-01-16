@@ -7,6 +7,22 @@ Rows=1
 karouselEnabled=true
 kwin4_effect_geometry_changeEnabled=true
 
+[Script-karousel]
+gapsInnerHorizontal=4
+gapsInnerVertical=4
+gapsOuterBottom=8
+gapsOuterLeft=8
+gapsOuterRight=8
+gapsOuterTop=8
+gestureScroll=true
+gestureScrollInvert=true
+noLayering=true
+presetWidths=25%, 33.333%, 50%, 66.6667% 75%, 100%
+stackOffsetX=4
+stackOffsetY=16
+tiledKeepBelow=false
+untileOnDrag=false
+
 [Tiling]
 padding=4
 

@@ -93,6 +93,9 @@ plugin=org.kde.kscreen
 immutability=1
 plugin=org.kde.plasma.devicenotifier
 
+[Containments][2][Applets][7][Applets][15][Configuration]
+PreloadWeight=55
+
 [Containments][2][Applets][7][Applets][16]
 immutability=1
 plugin=org.kde.plasma.keyboardindicator
