@@ -3,6 +3,9 @@ Id_1=98a513d6-a928-483b-8788-4a63d2017db7
 Number=1
 Rows=1
 
+[Plugins]
+karouselEnabled=true
+
 [Tiling]
 padding=4
 
