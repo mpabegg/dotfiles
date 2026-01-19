@@ -91,6 +91,25 @@ else
   warn "brew-setup.service not found; skipping"
 fi
 
+if require_cmd brew; then
+  BREW_PACKAGES=(
+    "stow"
+  )
+  brew_missing=()
+  for pkg in "${BREW_PACKAGES[@]}"; do
+    if ! brew list --formula "$pkg" >/dev/null 2>&1; then
+      brew_missing+=("$pkg")
+    fi
+  done
+  if ((${#brew_missing[@]} > 0)); then
+    spin "Installing Homebrew packages: ${brew_missing[*]}" brew install "${brew_missing[@]}"
+  else
+    info "Required Homebrew packages already installed"
+  fi
+else
+  warn "brew not found; skipping Homebrew installs"
+fi
+
 ensure_file_from_url "/etc/pki/rpm-gpg/RPM-GPG-KEY-1password" "https://downloads.1password.com/linux/keys/1password.asc"
 
 ONEPASSWORD_REPO='[1password]
