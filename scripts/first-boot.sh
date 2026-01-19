@@ -20,16 +20,7 @@ done
 spin() {
   local title="$1"
   shift
-  if declare -F "$1" >/dev/null 2>&1; then
-    "$@"
-    return 0
-  fi
-  if [[ -t 0 && -t 1 ]]; then
-    if gum spin --title "$title" -- "$@"; then
-      return 0
-    fi
-    warn "Spinner failed; retrying without gum."
-  fi
+  info "$title"
   "$@"
 }
 
