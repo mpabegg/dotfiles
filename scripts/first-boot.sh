@@ -121,7 +121,7 @@ spin "Ensuring /etc/keyd exists" sudo install -d /etc/keyd
 ensure_file_content "/etc/keyd/default.conf" "$KEYD_CONF"
 
 missing_packages=()
-for pkg in 1password 1password-cli keyd; do
+for pkg in 1password 1password-cli keyd cosmic-desktop; do
   if ! rpm -q "$pkg" >/dev/null 2>&1; then
     missing_packages+=("$pkg")
   fi
