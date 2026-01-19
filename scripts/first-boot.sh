@@ -106,6 +106,9 @@ FEDORA_VERSION="$(rpm -E %fedora)"
 KEYD_REPO_URL="https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-${FEDORA_VERSION}/alternateved-keyd-fedora-${FEDORA_VERSION}.repo"
 ensure_file_from_url "/etc/yum.repos.d/_copr:alternateved:keyd.repo" "$KEYD_REPO_URL"
 
+COSMIC_EPOCH_REPO_URL="https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-43/ryanabx-cosmic-epoch-fedora-43.repo"
+ensure_file_from_url "/etc/yum.repos.d/_copr:ryanabx:cosmic-epoch.repo" "$COSMIC_EPOCH_REPO_URL"
+
 KEYD_CONF='[ids]
 
 *
