@@ -1,3 +1,0 @@
-wlr-randr --output eDP-1 --mode 2880x1800@120.000000Hz --scale 1.75
-
-dms run --session

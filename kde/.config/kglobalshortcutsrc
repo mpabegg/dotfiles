@@ -24,10 +24,10 @@ mute=Volume Mute,Volume Mute,Mute
 
 [ksmserver]
 Halt Without Confirmation=none,,Shut Down Without Confirmation
-Lock Session=Screensaver,Meta+L\tScreensaver,Lock Session
-Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Show Logout Screen
+Lock Session=Meta+Esc,Meta+L\tScreensaver,Lock Session
+Log Out=Meta+Shift+Esc,Ctrl+Alt+Del,Show Logout Screen
 Log Out Without Confirmation=none,,Log Out Without Confirmation
-LogOut=none,,Log Out
+LogOut=Meta+Ctrl+Esc,,Log Out
 Reboot=none,,Reboot
 Reboot Without Confirmation=none,,Reboot Without Confirmation
 Shut Down=none,,Shut Down
@@ -47,8 +47,8 @@ Grid View=Meta+G,Meta+G,Toggle Grid View
 Increase Opacity=none,,Increase Opacity of Active Window by 5%
 Kill Window=none,Meta+Ctrl+Esc,Kill Window
 Move Tablet to Next Output=none,none,Move the tablet to the next output
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
-MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
+MoveMouseToCenter=none,Meta+F6,Move Mouse to Center
+MoveMouseToFocus=none,Meta+F5,Move Mouse to Focus
 MoveZoomDown=none,none,Move Zoomed Area Downwards
 MoveZoomLeft=none,none,Move Zoomed Area to Left
 MoveZoomRight=none,none,Move Zoomed Area to Right
@@ -217,8 +217,8 @@ karousel-column-move-to-desktop-7=Meta+Ctrl+Shift+F7,none,Karousel: Move column 
 karousel-column-move-to-desktop-8=Meta+Ctrl+Shift+F8,none,Karousel: Move column to desktop 8
 karousel-column-move-to-desktop-9=Meta+Ctrl+Shift+F9,none,Karousel: Move column to desktop 9
 karousel-column-toggle-stacked=Meta+X,none,Karousel: Toggle stacked layout for focused column
-karousel-column-width-decrease=Meta+Ctrl+-,none,Karousel: Decrease column width
-karousel-column-width-increase=Meta+Ctrl+=,none,Karousel: Increase column width
+karousel-column-width-decrease=Meta+-,none,Karousel: Decrease column width
+karousel-column-width-increase=Meta+=,none,Karousel: Increase column width
 karousel-columns-squeeze-left=none,none,Karousel: Squeeze left column onto the screen
 karousel-columns-squeeze-right=Meta+Ctrl+D,none,Karousel: Squeeze right column onto the screen
 karousel-columns-width-equalize=none,none,Karousel: Equalize widths of visible columns
@@ -285,9 +285,9 @@ karousel-window-move-to-column-8=Meta+Shift+8,none,Karousel: Move window to colu
 karousel-window-move-to-column-9=Meta+Shift+9,none,Karousel: Move window to column 9
 karousel-window-move-up=Meta+Shift+K,none,Karousel: Move window up
 karousel-window-toggle-floating=Meta+Y,none,Karousel: Toggle floating
-view_actual_size=Meta+0,Meta+0,Zoom to Actual Size
-view_zoom_in=Meta++\tMeta+=,Meta++\tMeta+=,Zoom In
-view_zoom_out=Meta+-,Meta+-,Zoom Out
+view_actual_size=none,Meta+0,Zoom to Actual Size
+view_zoom_in=none,Meta++\tMeta+=,Zoom In
+view_zoom_out=none,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
@@ -314,7 +314,7 @@ Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
 Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
-powerProfile=Battery\tMeta+B,Battery\tMeta+B,Switch Power Profile
+powerProfile=Battery,Battery\tMeta+B,Switch Power Profile
 
 [plasmashell]
 Slideshow Wallpaper Next Image=none,,Next Wallpaper Image
@@ -347,6 +347,9 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
+[services][com.brave.Browser.desktop]
+new-window=Meta+B
+
 [services][com.mitchellh.ghostty.desktop]
 _launch=Meta+Return
 
@@ -362,3 +365,6 @@ _launch=none
 
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
+
+[services][org.kde.spectacle.desktop]
+RecordRegion=Meta+Shift+R

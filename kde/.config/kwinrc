@@ -8,20 +8,26 @@ karouselEnabled=true
 kwin4_effect_geometry_changeEnabled=true
 
 [Script-karousel]
-gapsOuterBottom=8
-gapsOuterLeft=8
-gapsOuterRight=8
-gapsOuterTop=8
+gapsInnerHorizontal=4
+gapsInnerVertical=4
+gapsOuterBottom=4
+gapsOuterLeft=4
+gapsOuterRight=4
+gapsOuterTop=4
 gestureScroll=true
 gestureScrollInvert=true
 noLayering=true
-presetWidths=25%, 33.333%, 50%, 66.6667%, 75%, 100%
-stackOffsetY=16
+presetWidths=25%, 50%, 75%, 100%
+stackOffsetX=4
+stackOffsetY=8
 tiledKeepBelow=false
 untileOnDrag=false
 
 [Tiling]
 padding=4
+
+[Tiling][98a513d6-a928-483b-8788-4a63d2017db7][0da2c33e-1af9-4756-86fb-7b6eb2032fd5]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][98a513d6-a928-483b-8788-4a63d2017db7][1b03534a-c451-478c-bbf8-e1f75ee2860f]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}

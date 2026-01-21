@@ -1,0 +1,10 @@
+maximize = true
+
+font-family = ComicCode Nerd Font
+window-padding-x = 0
+window-padding-y = 0
+window-decoration = none
+font-size = 8
+
+initial-command =
+command =
