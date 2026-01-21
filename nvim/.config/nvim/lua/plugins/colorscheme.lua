@@ -6,7 +6,7 @@ return {
   },
   {
     'e-ink-colorscheme/e-ink.nvim',
-    -- enabled = false,
+    enabled = false,
     config = function()
       require('e-ink').setup()
       vim.opt.background = 'dark'

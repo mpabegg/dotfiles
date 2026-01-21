@@ -4,6 +4,10 @@ return {
     integrations = {
       icon = 'nvim_web_devicons',
     },
+    views = {
+      finder = {
+        default_explorer = true,
+      },
+    },
   },
-  cmd = 'Fyler',
 }
