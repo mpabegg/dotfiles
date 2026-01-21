@@ -1,17 +1,17 @@
 return {
   {
+    'norcalli/nvim-colorizer.lua',
+    name = 'colorizer',
+    config = true,
+  },
+  {
     'e-ink-colorscheme/e-ink.nvim',
-    enabled = false,
+    -- enabled = false,
     config = function()
       require('e-ink').setup()
       vim.opt.background = 'dark'
       vim.cmd.colorscheme('e-ink')
     end,
-  },
-  {
-    'norcalli/nvim-colorizer.lua',
-    name = 'colorizer',
-    config = true,
   },
   {
     'sainnhe/everforest',
@@ -29,8 +29,8 @@ return {
     config = function() vim.cmd.colorscheme([[catppuccin-frappe]]) end,
   },
   {
-    -- enabled = false,
     'folke/tokyonight.nvim',
+    -- enabled = false,
     lazy = false,
     config = function() vim.cmd.colorscheme([[tokyonight]]) end,
   },

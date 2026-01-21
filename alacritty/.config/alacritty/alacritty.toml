@@ -1,110 +1,10 @@
-## CATPPUCCIN-FRAPPE
-# [[colors.indexed_colors]]
-# color = "#EF9F76"
-# index = 16
-#
-# [[colors.indexed_colors]]
-# color = "#F2D5CF"
-# index = 17
-#
-# [colors.bright]
-# black = "#626880"
-# blue = "#8CAAEE"
-# cyan = "#81C8BE"
-# green = "#A6D189"
-# magenta = "#F4B8E4"
-# red = "#E78284"
-# white = "#A5ADCE"
-# yellow = "#E5C890"
-#
-# [colors.cursor]
-# cursor = "#F2D5CF"
-# text = "#303446"
-#
-# [colors.dim]
-# black = "#51576D"
-# blue = "#8CAAEE"
-# cyan = "#81C8BE"
-# green = "#A6D189"
-# magenta = "#F4B8E4"
-# red = "#E78284"
-# white = "#B5BFE2"
-# yellow = "#E5C890"
-#
-# [colors.hints.end]
-# background = "#A5ADCE"
-# foreground = "#303446"
-#
-# [colors.hints.start]
-# background = "#E5C890"
-# foreground = "#303446"
-#
-# [colors.normal]
-# black = "#51576D"
-# blue = "#8CAAEE"
-# cyan = "#81C8BE"
-# green = "#A6D189"
-# magenta = "#F4B8E4"
-# red = "#E78284"
-# white = "#B5BFE2"
-# yellow = "#E5C890"
-#
-# [colors.primary]
-# background = "#303446"
-# bright_foreground = "#C6D0F5"
-# dim_foreground = "#C6D0F5"
-# foreground = "#C6D0F5"
-#
-# [colors.search.focused_match]
-# background = "#A6D189"
-# foreground = "#303446"
-#
-# [colors.search.matches]
-# background = "#A5ADCE"
-# foreground = "#303446"
-#
-# [colors.selection]
-# background = "#F2D5CF"
-# text = "#303446"
-#
-# [colors.vi_mode_cursor]
-# cursor = "#BABBF1"
-# text = "#303446"
-
-
-## EVERFOREST
-# Default colors
-[colors.primary]
-background = '#2d353b'
-foreground = '#d3c6aa'
-
-# Normal colors
-[colors.normal]
-black = '#475258'
-red = '#e67e80'
-green = '#a7c080'
-yellow = '#dbbc7f'
-blue = '#7fbbb3'
-magenta = '#d699b6'
-cyan = '#83c092'
-white = '#d3c6aa'
-
-# Bright colors
-[colors.bright]
-black = '#475258'
-red = '#e67e80'
-green = '#a7c080'
-yellow = '#dbbc7f'
-blue = '#7fbbb3'
-magenta = '#d699b6'
-cyan = '#83c092'
-white = '#d3c6aa'
+[general]
+import = ["~/.config/alacritty/tokyo-night.toml"]
 
 [cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 500
 unfocused_hollow = true
-
-[cursor.style]
-blinking = "On"
 
 [env]
 TERM = "xterm-256color"
@@ -132,8 +32,28 @@ style = "Regular"
 save_to_clipboard = false
 
 [window]
-decorations = "buttonless"
 dynamic_padding = false
 dynamic_title = true
 opacity = 1
-startup_mode = "Maximized"
+decorations = "None"
+
+[scrolling]
+history = 3023
+
+
+[mouse]
+hide_when_typing = true
+
+[bell]
+duration = 0
+
+[keyboard]
+bindings = [
+  { key = "C",       mods = "Control|Shift", action = "Copy"  },
+  { key = "V",       mods = "Control|Shift", action = "Paste" },
+  { key = "N",       mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Equals",  mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "Minus",   mods = "Control",       action = "DecreaseFontSize" },
+  { key = "Key0",    mods = "Control",       action = "ResetFontSize"    },
+  { key = "Enter",   mods = "Shift",         chars = "\n" },
+]

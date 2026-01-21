@@ -14,8 +14,6 @@ else
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Initialize Starship prompt
-eval "$(starship init zsh)"
 
 # Set up Homebrew completions
 if type brew &>/dev/null
@@ -67,7 +65,7 @@ bindkey '^Y' autosuggest-accept
 set bell-style off
 
 # Source asdf version manager
-source $(brew --prefix asdf)/libexec/asdf.sh
+# source $(brew --prefix asdf)/libexec/asdf.sh
 
 # Set environment variables
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -76,9 +74,11 @@ export ARCHFLAGS="-arch $(uname -m)"
 # Modify PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
-export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
-export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
+if type mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
+if type starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
