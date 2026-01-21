@@ -16,7 +16,7 @@ return {
   {
     'sainnhe/everforest',
     lazy = false,
-    -- enabled = false,
+    enabled = false,
     config = function()
       vim.g.everforest_background = 'soft'
       vim.cmd.colorscheme([[everforest]])
@@ -29,7 +29,7 @@ return {
     config = function() vim.cmd.colorscheme([[catppuccin-frappe]]) end,
   },
   {
-    enabled = false,
+    -- enabled = false,
     'folke/tokyonight.nvim',
     lazy = false,
     config = function() vim.cmd.colorscheme([[tokyonight]]) end,
