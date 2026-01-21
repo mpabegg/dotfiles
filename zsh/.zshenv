@@ -40,5 +40,3 @@ else
   export LANG=en_US.UTF-8
   export LC_CTYPE=en_US.UTF-8
 fi
-
-. "/Users/mpa/.local/share/cargo/env"

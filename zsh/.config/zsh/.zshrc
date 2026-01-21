@@ -74,6 +74,7 @@ export ARCHFLAGS="-arch $(uname -m)"
 # Modify PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$CARGO_HOME/bin:$PATH"
 
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
